@@ -1,4 +1,4 @@
-export class FrameCounter {
+export class FramesCounter {
     currentSecond = 0;
     frameCount = 0;
     framesLastSecond = 0;

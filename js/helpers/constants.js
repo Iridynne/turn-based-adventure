@@ -6,8 +6,8 @@ export const TILE_WIDTH = 40;
 export const TILE_HEIGHT = 40;
 
 // Map
-export const MAP_WIDTH = 240;
-export const MAP_HEIGHT = 240;
+export const MAP_WIDTH = 400;
+export const MAP_HEIGHT = 400;
 
 // Player
 export const PLAYER_HEALTH = 100;

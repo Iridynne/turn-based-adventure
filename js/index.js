@@ -1,5 +1,5 @@
 import * as constants from "./helpers/constants.js"
-import { FrameCounter } from "./interface/frame-counter.js";
+import { FramesCounter } from "./interface/frames-counter.js";
 
 const cnv = document.getElementById("game");
 const ctx = cnv.getContext("2d");
@@ -8,10 +8,10 @@ cnv.width = innerWidth;
 cnv.height = innerHeight;
 
 // Utility
-var frameC = new FrameCounter(ctx, 10, 20, "#f00");
+var frameC = new FramesCounter(ctx, 10, 20, "#f00");
 
 // Map
-var tileH = constants.TILE_HEIGHT, tileW = constants.TILE_WIDTH;
+var tileW = constants.TILE_WIDTH, tileH = constants.TILE_HEIGHT;
 var mapW = constants.MAP_WIDTH, mapH = constants.MAP_HEIGHT;
 var gameMap = [];
 
@@ -45,10 +45,5 @@ function drawGame() {
 }
 
 function generateMap() {
-    var tileCount = mapW * mapH;
-
-    for(var i = 0; i < tileCount; i++)
-    {
-        gameMap.push(Math.round(Math.random()));
-    }
+    
 }
