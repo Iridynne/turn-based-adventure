@@ -10,7 +10,7 @@ export class FrameCounter {
         this.displayColor = displayColor;
     }
 
-    display() {
+    #calculateFPS() {
         var sec = Math.floor(Date.now()/1000);
 
         if(sec != this.currentSecond) {
@@ -21,6 +21,10 @@ export class FrameCounter {
         else {
             this.frameCount++;
         }
+    }
+
+    display() {
+        this.#calculateFPS();
 
         this.context.fillStyle = this.displayColor;
         this.context.fillText("FPS: " + this.framesLastSecond, this.displayX, this.displayY);
