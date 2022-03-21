@@ -3,11 +3,23 @@ export class FramesCounter {
     frameCount = 0;
     framesLastSecond = 0;
 
-    constructor(context, displayX, displayY, displayColor) {
+    constructor(context, displayX, displayY, displayColor, backgroundColor) {
         this.context = context;
         this.displayX = displayX;
         this.displayY = displayY;
         this.displayColor = displayColor;
+        this.backgroundColor = backgroundColor;
+    }
+
+    getFPS() {
+        return this.#calculateFPS();
+    }
+
+    draw() {
+        this.#calculateFPS();
+
+        this.context.fillStyle = this.displayColor;
+        this.context.fillText("FPS: " + this.framesLastSecond, this.displayX, this.displayY);
     }
 
     #calculateFPS() {
@@ -21,12 +33,5 @@ export class FramesCounter {
         else {
             this.frameCount++;
         }
-    }
-
-    display() {
-        this.#calculateFPS();
-
-        this.context.fillStyle = this.displayColor;
-        this.context.fillText("FPS: " + this.framesLastSecond, this.displayX, this.displayY);
     }
 }
