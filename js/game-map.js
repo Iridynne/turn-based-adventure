@@ -20,11 +20,9 @@ export class Map {
                     y: y
                 };
                 Tile.draw(ctx, pos, value);
-                if(this.entities[y][x] == 1) {
-                    var img = new Image();
-                    img.src = "../img/enemies/skeleton.png";
-                    ctx.drawImage(img, x*64, y*64);
-                }
+                var img = new Image();
+                img.src = constants.LEVELS[0].entities[this.entities[y][x]];
+                ctx.drawImage(img, x*64, y*64);
             }
         }
     }
@@ -36,14 +34,14 @@ export class Map {
 
     #generateEnemies() {
         var enemyCount = utils.getRandomInRange(constants.MIN_ENEMY_COUNT, constants.MAX_ENEMY_COUNT);
-        this.entities = utils.createArray(0, this.height, this.width);
+        this.entities = utils.createArray(-1, this.height, this.width);
 
         while(enemyCount) {
             var currentRow = Math.floor(Math.random() * this.height),
             currentColumn = Math.floor(Math.random() * this.width);
 
-            if(this.tiles[currentRow][currentColumn] === 0 && this.entities[currentRow][currentColumn] === 0) {
-                this.entities[currentRow][currentColumn] = 1;
+            if(this.tiles[currentRow][currentColumn] === 0 && this.entities[currentRow][currentColumn] < 0) {
+                this.entities[currentRow][currentColumn] = Math.floor(Math.random() * constants.LEVELS[0].entities.length);
                 enemyCount--;
             }
         }

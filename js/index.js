@@ -8,8 +8,6 @@ const ctx = cnv.getContext("2d");
 cnv.width = innerWidth;
 cnv.height = innerHeight;
 
-
-
 // Map
 var gameMap = new Map();
 
