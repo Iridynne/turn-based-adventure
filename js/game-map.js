@@ -1,48 +1,68 @@
 import * as constants from "./config/constants.js"
-import { Array } from "./utils/array.js";
+import * as utils from "./utils.js";
+import { Tile } from "./tiles.js";
 
 export class Map {
     constructor() {
-        this.data = [];
+        this.tiles = [];
+        this.entities = [];
         this.height = constants.MAP_HEIGHT;
         this.width = constants.MAP_WIDTH;
     }
 
     draw(ctx) {
-        var margin = constants.TILE_MARGIN;
-        var tileW = constants.TILE_WIDTH, tileH = constants.TILE_HEIGHT;
-
         for(var y = 0; y < this.height; y++) {
             for(var x = 0; x < this.width; x++) {
-                switch(this.data[y][x]) {
-                    case 0:
-                        ctx.fillStyle = constants.COLOR_2;
-                        break;
-                    case 2:
-                        ctx.fillStyle = constants.COLOR_4;
-                        break;
-                    default:
-                        ctx.fillStyle = constants.COLOR_1;
+                var value = this.tiles[y][x];
+
+                var pos = {
+                    x: x,
+                    y: y
+                };
+                Tile.draw(ctx, pos, value);
+                if(this.entities[y][x] == 1) {
+                    var img = new Image();
+                    img.src = "../img/enemies/skeleton.png";
+                    ctx.drawImage(img, x*64, y*64);
                 }
-                var path = new Path2D();
-                path.rect(x*tileW + (x+1) * margin, y*tileH + (y+1) * margin, tileW, tileH);
-                ctx.fill(path)
             }
         }
-
     }
 
     generate() {
-        var maxLength = constants.TUNNEL_LENGTH, maxTunnels = constants.TUNNEL_COUNT;
-        this.data = Array.create(1, this.height, this.width);
+        this.#generateMap();
+        this.#generateEnemies();
+    }
+
+    #generateEnemies() {
+        var enemyCount = utils.getRandomInRange(constants.MIN_ENEMY_COUNT, constants.MAX_ENEMY_COUNT);
+        this.entities = utils.createArray(0, this.height, this.width);
+
+        while(enemyCount) {
+            var currentRow = Math.floor(Math.random() * this.height),
+            currentColumn = Math.floor(Math.random() * this.width);
+
+            if(this.tiles[currentRow][currentColumn] === 0 && this.entities[currentRow][currentColumn] === 0) {
+                this.entities[currentRow][currentColumn] = 1;
+                enemyCount--;
+            }
+        }
+    }
+
+    #generateMap() {
+        var minLength = constants.MIN_TUNNEL_LENGTH, maxLength = constants.MAX_TUNNEL_LENGTH;
+        var minTunnels = constants.MIN_TUNNEL_COUNT, maxTunnels = constants.MAX_TUNNEL_COUNT;
+        this.tiles = utils.createArray(1, this.height, this.width);
     
         var currentRow = Math.floor(Math.random() * this.height),
             currentColumn = Math.floor(Math.random() * this.width);
     
         var directions = [[-1, 0], [1, 0], [0, -1], [0, 1]];
         var lastDirection = [], randomDirection;
+
+        var tunnelCount = utils.getRandomInRange(minTunnels, maxTunnels);
     
-        while(maxTunnels && maxLength) {
+        while(tunnelCount) {
             // Pick a random valid direction
             do {
                 randomDirection = directions[Math.floor(Math.random() * directions.length)];
@@ -52,7 +72,7 @@ export class Map {
                 randomDirection[1] === lastDirection[1]));
     
             // Create tunnel with random length
-            var randomLength = Math.ceil(Math.random() * maxLength), tunnelLength = 0;
+            var randomLength = utils.getRandomInRange(minLength, maxLength), tunnelLength = 0;
     
             while (tunnelLength < randomLength) { 
                 if(((currentRow === 0) && (randomDirection[0] === -1))||  
@@ -61,7 +81,7 @@ export class Map {
                 ((currentColumn === this.width - 1) && (randomDirection[1] === 1)))   
                 { break; }
                 else{ 
-                    this.data[currentRow][currentColumn] = 0; 
+                    this.tiles[currentRow][currentColumn] = 0; 
                     currentRow += randomDirection[0];
                     currentColumn += randomDirection[1]; 
                     tunnelLength++; 
@@ -70,7 +90,7 @@ export class Map {
     
             if (tunnelLength) { 
                 lastDirection = randomDirection; 
-                maxTunnels--; 
+                tunnelCount--; 
             }
         }
     }

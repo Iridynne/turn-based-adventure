@@ -1,3 +1,10 @@
+root {
+    --color1: "#081820";
+    --color2: "#346856";
+    --color3: "#88c070";
+    --color4: "#e0f8d0";
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
