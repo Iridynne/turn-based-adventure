@@ -12,11 +12,11 @@ export const TILE_MARGIN = 1;
 
 // Map
 export const MAP_WIDTH = 25;
-export const MAP_HEIGHT = 10;
+export const MAP_HEIGHT = 15;
 
 // Tunnels
-export const TUNNEL_LENGTH = 5;
-export const TUNNEL_COUNT = 10;
+export const TUNNEL_LENGTH = 2;
+export const TUNNEL_COUNT = 100;
 
 // Player
 export const PLAYER_HEALTH = 100;
