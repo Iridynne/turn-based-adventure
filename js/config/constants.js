@@ -18,7 +18,7 @@ export const MIN_TUNNEL_LENGTH = 1;
 export const MAX_TUNNEL_LENGTH = 10;
 
 export const MIN_TUNNEL_COUNT = 10;
-export const MAX_TUNNEL_COUNT = 30;
+export const MAX_TUNNEL_COUNT = 50;
 
 // Player
 export const PLAYER_HEALTH = 100;
@@ -26,4 +26,4 @@ export const PLAYER_DAMAGE = 2;
 
 // Enemies
 export const MIN_ENEMY_COUNT = 3;
-export const MAX_ENEMY_COUNT = 5;
+export const MAX_ENEMY_COUNT = 10;

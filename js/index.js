@@ -31,6 +31,6 @@ function drawGame() {
 
     gameMap.draw(ctx);
 
-    framesCounter.draw();
+    // framesCounter.draw();
     requestAnimationFrame(drawGame);
 }
