@@ -10,23 +10,26 @@ export const TILE_WIDTH = 64;
 export const TILE_HEIGHT = 64;
 
 // MAP
-export const MAP_WIDTH = Math.floor(innerWidth / TILE_WIDTH);
-export const MAP_HEIGHT = Math.floor(innerHeight / TILE_HEIGHT);
+export const MAP_WIDTH = 5;
+export const MAP_HEIGHT = 3;
+
+// ROOMS
+export const ROOM_SIZE = 5;
 
 // TUNNELS
-export const MIN_TUNNEL_LENGTH = 1;
-export const MAX_TUNNEL_LENGTH = 10;
+export const MIN_TUNNEL_LENGTH = 2;
+export const MAX_TUNNEL_LENGTH = 3;
 
-export const MIN_TUNNEL_COUNT = 10;
-export const MAX_TUNNEL_COUNT = 50;
+export const MIN_TUNNEL_COUNT = 4;
+export const MAX_TUNNEL_COUNT = 6;
 
 // PLAYER
 export const PLAYER_HEALTH = 3;
 export const PLAYER_ATTACK_DAMAGE = 1;
 
 // ENTITIES
-export const MIN_ENEMY_COUNT = 3;
-export const MAX_ENEMY_COUNT = 10;
+export const MIN_ENEMY_COUNT = 1;
+export const MAX_ENEMY_COUNT = 1;
 
 // LEVELS
 const tilePath = "../../img/tiles/";
