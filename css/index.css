@@ -25,7 +25,7 @@ div#container {
     position: relative;
 }
 
-div#black_screen {
+div #overlay_transition {
     position: absolute;
     background-color: black;
     top: 0;
@@ -34,5 +34,23 @@ div#black_screen {
     right: 0;
     pointer-events: none;
     opacity: 0;
+}
+
+div #overlay_transition > div#overlay_title, div #overlay_transition > div#overlay_subtitle  {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-family: Gameboy;
+}
+
+div #overlay_transition > div#overlay_title  {
+    font-size: 48px;
+}
+
+div #overlay_transition > div#overlay_subtitle  {
+    top: 60%;
+    font-size: 32px;
 }
 

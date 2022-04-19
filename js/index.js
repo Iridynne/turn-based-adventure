@@ -26,8 +26,8 @@ window.onload = function () {
 }
 
 function animate() {
-    if(ctx == null) return;
-
+    requestAnimationFrame(animate);
+    
     var background = new Image();
     background.src = general.BACKGROUND_PATH + "forest.png"
     ctx.drawImage(background, 0, 0, cnv.width, cnv.height);
@@ -35,5 +35,14 @@ function animate() {
     var slime = new Image();
     slime.src = ENEMIES.SLIME.imageSrc;
     ctx.drawImage(slime, 2*cnv.width/3, cnv.height-128, slime.width * 4, slime.height * 4);
-    requestAnimationFrame(animate);
+}
+
+function transition() {
+    gsap.to("#overlay_transition",{
+        opacity: 1,
+        yoyo: true,
+        duration: 0.4,
+        onComplete() {
+        }
+    });
 }
