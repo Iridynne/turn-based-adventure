@@ -1,5 +1,5 @@
-import * as general from "./general.js"
 import { ATTACKS } from "./attacks.js"
+import { enemyPath } from "../utils/image_paths.js"
 
 export const ENEMIES = {
     SKELETON: {
@@ -7,7 +7,7 @@ export const ENEMIES = {
             x: 0,
             y: 0,
         },
-        imageSrc: general.ENTITY_PATH + "skeleton.png",
+        imageSrc: enemyPath("skeleton"),
         animate: true,
         name: "Skeleton",
         attacks: [
@@ -19,7 +19,7 @@ export const ENEMIES = {
             x: 0,
             y: 0,
         },
-        imageSrc: general.ENTITY_PATH + "slime.png",
+        imageSrc: enemyPath("slime"),
         animate: true,
         name: "Slime",
         attacks: [
