@@ -18,17 +18,6 @@ export class Sprite {
     }
 
     draw(ctx) {
-        // ctx.save();
-        // ctx.translate(
-        //     this.position.x + this.width / 2,
-        //     this.position.y + this.height / 2
-        // );
-        // ctx.rotate(this.rotation);
-        // ctx.translate(
-        //     -this.position.x - this.width / 2,
-        //     -this.position.y - this.height / 2
-        // );
-        // ctx.globalAlpha = this.opacity;
         ctx.drawImage(
             this.image,
             this.frames.val * this.width,
@@ -40,7 +29,6 @@ export class Sprite {
             this.image.width / this.frames.max,
             this.image.height
         );
-        // ctx.restore();
 
         if (!this.animate) return;
 
@@ -50,7 +38,5 @@ export class Sprite {
             if (this.frames.val < this.frames.max - 1) this.frames.val++;
             else this.frames.val = 0;
         }
-
-        
     }
 }

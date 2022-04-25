@@ -17,13 +17,41 @@ export const ENEMY_POSITIONS = {
 }
 
 export const ENEMIES = {
+    EVIL_MAGE: {
+        image: {
+            src: enemyPath("evil_mage")
+        },
+        frames: {
+            max: 4,
+            hold: 20
+        },
+        animate: true,
+        name: "Evil Mage",
+        attacks: [
+            ATTACKS.BASH
+        ]
+    },
+    GOBLIN: {
+        image: {
+            src: enemyPath("goblin")
+        },
+        frames: {
+            max: 4,
+            hold: 20
+        },
+        animate: true,
+        name: "Goblin",
+        attacks: [
+            ATTACKS.BASH
+        ]
+    },
     SKELETON: {
         image: {
             src: enemyPath("skeleton")
         },
         frames: {
-            max: 1,
-            hold: 30
+            max: 4,
+            hold: 20
         },
         animate: true,
         name: "Skeleton",
@@ -37,7 +65,7 @@ export const ENEMIES = {
         },
         frames: {
             max: 4,
-            hold: 30
+            hold: 20
         },
         animate: true,
         name: "Slime",

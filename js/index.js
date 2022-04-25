@@ -27,10 +27,17 @@ const slime = new Sprite({
 });
 
 const skeleton = new Sprite({
-    position: ALLY_POSITIONS.FIRST,
+    position: ENEMY_POSITIONS.SECOND,
     image: ENEMIES.SKELETON.image,
     frames: ENEMIES.SKELETON.frames,
     animate: ENEMIES.SKELETON.animate
+});
+
+const evilMage = new Sprite({
+    position: ENEMY_POSITIONS.THIRD,
+    image: ENEMIES.EVIL_MAGE.image,
+    frames: ENEMIES.EVIL_MAGE.frames,
+    animate: ENEMIES.EVIL_MAGE.animate
 });
 
 window.onload = function () {
@@ -58,6 +65,8 @@ function animate() {
     background.draw(ctx);
     slime.draw(ctx);
     skeleton.draw(ctx);
+    evilMage.draw(ctx);
+    goblin.draw(ctx);
 }
 
 function transition() {
@@ -73,7 +82,7 @@ function transition() {
 // let clicked = false;
 // addEventListener("click", () => {
 //     if(!clicked) {
-//         MUSIC.BATTLE.play();
+//         MUSIC.FOREST_BATTLE.play();
 //         clicked = true;
 //     }
 // });
