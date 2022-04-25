@@ -1,8 +1,9 @@
 import { Sprite } from "./classes/sprite.js";
 import { ALLY_POSITIONS } from "./constants/allies.js";
+import { MUSIC } from "./constants/audio.js";
 import { ENEMIES, ENEMY_POSITIONS } from "./constants/enemies.js";
 import * as general from "./constants/general.js"
-import { backgroundPath, enemyPath } from "./utils/paths.js";
+import { backgroundPath} from "./utils/paths.js";
 
 const cnv = document.querySelector("canvas");
 const ctx = cnv.getContext("2d");
@@ -68,3 +69,11 @@ function transition() {
         }
     });
 }
+
+// let clicked = false;
+// addEventListener("click", () => {
+//     if(!clicked) {
+//         MUSIC.BATTLE.play();
+//         clicked = true;
+//     }
+// });
