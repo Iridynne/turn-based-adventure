@@ -1,12 +1,12 @@
 // Image Paths
 export function allyPath(name) {
     name = name.toLowerCase();
-    return `../../img/entities/allies/${name}.png`;
+    return `../../img/characters/allies/${name}.png`;
 }
 
 export function enemyPath(name) {
     name = name.toLowerCase();
-    return `../../img/entities/enemies/${name}.png`;
+    return `../../img/characters/enemies/${name}.png`;
 }
 
 export function backgroundPath(name) {
