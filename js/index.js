@@ -1,8 +1,41 @@
+import { Sprite } from "./classes/sprite.js";
+import { ALLY_POSITIONS } from "./constants/allies.js";
+import { ENEMIES, ENEMY_POSITIONS } from "./constants/enemies.js";
 import * as general from "./constants/general.js"
-import { backgroundPath, enemyPath } from "./utils/image_paths.js";
+import { backgroundPath, enemyPath } from "./utils/paths.js";
 
 const cnv = document.querySelector("canvas");
 const ctx = cnv.getContext("2d");
+
+// Initialization
+const background = new Sprite({
+    position: {
+        x: 0,
+        y: 0
+    },
+    image: {
+        src: backgroundPath("forest")
+    }
+});
+
+const slime = new Sprite({
+    position: ENEMY_POSITIONS.FIRST,
+    image: ENEMIES.SLIME.image,
+    frames: ENEMIES.SLIME.frames,
+    animate: ENEMIES.SLIME.animate
+});
+
+const skeleton = new Sprite({
+    position: ALLY_POSITIONS.FIRST,
+    image: ENEMIES.SKELETON.image,
+    frames: ENEMIES.SKELETON.frames,
+    animate: ENEMIES.SKELETON.animate
+});
+
+window.onload = function () {
+    canvasSetup();
+    animate();
+}
 
 function canvasSetup() {
     // Set Canvas Size
@@ -18,19 +51,12 @@ function canvasSetup() {
     ctx.fillRect(0, 0, cnv.width, cnv.height);
 }
 
-// Initialization
-window.onload = function () {
-    canvasSetup();
-
-    requestAnimationFrame(animate);
-}
-
 function animate() {
     requestAnimationFrame(animate);
     
-    var background = new Image();
-    background.src = backgroundPath("forest");
-    ctx.drawImage(background, 0, 0, cnv.width, cnv.height);
+    background.draw(ctx);
+    slime.draw(ctx);
+    skeleton.draw(ctx);
 }
 
 function transition() {
