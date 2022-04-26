@@ -1,6 +1,12 @@
 export const TYPE = {
-    PHYSICAL: "Physical",
-    MAGICAL: "Magical"
+    PHYSICAL: {
+        name: "Physical",
+        color: "#92a1b9"
+    },
+    MAGICAL: {
+        name: "Magical",
+        color: "#00cdf9"
+    }
 }
 
 export const ATTACKS = {

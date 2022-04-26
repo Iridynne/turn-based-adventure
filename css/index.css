@@ -1,14 +1,16 @@
-root {
-    --color1: "#081820";
-    --color2: "#346856";
-    --color3: "#88c070";
-    --color4: "#e0f8d0";
+/* Resources */
+:root {
+    --color1: #1a1932;
+    --color2: #657392;
+    --color3: #ffffff;
 }
 
 @font-face {
     font-family: Gameboy;
     src: url("/fonts/Early\ GameBoy.ttf");
 }
+
+/* General */
 
 * {
     box-sizing: border-box;
@@ -17,17 +19,23 @@ root {
 }
 
 body {
-    background-color: black;
+    background-color: var(--color1);
 }
 
-div#container {
+/* Overlay / UI */
+
+div#main-container {
     display: inline-block;
     position: relative;
+    left: 50%;
+    transform: translate(-50%);
 }
 
-div #overlay_transition {
+/* Transition Overlay */
+
+div#overlay-transition {
     position: absolute;
-    background-color: black;
+    background-color: var(--color1);
     top: 0;
     bottom: 0;
     left: 0;
@@ -36,21 +44,29 @@ div #overlay_transition {
     opacity: 0;
 }
 
-div #overlay_transition > div#overlay_title, div #overlay_transition > div#overlay_subtitle  {
+div#overlay-transition > div#overlay-title, div#overlay-transition > div#overlay-subtitle  {
     position: absolute;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
+    color: var(--color3);
     font-family: Gameboy;
 }
 
-div #overlay_transition > div#overlay_title  {
+div#overlay-transition > div#overlay-title  {
     font-size: 48px;
 }
 
-div #overlay_transition > div#overlay_subtitle  {
+div#overlay-transition > div#overlay-subtitle  {
     top: 60%;
     font-size: 32px;
 }
 
+/* User Inteface */
+div#user-interface {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}

@@ -1,5 +1,4 @@
 import { Sprite } from "./classes/sprite.js";
-import { ALLY_POSITIONS } from "./constants/allies.js";
 import { MUSIC } from "./constants/audio.js";
 import { ENEMIES, ENEMY_POSITIONS } from "./constants/enemies.js";
 import * as general from "./constants/general.js"
@@ -43,6 +42,8 @@ const evilMage = new Sprite({
 window.onload = function () {
     canvasSetup();
     animate();
+
+    transition();
 }
 
 function canvasSetup() {
@@ -70,7 +71,7 @@ function animate() {
 }
 
 function transition() {
-    gsap.to("#overlay_transition",{
+    gsap.to("#overlay-transition",{
         opacity: 1,
         yoyo: true,
         duration: 0.4,

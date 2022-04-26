@@ -1,5 +1,5 @@
 export class Sprite {
-    constructor({position = {x:0, y:0}, image, frames = {max: 1, hold: 10}, animate = false, rotation = 0}) {
+    constructor({position = {x:0, y:0}, image, frames = {max: 1, hold: 10}, animate = false}) {
         this.position = position;
         this.image = new Image();
         this.frames = {...frames, val: 0, elapsed: 0};
@@ -8,13 +8,7 @@ export class Sprite {
             this.height = this.image.height;
         }
         this.image.src = image.src;
-
         this.animate = animate;
-        this.opacity = 1;
-
-        this.rotation = rotation;
-
-        
     }
 
     draw(ctx) {
