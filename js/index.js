@@ -26,24 +26,11 @@ const enemy3 = new Character({...ENEMIES.SLIME, position: ENEMY_POSITIONS.THIRD}
 
 const enemies = [enemy, enemy2, enemy3];
 
-document.querySelector('#dialogue-box').style.display = 'none';
-
 window.onload = function () {
     canvasSetup();
     
     createBattle(STAGES.FOREST, allies);
     initBattle();
-
-    document.querySelector("#attacks-box").style.opacity = 0;
-
-    allies[2].attacks.forEach(element => {
-        const button = document.createElement('button');
-        button.className = "option";
-        button.style.color = element.type.color;
-        button.innerHTML = element.name + "</br>" + "<div style=\"color: white; font-size: 10px; margin-top: 4px\">" + "Damage: " + element.damage + "</div>";
-        
-        document.querySelector('#attacks-box').append(button);
-    });
 }
 
 function canvasSetup() {

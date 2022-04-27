@@ -72,6 +72,13 @@ export function createBattle(stage, allyList) {
     }
 
     isBossFight = false;
+
+    allies.forEach(ally => {
+        attacksChosen.push({
+            target: null,
+            attack: null
+        });
+    });
 }
 
 export function createBossBattle(stage, allies) {
@@ -95,8 +102,6 @@ function animate() {
     enemies.forEach(enemy => {
         enemy.draw(ctx);
     });
-
-
 }
 
 function initUI() {
@@ -112,7 +117,6 @@ function initUI() {
     });
 
     // Init Enemy healthbars
-
     enemies.forEach(enemy => {
         const position = enemies.indexOf(enemy);
 
@@ -127,7 +131,12 @@ function initUI() {
 }
 
 function updateUI() {
-    if(verifyAllChosen() == true) return;
+    if(verifyAllChosen() == true) {
+        ui.targets.style.opacity = 0;
+        ui.attacks.style.opacity = 0;
+
+        return;
+    }
 
     // Targets list
     ui.targets.innerHTML = '';
@@ -144,23 +153,44 @@ function updateUI() {
 
             if(ui.attacks.style.opacity == 0)
                 ui.attacks.style.opacity = 1;
+
+            // Save Target choice
+            attacksChosen[currentAlly].target = Array.from(ui.targets.children).indexOf(button);
         }
         
         ui.targets.append(button);
     });
 
     // Attacks List
+    ui.attacks.style.opacity = 0;
+    ui.attacks.innerHTML = '';
+    allies[currentAlly].attacks.forEach(element => {
+        const button = document.createElement('button');
+        button.className = "option";
+        button.style.color = element.type.color;
+        button.innerHTML = element.name + "</br>" + "<div style=\"color: white; font-size: 10px; margin-top: 4px\">" + "Damage: " + element.damage + "</div>";
 
+        button.onclick = () => {
+            // Save Attack Choice
+            const buttonIndex = Array.from(ui.attacks.children).indexOf(button);
+            attacksChosen[currentAlly].attack = allies[currentAlly].attacks[buttonIndex];
+
+            currentAlly = currentAlly == allies.length-1 ? 0 : currentAlly+1;
+            updateUI();
+        };
+        
+        document.querySelector('#attacks-box').append(button);
+    });
 }
 
 function verifyAllChosen() {
-    if(attacksChosen.length < 3) return false;
+    var ok = true;
 
     attacksChosen.forEach(choice => {
-        if(!choice.attack && !choice.target) {
-            return false;
+        if(choice.attack == null || choice.target == null) {
+            ok = false;
         }
     });
 
-    return true;
+    return ok;
 }
