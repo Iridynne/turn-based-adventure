@@ -14,6 +14,11 @@ export function backgroundPath(name) {
     return `../../img/backgrounds/${name}.png`;
 }
 
+export function miscPath(name) {
+    name = name.toLowerCase();
+    return `../../img/misc/${name}.png`;
+}
+
 // Audio Path
 export function audioPath(name) {
     name = name.toLowerCase();

@@ -1,5 +1,5 @@
-import { ATTACKS } from "./attacks.js"
-import { enemyPath } from "../utils/paths.js"
+import { ATTACKS } from "../attacks/attacks.js"
+import { enemyPath } from "../../utils/paths.js"
 
 export const ENEMY_POSITIONS = {
     FIRST: {
@@ -27,9 +27,14 @@ export const ENEMIES = {
         },
         animate: true,
         name: "Evil Mage",
+        health: 20,
         attacks: [
-            ATTACKS.BASH
-        ]
+            ATTACKS.BASH,
+            ATTACKS.SLASH,
+            ATTACKS.FIRE_BOLT,
+            ATTACKS.FROSTBITE
+        ],
+        isEnemy: true
     },
     GOBLIN: {
         image: {
@@ -41,9 +46,11 @@ export const ENEMIES = {
         },
         animate: true,
         name: "Goblin",
+        health: 15,
         attacks: [
             ATTACKS.BASH
-        ]
+        ],
+        isEnemy: true
     },
     SKELETON: {
         image: {
@@ -55,9 +62,11 @@ export const ENEMIES = {
         },
         animate: true,
         name: "Skeleton",
+        health: 20,
         attacks: [
             ATTACKS.BASH
-        ]
+        ],
+        isEnemy: true
     },
     SLIME: {
         image: {
@@ -69,8 +78,10 @@ export const ENEMIES = {
         },
         animate: true,
         name: "Slime",
+        health: 20,
         attacks: [
             ATTACKS.BASH
-        ]
+        ],
+        isEnemy: true
     }
 }

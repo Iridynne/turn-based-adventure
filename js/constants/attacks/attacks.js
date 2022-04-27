@@ -1,11 +1,11 @@
 export const TYPE = {
     PHYSICAL: {
         name: "Physical",
-        color: "#92a1b9"
+        color: "#c7cfdd"
     },
     MAGICAL: {
         name: "Magical",
-        color: "#00cdf9"
+        color: "#94fdff"
     }
 }
 

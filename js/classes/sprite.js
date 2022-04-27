@@ -9,9 +9,12 @@ export class Sprite {
         }
         this.image.src = image.src;
         this.animate = animate;
+        
+        this.opacity = 1;
     }
 
     draw(ctx) {
+        ctx.globalAlpha = this.opacity
         ctx.drawImage(
             this.image,
             this.frames.val * this.width,

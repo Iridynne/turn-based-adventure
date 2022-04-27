@@ -4,10 +4,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="icon" href="img/game_icon.png">
+    <link rel="icon" href="img/game_icon.png" />
     <title>Turn-based Adventure</title>
 
-    <link rel="stylesheet" href="css/index.css" >
+    <link rel="stylesheet" href="css/index.css" />
   </head>
   <body>
     <div id="main-container">
@@ -20,7 +20,70 @@
       <canvas></canvas>
       <!-- User Interface -->
       <div id="user-interface">
+        <!-- Dialogue box -->
+        <div id="dialogue-container">
+          <div id="dialogue-box">
+            Dialogue Box
+          </div>
+          <div id="enemy-box">
+          </div>
+          <div id="attacks-box"></div>
+        </div>
 
+        <!-- Healthbars -->
+        <!-- Ally 1 -->
+        <div id="ally1-container">
+          <div style="position: relative">
+            <div class="healthbar-background"></div>
+            <div id="ally1-healthbar"></div>
+            <div id="ally1-health">20 / 20</div>
+          </div>
+        </div>
+
+        <!-- Ally 2 -->
+        <div id="ally2-container">
+          <div style="position: relative">
+            <div class="healthbar-background"></div>
+            <div id="ally2-healthbar"></div>
+            <div id="ally2-health">20 / 20</div>
+          </div>
+        </div>
+
+        <!-- Ally 3 -->
+        <div id="ally3-container">
+          <div style="position: relative">
+            <div class="healthbar-background"></div>
+            <div id="ally3-healthbar"></div>
+            <div id="ally3-health">20 / 20</div>
+          </div>
+        </div>
+
+        <!-- Enemy 1 -->
+        <div id="enemy1-container">
+          <div style="position: relative">
+            <div class="healthbar-background"></div>
+            <div id="enemy1-healthbar"></div>
+            <div id="enemy1-health">20 / 20</div>
+          </div>
+        </div>
+
+        <!-- Enemy 2 -->
+        <div id="enemy2-container">
+          <div style="position: relative">
+            <div class="healthbar-background"></div>
+            <div id="enemy2-healthbar"></div>
+            <div id="enemy2-health">20 / 20</div>
+          </div>
+        </div>
+
+        <!-- Enemy 3 -->
+        <div id="enemy3-container">
+          <div style="position: relative">
+            <div class="healthbar-background"></div>
+            <div id="enemy3-healthbar"></div>
+            <div id="enemy3-health">20 / 20</div>
+          </div>
+        </div>
       </div>
     </div>
 

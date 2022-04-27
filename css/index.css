@@ -1,8 +1,14 @@
 /* Resources */
 :root {
-    --color1: #1a1932;
-    --color2: #657392;
+    --color1: #131313;
+    --color2: #3d3d3d;
     --color3: #ffffff;
+    --healthbar-background: var(--color1);
+    --healthbar-empty: var(--color2);
+    --healthbar-fill: #ea323c;
+
+    font-family: Gameboy;
+    font-size: 12px;
 }
 
 @font-face {
@@ -19,7 +25,7 @@
 }
 
 body {
-    background-color: var(--color1);
+    background-color: black;
 }
 
 /* Overlay / UI */
@@ -69,4 +75,120 @@ div#user-interface {
     bottom: 0;
     left: 0;
     right: 0;
+}
+
+/* Healthbars */
+
+div#ally1-container, div#ally2-container, div#ally3-container, div#enemy1-container, div#enemy2-container, div#enemy3-container {
+    background-color: var(--color1);
+    position: absolute;
+    height: 32px;
+    width: 128px;
+    top: 352px;
+    padding: 4px;
+}
+
+div#ally1-container {
+    left: 332px;
+}
+
+div#ally2-container {
+    left: 196px;
+}
+
+div#ally3-container {
+    left: 60px;
+}
+
+div#enemy1-container {
+    left: 568px;
+}
+
+div#enemy2-container {
+    left: 704px;
+}
+
+div#enemy3-container {
+    left: 840px;
+}
+
+div.healthbar-background {
+    background-color: var(--healthbar-empty);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 24px;
+}
+
+div[id$=healthbar] {
+    background-color: var(--healthbar-fill);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 24px;
+    width: 75%;
+}
+
+div[id$=health] {
+    color: var(--color3);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 24px;
+}
+
+/* Dialogue Box */
+div#dialogue-container {
+    background-color: var(--color1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 128px;
+    border-bottom: 8px solid var(--color2);
+    display: flex;
+}
+
+div#dialogue-box {
+    background-color: var(--color2);
+    color: var(--color3);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px;
+    display: none;
+    cursor: pointer;
+}
+
+/* Enemy Box */
+div#enemy-box {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 33.33%;
+    border-right: 4px solid var(--color2);
+    color: var(--color3);
+}
+
+/* Attacks Box */
+div#attacks-box {
+    width: 66.66%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+button.option {
+    font-family: Gameboy;
+    font-size: 12px;
+    background-color: var(--color1);
+    border: 1px solid transparent;
+    color: var(--color3);
+}
+
+button.option:not([disabled]):hover, button.selected {
+    background-color: var(--color2);
 }
