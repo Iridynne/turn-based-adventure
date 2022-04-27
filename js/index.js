@@ -16,8 +16,8 @@ const background = new Sprite(STAGES.FOREST);
 
 const allies = [
     new Character({...ALLIES.WARRIOR, position: ALLY_POSITIONS.FIRST}),
-    new Character({...ALLIES.WARRIOR, position: ALLY_POSITIONS.SECOND}),
-    new Character({...ALLIES.WARRIOR, position: ALLY_POSITIONS.THIRD})
+    new Character({...ALLIES.ARCHER, position: ALLY_POSITIONS.SECOND}),
+    new Character({...ALLIES.MAGE, position: ALLY_POSITIONS.THIRD})
 ];
 
 const enemy = new Character({...ENEMIES.EVIL_MAGE, position: ENEMY_POSITIONS.FIRST});
@@ -36,34 +36,13 @@ window.onload = function () {
 
     document.querySelector("#attacks-box").style.opacity = 0;
 
-    enemy.attacks.forEach(element => {
+    allies[2].attacks.forEach(element => {
         const button = document.createElement('button');
         button.className = "option";
         button.style.color = element.type.color;
         button.innerHTML = element.name + "</br>" + "<div style=\"color: white; font-size: 10px; margin-top: 4px\">" + "Damage: " + element.damage + "</div>";
         
         document.querySelector('#attacks-box').append(button);
-    });
-
-    enemies.forEach(element => {
-        const button = document.createElement('button');
-        button.classList.add("option");
-        button.innerHTML = element.name;
-
-        button.onclick = () => {
-            button.classList.add("selected");
-
-            document.querySelector("#enemy-box").childNodes.forEach(element => {
-                element.disabled = true;
-            });
-
-            document.querySelector("#attacks-box").style.opacity = 1;
-        }
-        
-        document.querySelector('#enemy-box').append(button);
-
-
-        document.querySelector(`#enemy${enemies.indexOf(element)+1}-health`).innerHTML = element.health + " / " + element.health;
     });
 }
 

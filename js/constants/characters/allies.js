@@ -32,16 +32,16 @@ export const ALLIES = {
             ATTACKS.SLASH
         ]
     },
-    RANGER: {
+    ARCHER: {
         image: {
-            src: allyPath("ranger")
+            src: allyPath("archer")
         },
         frames: {
             max: 4,
             hold: 20
         },
         animate: true,
-        name: "Ranger",
+        name: "Archer",
         health: 20,
         attacks: [
             ATTACKS.BASH

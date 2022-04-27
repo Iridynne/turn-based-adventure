@@ -29,8 +29,6 @@ export const ENEMIES = {
         name: "Evil Mage",
         health: 20,
         attacks: [
-            ATTACKS.BASH,
-            ATTACKS.SLASH,
             ATTACKS.FIRE_BOLT,
             ATTACKS.FROSTBITE
         ],
