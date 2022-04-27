@@ -5,6 +5,7 @@ import { ALLIES, ALLY_POSITIONS } from "./constants/characters/allies.js"
 import { ENEMIES, ENEMY_POSITIONS } from "./constants/characters/enemies.js";
 import * as general from "./constants/general.js"
 import { CAMPFIRE, STAGES } from "./constants/stages.js";
+import { createBattle, initBattle } from "./scenes/battle_scene.js";
 
 const cnv = document.querySelector("canvas");
 const ctx = cnv.getContext("2d");
@@ -12,6 +13,12 @@ const ctx = cnv.getContext("2d");
 // Initialization
 
 const background = new Sprite(STAGES.FOREST);
+
+const allies = [
+    new Character({...ALLIES.WARRIOR, position: ALLY_POSITIONS.FIRST}),
+    new Character({...ALLIES.WARRIOR, position: ALLY_POSITIONS.SECOND}),
+    new Character({...ALLIES.WARRIOR, position: ALLY_POSITIONS.THIRD})
+];
 
 const enemy = new Character({...ENEMIES.EVIL_MAGE, position: ENEMY_POSITIONS.FIRST});
 const enemy2 = new Character({...ENEMIES.SKELETON, position: ENEMY_POSITIONS.SECOND});
@@ -23,7 +30,9 @@ document.querySelector('#dialogue-box').style.display = 'none';
 
 window.onload = function () {
     canvasSetup();
-    animate();
+    
+    createBattle(STAGES.FOREST, allies);
+    initBattle();
 
     document.querySelector("#attacks-box").style.opacity = 0;
 

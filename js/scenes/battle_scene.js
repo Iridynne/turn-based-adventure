@@ -1,19 +1,46 @@
-import { Sprite } from "../classes/sprite";
+import { Character } from "../classes/character.js";
+import { Sprite } from "../classes/sprite.js";
+import { ENEMY_POSITIONS } from "../constants/characters/enemies.js";
+import { randomInt } from "../utils/random.js";
 
-export class Battle {
-    constructor({stage, allies = [], enemies = [], isBossFight = false}) {
-        this.background = new Sprite(stage);
-        this.allies = allies;
-        this.enemies = enemies;
+const cnv = document.querySelector("canvas");
+const ctx = cnv.getContext("2d");
 
-        this.isBossFight = isBossFight;
+var background;
+var allies;
+var enemies = [];
+var isBossFight;
+
+export function createBattle(stage, allyList) {
+    background = new Sprite(stage);
+    allies = allyList;
+
+    for(var i=0; i<3; i++) {
+        const enemiesCount = stage.enemies.length;
+        const enemy = stage.enemies[randomInt(0,enemiesCount-1)];
+        const enemyChar = new Character({
+            ...enemy, 
+            position: ENEMY_POSITIONS[Object.keys(ENEMY_POSITIONS)[i]]
+        });
+        enemies.push(enemyChar);
     }
 
-    init() {
-        
-    }
+    isBossFight = false;
+}
 
-    animate() {
-        var frameId = requestAnimationFrame(this.animate());
-    }
+export function createBossBattle(stage, allies) {
+
+}
+
+export function initBattle() {
+    animate();
+}
+
+function animate() {
+    var frameId = requestAnimationFrame(animate);
+
+    background.draw(ctx);
+    enemies.forEach(enemy => {
+        enemy.draw(ctx);
+    })
 }
