@@ -1,3 +1,7 @@
+// Canvas
+const cnv = document.querySelector("canvas");
+const ctx = cnv.getContext("2d");
+
 export class Sprite {
     constructor({position = {x:0, y:0}, image = {src:""}, frames = {max: 1, hold: 10}, animate = false}) {
         this.position = position;
@@ -13,7 +17,8 @@ export class Sprite {
         this.opacity = 1;
     }
 
-    draw(ctx) {
+    draw() {
+        ctx.save();
         ctx.globalAlpha = this.opacity
         ctx.drawImage(
             this.image,
@@ -26,6 +31,7 @@ export class Sprite {
             this.image.width / this.frames.max,
             this.image.height
         );
+        ctx.restore();
 
         if (!this.animate) return;
 

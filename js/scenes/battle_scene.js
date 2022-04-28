@@ -3,10 +3,6 @@ import { Sprite } from "../classes/sprite.js";
 import { ENEMY_POSITIONS } from "../constants/characters/enemies.js";
 import { randomInt, randomizeList } from "../utils/random.js";
 
-// Canvas
-const cnv = document.querySelector("canvas");
-const ctx = cnv.getContext("2d");
-
 // UI
 const ui = {
     dialogue: document.querySelector("#dialogue-box"),
@@ -95,12 +91,12 @@ function animate() {
     var frameId = requestAnimationFrame(animate);
 
     // Draw Sprites
-    background.draw(ctx);
+    background.draw();
     allies.forEach(ally => {
-        ally.draw(ctx);
+        ally.draw();
     });
     enemies.forEach(enemy => {
-        enemy.draw(ctx);
+        enemy.draw();
     });
 
     // Draw Ally healthbars
