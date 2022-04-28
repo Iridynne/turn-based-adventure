@@ -19,6 +19,11 @@ export function miscPath(name) {
     return `../../img/misc/${name}.png`;
 }
 
+export function projectilePath(name) {
+    name = name.toLowerCase();
+    return `../../img/projectiles/${name}.png`;
+}
+
 // Audio Path
 export function audioPath(name) {
     name = name.toLowerCase();

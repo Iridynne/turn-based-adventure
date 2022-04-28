@@ -1,3 +1,5 @@
+import { projectilePath } from "../../utils/paths.js"
+
 export const TYPE = {
     PHYSICAL: {
         name: "Physical",
@@ -23,11 +25,17 @@ export const ATTACKS = {
     FIRE_BOLT: {
         name: "Fire Bolt",
         damage: 6,
-        type: TYPE.MAGICAL
+        type: TYPE.MAGICAL,
+        image: {
+            src: projectilePath("fire_bolt")
+        }
     },
     FROSTBITE: {
         name: "Frostbite",
         damage: 4,
-        type: TYPE.MAGICAL
+        type: TYPE.MAGICAL,
+        image: {
+            src: projectilePath("fire_bolt")
+        }
     }
 }

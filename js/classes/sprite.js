@@ -1,5 +1,5 @@
 export class Sprite {
-    constructor({position = {x:0, y:0}, image, frames = {max: 1, hold: 10}, animate = false}) {
+    constructor({position = {x:0, y:0}, image = {src:""}, frames = {max: 1, hold: 10}, animate = false}) {
         this.position = position;
         this.image = new Image();
         this.frames = {...frames, val: 0, elapsed: 0};
