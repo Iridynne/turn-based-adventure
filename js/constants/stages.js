@@ -1,4 +1,5 @@
 import { backgroundPath, miscPath } from "../utils/paths.js"
+import { MUSIC } from "./audio.js"
 import { ENEMIES } from "./characters/enemies.js"
 
 export const CAMPFIRE = {
@@ -43,6 +44,9 @@ export const STAGES = {
         enemies: [
             ENEMIES.SLIME,
             ENEMIES.GOBLIN
-        ]
+        ],
+        music: {
+            battle: MUSIC.FOREST_BATTLE
+        }
     }
 }

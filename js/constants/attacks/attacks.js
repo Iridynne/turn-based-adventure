@@ -14,12 +14,12 @@ export const TYPE = {
 export const ATTACKS = {
     SLASH: {
         name: "Slash",
-        damage: 3,
+        damage: 5,
         type: TYPE.PHYSICAL
     },
     BASH : {
         name: "Bash",
-        damage: 5,
+        damage: 4,
         type: TYPE.PHYSICAL
     },
     FIRE_BOLT: {

@@ -46,6 +46,7 @@ const ui = {
 
 // Battle Variables
 var background;
+var music;
 var allies;
 var enemies = [];
 var isBossFight;
@@ -55,6 +56,7 @@ var attacksChosen = [];
 
 export function createBattle(stage, allyList) {
     background = new Sprite(stage);
+    music = stage.music.battle;
     allies = allyList;
 
     for(var i=0; i<3; i++) {
@@ -82,6 +84,8 @@ export function createBossBattle(stage, allies) {
 }
 
 export function initBattle() {
+    music.play();
+
     updateUI();
 
     animate();

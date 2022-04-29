@@ -25,7 +25,7 @@ export class Character extends Sprite {
 
     faint() {
         gsap.to(this.position, {
-            x: this.isEnemy? this.position.x + 20 : this.position.x - 20
+            x: this.position.x + 20 * (this.isEnemy? 1 : -1)
         });
         gsap.to(this, {
             opacity: 0
@@ -36,7 +36,7 @@ export class Character extends Sprite {
         switch(attack.type) {
             case TYPE.PHYSICAL:
                 gsap.to(this.position, {
-                    x: this.isEnemy? target.position.x + 32 : target.position.x - 32,
+                    x: target.position.x + 32 * (this.isEnemy? 1 : -1),
                     yoyo: true,
                     repeat: 1,
                     duration: 0.5
@@ -66,16 +66,16 @@ export class Character extends Sprite {
                     image: attack.image,
                     position: {
                         ...this.position, 
-                        x: this.isEnemy? this.position.x - 32 : this.position.x + 32
+                        x: this.position.x + 32 * (this.isEnemy? -1 : 1)
                     }
                 });
 
                 // Projectile Animation
                 gsap.to(projectile.position, {
-                    x: this.isEnemy? target.position.x + 32 : target.position.x - 32,
+                    x: target.position.x + 32 * (this.isEnemy? 1 : -1),
                     duration: 0.5,
                     onUpdate() {
-                        projectile.draw(ctx);
+                        projectile.draw();
                     }
                 });
 
