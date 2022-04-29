@@ -7,13 +7,13 @@
     --healthbar-empty: var(--color2);
     --healthbar-fill: #ea323c;
 
-    font-family: Gameboy;
+    font-family: PressStart2P;
     font-size: 12px;
 }
 
 @font-face {
-    font-family: Gameboy;
-    src: url("/fonts/Early\ GameBoy.ttf");
+    font-family: PressStart2P;
+    src: url("/fonts/PressStart2P.ttf");
 }
 
 /* General */
@@ -57,7 +57,6 @@ div#overlay-transition > div#overlay-title, div#overlay-transition > div#overlay
     left: 50%;
     transform: translate(-50%, -50%);
     color: var(--color3);
-    font-family: Gameboy;
 }
 
 div#overlay-transition > div#overlay-title  {
@@ -119,7 +118,7 @@ div#attacks-box {
 }
 
 button.option {
-    font-family: Gameboy;
+    font-family: PressStart2P;
     font-size: 12px;
     background-color: var(--color1);
     border: 1px solid transparent;
