@@ -29,7 +29,8 @@ export const ALLIES = {
         name: "Warrior",
         health: 20,
         attacks: [
-            ATTACKS.SLASH
+            ATTACKS.SLASH,
+            ATTACKS.BASH
         ]
     },
     ARCHER: {
@@ -44,7 +45,7 @@ export const ALLIES = {
         name: "Archer",
         health: 20,
         attacks: [
-            ATTACKS.BASH
+            ATTACKS.QUICKSHOT
         ]
     },
     MAGE: {

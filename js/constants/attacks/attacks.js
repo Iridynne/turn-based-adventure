@@ -15,17 +15,29 @@ export const ATTACKS = {
     SLASH: {
         name: "Slash",
         damage: 5,
-        type: TYPE.PHYSICAL
+        type: TYPE.PHYSICAL,
+        isRanged: false
     },
     BASH : {
         name: "Bash",
         damage: 4,
-        type: TYPE.PHYSICAL
+        type: TYPE.PHYSICAL,
+        isRanged: false
+    },
+    QUICKSHOT: {
+        name: "Quickshot",
+        damage: 5,
+        type: TYPE.PHYSICAL,
+        isRanged: true,
+        image: {
+            src: projectilePath("arrow")
+        }
     },
     FIRE_BOLT: {
         name: "Fire Bolt",
         damage: 6,
         type: TYPE.MAGICAL,
+        isRanged: true,
         image: {
             src: projectilePath("fire_bolt")
         }
@@ -34,6 +46,7 @@ export const ATTACKS = {
         name: "Frostbite",
         damage: 4,
         type: TYPE.MAGICAL,
+        isRanged: true,
         image: {
             src: projectilePath("fire_bolt")
         }
