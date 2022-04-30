@@ -30,7 +30,7 @@ export const ALLIES = {
         health: 20,
         attacks: [
             ATTACKS.SLASH,
-            ATTACKS.BASH
+            ATTACKS.TACKLE
         ]
     },
     ARCHER: {

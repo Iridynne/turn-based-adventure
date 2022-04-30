@@ -46,7 +46,7 @@ export const ENEMIES = {
         name: "Goblin",
         health: 15,
         attacks: [
-            ATTACKS.BASH
+            ATTACKS.TACKLE
         ],
         isEnemy: true
     },
@@ -62,7 +62,7 @@ export const ENEMIES = {
         name: "Skeleton",
         health: 20,
         attacks: [
-            ATTACKS.BASH
+            ATTACKS.TACKLE
         ],
         isEnemy: true
     },
@@ -78,7 +78,7 @@ export const ENEMIES = {
         name: "Slime",
         health: 20,
         attacks: [
-            ATTACKS.BASH
+            ATTACKS.TACKLE
         ],
         isEnemy: true
     }

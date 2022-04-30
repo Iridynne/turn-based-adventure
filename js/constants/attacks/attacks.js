@@ -18,8 +18,8 @@ export const ATTACKS = {
         type: TYPE.PHYSICAL,
         isRanged: false
     },
-    BASH : {
-        name: "Bash",
+    TACKLE : {
+        name: "Tackle",
         damage: 4,
         type: TYPE.PHYSICAL,
         isRanged: false
