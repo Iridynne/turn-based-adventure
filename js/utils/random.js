@@ -11,12 +11,12 @@ export function randomizeList(list) {
     .map(({ value }) => value);
 }
 
-export function weightedRand(spec, denom = 10) {
+export function weightedRand(spec, decim = 1) {
   var i,
     j,
     table = [];
   for (i in spec) {
-    for (j = 0; j < spec[i] * denom; j++) {
+    for (j = 0; j < spec[i] * Math.pow(10, decim); j++) {
       table.push(i);
     }
   }

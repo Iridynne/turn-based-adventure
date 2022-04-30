@@ -34,7 +34,10 @@ export const STAGES = {
         },
         enemies: [
             ENEMIES.SKELETON
-        ]
+        ],
+        music: {
+            battle: MUSIC.DESERT_BATTLE
+        }
     },
     FOREST: {
         name: "Forest",

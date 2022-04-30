@@ -1,4 +1,5 @@
 import { projectilePath } from "../../utils/paths.js"
+import { SOUND } from "../audio.js"
 
 export const TYPE = {
     PHYSICAL: {
@@ -16,13 +17,19 @@ export const ATTACKS = {
         name: "Slash",
         damage: 5,
         type: TYPE.PHYSICAL,
-        isRanged: false
+        isRanged: false,
+        sound: {
+            hit: SOUND.MELEE_HIT
+        }
     },
     TACKLE : {
         name: "Tackle",
         damage: 4,
         type: TYPE.PHYSICAL,
-        isRanged: false
+        isRanged: false,
+        sound: {
+            hit: SOUND.MELEE_HIT
+        }
     },
     QUICKSHOT: {
         name: "Quickshot",
@@ -31,6 +38,10 @@ export const ATTACKS = {
         isRanged: true,
         image: {
             src: projectilePath("arrow")
+        },
+        sound: {
+            fire: SOUND.BOW_FIRE,
+            hit: SOUND.ARROW_HIT
         }
     },
     FIRE_BOLT: {
@@ -40,6 +51,10 @@ export const ATTACKS = {
         isRanged: true,
         image: {
             src: projectilePath("fire_bolt")
+        },
+        sound: {
+            fire: SOUND.BOW_FIRE,
+            hit: SOUND.ARROW_HIT
         }
     },
     FROSTBITE: {
@@ -49,6 +64,10 @@ export const ATTACKS = {
         isRanged: true,
         image: {
             src: projectilePath("fire_bolt")
+        },
+        sound: {
+            fire: SOUND.BOW_FIRE,
+            hit: SOUND.ARROW_HIT
         }
     }
 }

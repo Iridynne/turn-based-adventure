@@ -29,8 +29,8 @@ export const ALLIES = {
         name: "Warrior",
         health: 20,
         attacks: [
-            ATTACKS.SLASH,
-            ATTACKS.TACKLE
+            ATTACKS.TACKLE,
+            ATTACKS.SLASH
         ]
     },
     ARCHER: {
