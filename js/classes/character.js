@@ -1,5 +1,3 @@
-import { TYPE } from "../constants/attacks/attacks.js";
-import { SOUND } from "../constants/audio.js";
 import { Sprite } from "./sprite.js";
 
 const ctx = document.querySelector("canvas").getContext("2d");

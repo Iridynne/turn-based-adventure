@@ -45,151 +45,132 @@ const ui = {
 }
 
 // Battle Variables
-var background;
-var music;
-var allies;
-var enemies = [];
-var isBossFight;
+var stage;
+var characters = {
+    ally1: null,
+    ally2: null,
+    ally3: null,
+    enemy1: null,
+    enemy2: null,
+    enemy3: null
+};
 
-var currentAlly = 0;
-var attacksChosen = [];
+var allyCount;
+var enemyCount;
+var currentAlly = 1;
 
-export function createBattle(stage, allyList) {
-    background = new Sprite(stage);
-    music = stage.music.battle;
-    allies = allyList;
+// Create battle
+export function createBattle(stg, allies) {
+    stage = {
+        background: new Sprite(stg),
+        music: stg.music.battle
+    };
 
-    for(var i=0; i<3; i++) {
-        const enemiesCount = stage.enemies.length;
-        const enemy = stage.enemies[randomInt(0,enemiesCount-1)];
-        const enemyChar = new Character({
-            ...enemy, 
-            position: ENEMY_POSITIONS[Object.keys(ENEMY_POSITIONS)[i]]
-        });
-        enemies.push(enemyChar);
-    }
+    allyCount = allies.length;
+    allies.forEach((value, i) => {
+        characters[`ally${i + 1}`] = {
+            character: value,
+            choice: {
+                attack: null,
+                target: null
+            }
+        };
+    });
 
-    isBossFight = false;
-
-    allies.forEach(() => {
-        attacksChosen.push({
-            target: null,
-            attack: null
-        });
+    var enemies = generateEnemies(stg, 3);
+    enemyCount = 3;
+    enemies.forEach((value, i) => {
+        characters[`enemy${i + 1}`] = value
     });
 }
 
-export function createBossBattle(stage, allies) {
+// Enemy generation
+function generateEnemies(stage, count) {
+    var enemies = [];
 
+    for(var i = 0; i < count; i++) {
+        const enemiesCount = stage.enemies.length;
+        const enemy = stage.enemies[randomInt(0, enemiesCount-1)];
+
+        enemies.push({
+            character: new Character({
+                ...enemy, 
+                position: ENEMY_POSITIONS[Object.keys(ENEMY_POSITIONS)[i]]
+            }),
+            choice: {
+                attack: null,
+                target: null
+            }
+        });
+    }
+
+    return enemies;
 }
 
+// Start battle
 export function initBattle() {
-    music.play();
+    // stage.music.play();
 
-    updateUI();
+    // Initialize UI
+    initUI();
 
+    displayChoices();
     animate();
 }
 
+// Animate battle
 function animate() {
     var frameId = requestAnimationFrame(animate);
 
     // Draw Sprites
-    background.draw();
-    allies.forEach(ally => {
-        ally.draw();
-    });
-    enemies.forEach(enemy => {
-        enemy.draw();
-    });
+    stage.background.draw();
+    for (const [key, value] of Object.entries(characters)) {
+        if(value == null) continue;
 
-    // Draw Ally healthbars
-    allies.forEach(ally => {
-        const position = allies.indexOf(ally);
+        const char = value.character;
+        char.draw();
 
-        const health = ally.health;
-        const maxHealth = ally.maxHealth;
-        if(health > 0) {
-            ui.ally[position].healthbar.style.width = `${Math.floor(100 * health / maxHealth)}%`;
-            ui.ally[position].health.innerHTML = `${Math.floor(health)} / ${maxHealth}`;
+        if(char.health == 0) {
+            characters[key] = null;
+            const type = key.slice(0, key.length - 1);
+            const uiElement = ui[type][key.charAt(key.length - 1) - 1];
+            gsap.to(`#${key}-container`, {
+                opacity: 0,
+                duration: 0.25
+            });
+            continue;
         }
-        else {
-            ui.ally[position].container.style.opacity = 0;
-        }
-    });
 
-    // Draw Enemy healthbars
-    enemies.forEach(enemy => {
-        const position = enemies.indexOf(enemy);
+        // Update Healthbars
+        const type = key.slice(0, key.length - 1);
+        const uiElement = ui[type][key.charAt(key.length - 1) - 1];
 
-        const health = enemy.health;
-        const maxHealth = enemy.maxHealth;
-
-        if(health > 0) {
-            ui.enemy[position].healthbar.style.width = `${Math.floor(100 * health / maxHealth)}%`;
-            ui.enemy[position].health.innerHTML = `${Math.floor(health)} / ${maxHealth}`;
-        }
-        else {
-            ui.enemy[position].container.style.opacity = 0;
-        }
-    });
+        uiElement.healthbar.style.width = `${Math.floor(char.health * 100 / char.maxHealth)}%`;
+        uiElement.health.innerHTML = `${Math.floor(char.health)} / ${char.maxHealth}`;
+    }
 }
 
 function finishRound() {
+    // Random enemy attacks
+
+    for (const [key, value] of Object.entries(characters).slice(3)) {
+        if(value == null) continue;
+
+        const index = value.character.attacks.length;
+        const attack = value.character.attacks[randomInt(0, index - 1)];
+        const target = characters[`ally${randomInt(1, allyCount)}`].character;
+
+        characters[key].choice = {
+            attack: attack,
+            target: target
+        };
+    }
+
     // Random attack order
-    var order = [];
-
-    allies.forEach(ally => {
-        order.push({
-            name: `ally${allies.indexOf(ally)}`
-        });
-    });
-
-    enemies.forEach(enemy => {
-        order.push({
-            name: `enemy${enemies.indexOf(enemy)}`
-        });
-    })
-
+    var order = Object.keys(characters);
     order = randomizeList(order);
 
-    // Execute each attack if character can attack
-    order.forEach(char => {
-        const length = char.name.length;
-        const index = char.name.charAt(length-1);
-
-        if(char.name.startsWith("ally")) {
-            const choice = attacksChosen[index];
-            char.attacker = allies[index]
-            
-            if(allies[index].health != 0)
-                char.choice = choice;
-            else 
-                char.choice = null;
-        }
-        else {
-            const attackCount = enemies[index].attacks.length;
-            const allyCount = allies.length;
-            if(attackCount > 0 && allyCount > 0) {
-                const attack = enemies[index].attacks[randomInt(0, attackCount-1)];
-                var target = allies[randomInt(0, allyCount-1)];
-                while(target.health == 0) {
-                    target = target = allies[randomInt(0, allyCount-1)];
-                }
-
-                char.attacker = enemies[index];
-
-                if(enemies[index].health != 0)
-                    char.choice = {
-                        attack: attack,
-                        target: target
-                    };
-                else 
-                    char.choice = null;
-            }
-        }
-    });
-
+    // Execute attack order
     proceedOrder(order, 0);
 }
 
@@ -197,97 +178,105 @@ function proceedOrder(order, index) {
     // Order Finished
     if(index > order.length - 1) {
         // Reset attacks chosen
-        attacksChosen = [];
-        allies.forEach(() => {
-            attacksChosen.push({
-                target: null,
-                attack: null
-            });
-        });
-        updateUI();
+        for (const [key, value] of Object.entries(characters)) {
+            if(value == null) continue;
+
+            characters[key].choice = {
+                attack: null,
+                target: null
+            };
+        }
+        currentAlly = 1;
+        displayChoices();
 
         return;
     }
 
-    const attacker = order[index].attacker;
-    const choice = order[index].choice;
+    if(characters[order[index]] == null) proceedOrder(order, index+1);
 
-    if(choice != null && choice.target.health != 0 && attacker.health != 0) {
+    const attacker = characters[order[index]].character;
+    const choice = characters[order[index]].choice;
+
+    if(choice.target.health != 0 && attacker.health != 0) {
         attacker.attack(choice);
         setTimeout(() => {
-            proceedOrder(order, index+1);
+            proceedOrder(order, index + 1);
         }, 1500);
     }
     else {
-        proceedOrder(order, index+1);
+        proceedOrder(order, index + 1);
     }
 }
 
-// Verify All allies chose an attack
-function verifyAllChosen() {
-    var ok = true;
-
-    attacksChosen.forEach(choice => {
-        if(choice.attack == null || choice.target == null) {
-            ok = false;
+function initUI() {
+    // Enable Ally Healthbars
+    ui.ally.forEach((value, i) => {
+        if(characters[`ally${i + 1}`] != null) {
+            value.container.style.opacity = 1;
         }
     });
 
-    return ok;
+    // Enable Enemy Healthbars
+    ui.enemy.forEach((value, i) => {
+        if(characters[`enemy${i + 1}`] != null) {
+            value.container.style.opacity = 1;
+        }
+    });
 }
 
-function updateUI() {
-    if(verifyAllChosen() == true) {
-        ui.targets.style.opacity = 0;
-        ui.attacks.style.opacity = 0;
-
-        finishRound();
-        return;
-    }
-
-    ui.targets.style.opacity = 1;
+function displayChoices() {
+    ui.targets.style.display = "grid";
+    ui.attacks.style.display = "grid";
 
     // Targets list
     ui.targets.innerHTML = '';
-    enemies.forEach(element => {
-        if(element.health > 0) {
-            const button = document.createElement('button');
-            button.classList.add("option");
-            button.innerHTML = element.name;
+    for(const [key, value] of Object.entries(characters).slice(3)) {
+        if(value == null) continue;
 
-            button.onclick = () => {
-                ui.targets.childNodes.forEach(child => {
-                    child.classList.remove("selected");
-                });
-                button.classList.add("selected");
+        const char = value.character;
+        const button = document.createElement('button');
+        button.classList.add("option");
+        button.innerHTML = char.name;
 
-                if(ui.attacks.style.opacity == 0)
-                    ui.attacks.style.opacity = 1;
+        button.onclick = () => {
+            ui.targets.childNodes.forEach(child => {
+                child.classList.remove("selected");
+            });
+            button.classList.add("selected");
 
-                // Save Target choice
-                attacksChosen[currentAlly].target = element;
-            }
-            
-            ui.targets.append(button);
+            if(ui.attacks.style.display == "none")
+                ui.attacks.style.display = "grid";
+
+            // Save Target choice
+            characters[`ally${currentAlly}`].choice.target = characters[key].character;
         }
-    });
+        
+        ui.targets.append(button);
+    }
 
     // Attacks List
-    ui.attacks.style.opacity = 0;
+    ui.attacks.style.display = "none";
     ui.attacks.innerHTML = '';
 
-    allies[currentAlly].attacks.forEach(element => {
+    characters[`ally${currentAlly}`].character.attacks.forEach(attack => {
         const button = document.createElement('button');
         button.className = "option";
-        button.style.color = element.type.color;
-        button.innerHTML = element.name + "</br>" + "<div style=\"color: white; font-size: 10px; margin-top: 4px\">" + "Damage: " + element.damage + "</div>";
+        button.style.color = attack.type.color;
+        button.innerHTML = attack.name + "</br>" + "<div style=\"color: white; font-size: 10px; margin-top: 4px\">" + "Damage: " + attack.damage + "</div>";
 
         button.onclick = () => {
             // Save Attack Choice
-            attacksChosen[currentAlly].attack = element;
+            characters[`ally${currentAlly}`].choice.attack = attack;
 
-            currentAlly = currentAlly == allies.length-1 ? 0 : currentAlly+1;
-            updateUI();
+            if(currentAlly == allyCount) {
+                ui.targets.style.display = "none";
+                ui.attacks.style.display = "none";
+                finishRound();
+                return;
+            }
+
+            currentAlly++;
+            displayChoices();
         };
         
         document.querySelector('#attacks-box').append(button);

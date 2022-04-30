@@ -138,6 +138,8 @@ div#ally1-container, div#ally2-container, div#ally3-container, div#enemy1-contai
     width: 128px;
     top: 352px;
     padding: 4px;
+    opacity: 0;
+    pointer-events: none;
 }
 
 div#ally1-container {
