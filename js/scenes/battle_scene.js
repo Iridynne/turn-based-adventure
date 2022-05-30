@@ -1,6 +1,7 @@
 import { Character } from "../classes/character.js";
 import { Sprite } from "../classes/sprite.js";
 import { ENEMY_POSITIONS } from "../constants/characters/enemies.js";
+import { Game } from "../game.js";
 import { randomInt, randomizeList, weightedRand } from "../utils/random.js";
 
 // UI
@@ -45,6 +46,9 @@ const ui = {
 }
 
 // Battle Variables
+var currentStage;
+var currentEncounter;
+
 var stage;
 var characters = {
     ally1: null,
@@ -69,6 +73,9 @@ export function createBattle(stg, allies) {
         background: new Sprite(stg),
         music: stg.music.battle
     };
+
+    currentStage = Game.currentGame.currentStage;
+    currentEncounter = Game.currentGame.currentEncounter;
 
     allyCount = allies.length;
     allies.forEach((value, i) => {
@@ -101,7 +108,7 @@ function generateEnemies(stage) {
         enemies.push({
             character: new Character({
                 ...enemy, 
-                position: ENEMY_POSITIONS[Object.keys(ENEMY_POSITIONS)[i]]
+                position: Object.entries(ENEMY_POSITIONS)[i][1]
             }),
             choice: {
                 attack: null,
@@ -115,8 +122,11 @@ function generateEnemies(stage) {
 
 // Start battle
 export function initBattle() {
+    document.querySelector("#menu-container").style.opacity = 1;
+
     // Enter animation
     document.querySelector("#overlay-title").innerHTML = stage.name;
+    document.querySelector("#overlay-subtitle").innerHTML = `${currentEncounter} - ${currentStage}`;
     stage.music.play();
     gsap.fromTo("#overlay-transition", {
         opacity: 1
@@ -241,23 +251,27 @@ function verifyWinLoss() {
     var allies = Object.entries(characters).slice(0,3).filter(([key, value]) => value != null );
     if(allies.length == 0) {
         cancelAnimationFrame(frameId);
+        document.querySelector("#menu-container").style.opacity = 0;
         document.querySelector("#overlay-title").innerHTML = "Defeat!";
         document.querySelector("#overlay-subtitle").innerHTML = "";
         gsap.to("#overlay-transition", {
             opacity: 1,
             duration: 0.5
         });
+        stage.music.fade(stage.music.volume(), 0, 1000)
         return true;
     }
     var enemies = Object.entries(characters).slice(3).filter(([key, value]) => value != null );
     if(enemies.length == 0) {
         cancelAnimationFrame(frameId);
+        document.querySelector("#menu-container").style.opacity = 0;
         document.querySelector("#overlay-title").innerHTML = "Victory!";
         document.querySelector("#overlay-subtitle").innerHTML = "";
         gsap.to("#overlay-transition", {
             opacity: 1,
             duration: 0.5
         });
+        stage.music.fade(stage.music.volume(), 0, 1000)
         return true;
     }
 

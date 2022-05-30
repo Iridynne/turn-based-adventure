@@ -9,6 +9,7 @@
 
     font-family: PressStart2P;
     font-size: 12px;
+    user-select: none;
 }
 
 @font-face {
@@ -87,6 +88,7 @@ div#menu-container {
     height: 128px;
     border-bottom: 8px solid var(--color3);
     display: flex;
+    opacity: 0;
 }
 
 div#dialogue-box {

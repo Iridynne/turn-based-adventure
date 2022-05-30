@@ -18,14 +18,18 @@ export const CAMPFIRE = {
 }
 
 export const STAGES = {
-    CAVE: {
-        name: "Cave",
+    FOREST: {
+        name: "Forest",
         image: {
-            src: backgroundPath("cave")
+            src: backgroundPath("forest")
         },
         enemies: [
-            ENEMIES.SKELETON
-        ]
+            ENEMIES.SLIME,
+            ENEMIES.GOBLIN
+        ],
+        music: {
+            battle: MUSIC.FOREST_BATTLE
+        }
     },
     DESERT: {
         name: "Desert",
@@ -39,14 +43,13 @@ export const STAGES = {
             battle: MUSIC.DESERT_BATTLE
         }
     },
-    FOREST: {
-        name: "Forest",
+    CAVE: {
+        name: "Cave",
         image: {
-            src: backgroundPath("forest")
+            src: backgroundPath("cave")
         },
         enemies: [
-            ENEMIES.SLIME,
-            ENEMIES.GOBLIN
+            ENEMIES.SKELETON
         ],
         music: {
             battle: MUSIC.FOREST_BATTLE
