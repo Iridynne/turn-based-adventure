@@ -1,8 +1,10 @@
 import { Character } from "../classes/character.js";
 import { Sprite } from "../classes/sprite.js";
+import { AUDIO_VOLUME } from "../constants/audio.js";
 import { ENEMY_POSITIONS } from "../constants/characters/enemies.js";
 import { Game } from "../game.js";
 import { randomInt, randomizeList, weightedRand } from "../utils/random.js";
+import { wait } from "../utils/timer.js"
 
 // UI
 const ui = {
@@ -124,10 +126,13 @@ function generateEnemies(stage) {
 export function initBattle() {
     document.querySelector("#menu-container").style.opacity = 1;
 
+    // Start Music
+    stage.music.volume(AUDIO_VOLUME);
+    stage.music.play();
+
     // Enter animation
     document.querySelector("#overlay-title").innerHTML = stage.name;
     document.querySelector("#overlay-subtitle").innerHTML = `${currentEncounter} - ${currentStage}`;
-    stage.music.play();
     gsap.fromTo("#overlay-transition", {
         opacity: 1
     }, {
@@ -259,6 +264,11 @@ function verifyWinLoss() {
             duration: 0.5
         });
         stage.music.fade(stage.music.volume(), 0, 1000)
+        // TODO: Remove later
+        wait(3000).then(() => {
+            stage.music.stop();
+            Game.currentGame.advance();
+        });
         return true;
     }
     var enemies = Object.entries(characters).slice(3).filter(([key, value]) => value != null );
@@ -271,7 +281,12 @@ function verifyWinLoss() {
             opacity: 1,
             duration: 0.5
         });
-        stage.music.fade(stage.music.volume(), 0, 1000)
+        stage.music.fade(stage.music.volume(), 0, 1000);
+        // TODO: Remove later
+        wait(3000).then(() => {
+            stage.music.stop();
+            Game.currentGame.advance();
+        });
         return true;
     }
 

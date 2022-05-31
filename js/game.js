@@ -30,4 +30,22 @@ export class Game {
         createBattle(stage, this.allies);
         initBattle();
     }
+
+    advance() {
+        this.currentEncounter++;
+        if(this.currentEncounter > this.encounterCount) {
+            this.currentEncounter = 1;
+            this.currentStage++;
+            if(this.currentStage > this.stageCount) {
+                this.end();
+                return;
+            }
+        }
+
+        this.start();
+    }
+
+    end() {
+
+    }
 }
