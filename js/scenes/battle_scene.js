@@ -127,8 +127,10 @@ export function initBattle() {
     document.querySelector("#menu-container").style.opacity = 1;
 
     // Start Music
-    stage.music.volume(AUDIO_VOLUME);
     stage.music.play();
+    wait(500).then(() => {
+        stage.music.fade(0, AUDIO_VOLUME, 500);
+    });
 
     // Enter animation
     document.querySelector("#overlay-title").innerHTML = stage.name;
@@ -263,10 +265,12 @@ function verifyWinLoss() {
             opacity: 1,
             duration: 0.5
         });
-        stage.music.fade(stage.music.volume(), 0, 1000)
+        stage.music.fade(stage.music.volume(), 0, 500)
         // TODO: Remove later
-        wait(3000).then(() => {
+        wait(500).then(() => {
             stage.music.stop();
+        });
+        wait(2000).then(() => {
             Game.currentGame.advance();
         });
         return true;
@@ -283,10 +287,13 @@ function verifyWinLoss() {
         });
         stage.music.fade(stage.music.volume(), 0, 1000);
         // TODO: Remove later
-        wait(3000).then(() => {
+        wait(1000).then(() => {
             stage.music.stop();
+        });
+        wait(2000).then(() => {
             Game.currentGame.advance();
         });
+
         return true;
     }
 

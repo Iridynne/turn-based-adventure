@@ -65,3 +65,5 @@ export const ALLIES = {
         ]
     }
 };
+
+export const DEFAULT_ALLIES = [ALLIES.WARRIOR, ALLIES.ARCHER, ALLIES.MAGE];

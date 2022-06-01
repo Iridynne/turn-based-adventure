@@ -1,6 +1,6 @@
 import { Character } from "./classes/character.js";
-import { ALLY_POSITIONS } from "./constants/characters/allies.js";
-import * as general from "./constants/general.js";
+import { ALLY_POSITIONS, DEFAULT_ALLIES } from "./constants/characters/allies.js";
+import { ENCOUNTER_COUNT, STAGE_COUNT } from "./constants/stages.js"
 import { STAGES } from "./constants/stages.js";
 import { createBattle, initBattle } from "./scenes/battle_scene.js";
 
@@ -8,10 +8,10 @@ export class Game {
     static currentGame;
 
     constructor(
-        allies = general.DEFAULT_ALLIES
+        allies = DEFAULT_ALLIES
     ) {
-        this.encounterCount = general.ENCOUNTER_COUNT;
-        this.stageCount = general.STAGE_COUNT;
+        this.encounterCount = ENCOUNTER_COUNT;
+        this.stageCount = STAGE_COUNT;
         this.currentEncounter = 1;
         this.currentStage = 1;
 

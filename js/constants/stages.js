@@ -2,6 +2,11 @@ import { backgroundPath, miscPath } from "../utils/paths.js"
 import { MUSIC } from "./audio.js"
 import { ENEMIES } from "./characters/enemies.js"
 
+// Number of encounters per stage (including Boss) - Only for Campaign
+export const ENCOUNTER_COUNT = 5;
+// Number of stages
+export const STAGE_COUNT = 3;
+
 export const CAMPFIRE = {
     position: {
         x: 448,
