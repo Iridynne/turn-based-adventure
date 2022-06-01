@@ -1,3 +1,3 @@
 export async function wait(miliseconds) {
-    await new Promise(resolve => setTimeout(resolve, 5000));
+    await new Promise(resolve => setTimeout(resolve, miliseconds));
 }

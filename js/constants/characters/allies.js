@@ -43,7 +43,7 @@ export const ALLIES = {
         },
         animate: true,
         name: "Archer",
-        health: 20,
+        health: 18,
         attacks: [
             ATTACKS.QUICKSHOT
         ]
@@ -58,7 +58,7 @@ export const ALLIES = {
         },
         animate: true,
         name: "Mage",
-        health: 20,
+        health: 14,
         attacks: [
             ATTACKS.FIRE_BOLT,
             ATTACKS.FROSTBITE

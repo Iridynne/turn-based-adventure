@@ -24,8 +24,9 @@ export const STAGES = {
             src: backgroundPath("forest")
         },
         enemies: [
-            ENEMIES.SLIME,
-            ENEMIES.GOBLIN
+            ENEMIES.GOBLIN_WARRIOR,
+            ENEMIES.GOBLIN_ARCHER,
+            ENEMIES.GOBLIN_MAGE
         ],
         music: {
             battle: MUSIC.FOREST_BATTLE
@@ -49,7 +50,8 @@ export const STAGES = {
             src: backgroundPath("cave")
         },
         enemies: [
-            ENEMIES.SKELETON
+            ENEMIES.SKELETON,
+            ENEMIES.SLIME
         ],
         music: {
             battle: MUSIC.FOREST_BATTLE

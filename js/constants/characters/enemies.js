@@ -34,19 +34,54 @@ export const ENEMIES = {
         ],
         isEnemy: true
     },
-    GOBLIN: {
+    GOBLIN_WARRIOR: {
         image: {
-            src: enemyPath("goblin")
+            src: enemyPath("goblin_warrior")
         },
         frames: {
             max: 4,
             hold: 20
         },
         animate: true,
-        name: "Goblin",
-        health: 15,
+        name: "Goblin Warrior",
+        health: 20,
         attacks: [
-            ATTACKS.TACKLE
+            ATTACKS.TACKLE,
+            ATTACKS.SLASH
+        ],
+        isEnemy: true
+    },
+    GOBLIN_ARCHER: {
+        image: {
+            src: enemyPath("goblin_archer")
+        },
+        frames: {
+            max: 4,
+            hold: 20
+        },
+        animate: true,
+        name: "Goblin Archer",
+        health: 18,
+        attacks: [
+            ATTACKS.TACKLE,
+            ATTACKS.QUICKSHOT
+        ],
+        isEnemy: true
+    },
+    GOBLIN_MAGE: {
+        image: {
+            src: enemyPath("goblin_mage")
+        },
+        frames: {
+            max: 4,
+            hold: 20
+        },
+        animate: true,
+        name: "Goblin Mage",
+        health: 14,
+        attacks: [
+            ATTACKS.FIRE_BOLT,
+            ATTACKS.FROSTBITE
         ],
         isEnemy: true
     },

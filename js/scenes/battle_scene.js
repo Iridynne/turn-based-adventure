@@ -346,9 +346,9 @@ function proceedOrder(order, index) {
 
     if(choice.target.health != 0 && attacker.health != 0) {
         attacker.attack(choice);
-        setTimeout(() => {
+        wait(1500).then(() => {
             proceedOrder(order, index + 1);
-        }, 1500);
+        });
     }
     else {
         proceedOrder(order, index + 1);
