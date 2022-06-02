@@ -133,9 +133,9 @@ export function initBattle() {
     });
 
     // Enter animation
-    document.querySelector("#overlay-title").innerHTML = stage.name;
-    document.querySelector("#overlay-subtitle").innerHTML = `${currentEncounter} - ${currentStage}`;
-    gsap.fromTo("#overlay-transition", {
+    document.querySelector("#transition-title").innerHTML = stage.name;
+    document.querySelector("#transition-subtitle").innerHTML = `${currentEncounter} - ${currentStage}`;
+    gsap.fromTo("#transition-overlay", {
         opacity: 1
     }, {
         opacity: 0,
@@ -259,9 +259,9 @@ function verifyWinLoss() {
     if(allies.length == 0) {
         cancelAnimationFrame(frameId);
         document.querySelector("#menu-container").style.opacity = 0;
-        document.querySelector("#overlay-title").innerHTML = "Defeat!";
-        document.querySelector("#overlay-subtitle").innerHTML = "";
-        gsap.to("#overlay-transition", {
+        document.querySelector("#transition-title").innerHTML = "Defeat!";
+        document.querySelector("#transition-subtitle").innerHTML = "";
+        gsap.to("#transition-overlay", {
             opacity: 1,
             duration: 0.5
         });
@@ -279,9 +279,9 @@ function verifyWinLoss() {
     if(enemies.length == 0) {
         cancelAnimationFrame(frameId);
         document.querySelector("#menu-container").style.opacity = 0;
-        document.querySelector("#overlay-title").innerHTML = "Victory!";
-        document.querySelector("#overlay-subtitle").innerHTML = "";
-        gsap.to("#overlay-transition", {
+        document.querySelector("#transition-title").innerHTML = "Victory!";
+        document.querySelector("#transition-subtitle").innerHTML = "";
+        gsap.to("#transition-overlay", {
             opacity: 1,
             duration: 0.5
         });

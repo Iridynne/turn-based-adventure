@@ -11,7 +11,7 @@ var game = new Game();
 window.onload = function () {
     canvasSetup();
     
-    game.start();
+    // game.start();
 }
 
 function canvasSetup() {
