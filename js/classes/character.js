@@ -1,4 +1,3 @@
-import { SOUND } from "../constants/audio.js";
 import { Sprite } from "./sprite.js";
 
 const ctx = document.querySelector("canvas").getContext("2d");
@@ -25,10 +24,13 @@ export class Character extends Sprite {
 
     faint() {
         gsap.to(this.position, {
-            x: this.position.x + 20 * (this.isEnemy? 1 : -1)
+            x: this.position.x + 20 * (this.isEnemy? 1 : -1),
+            duration: 0.5,
+            yoyo: true,
+            repeat: 1
         });
         gsap.to(this, {
-            opacity: 0
+            opacity: 0,
         });
     }
 
