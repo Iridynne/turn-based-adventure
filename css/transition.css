@@ -10,16 +10,13 @@ div#transition-overlay {
     pointer-events: none;
     z-index: 10;
     opacity: 0;
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-}
-
-div#transition-container {
-    margin: auto;
-    border: 1px solid red;
 }
 
 div#transition-title, div#transition-subtitle  {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: var(--color3);
 }
 
@@ -28,10 +25,6 @@ div#transition-title  {
 }
 
 div#transition-subtitle  {
+    top: 60%;
     font-size: 32px;
-}
-
-div#transition-options {
-    display: grid;
-    margin: auto;
 }
