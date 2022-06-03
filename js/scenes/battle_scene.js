@@ -128,9 +128,6 @@ export function initBattle() {
 
     // Start Music
     stage.music.play();
-    wait(500).then(() => {
-        stage.music.fade(0, AUDIO_VOLUME, 500);
-    });
 
     // Enter animation
     document.querySelector("#transition-title").innerHTML = stage.name;
@@ -265,11 +262,8 @@ function verifyWinLoss() {
             opacity: 1,
             duration: 0.5
         });
-        stage.music.fade(stage.music.volume(), 0, 500)
+        stage.music.stop();
         // TODO: Remove later
-        wait(500).then(() => {
-            stage.music.stop();
-        });
         wait(2000).then(() => {
             Game.currentGame.advance();
         });
@@ -285,11 +279,8 @@ function verifyWinLoss() {
             opacity: 1,
             duration: 0.5
         });
-        stage.music.fade(stage.music.volume(), 0, 1000);
+        stage.music.stop();
         // TODO: Remove later
-        wait(1000).then(() => {
-            stage.music.stop();
-        });
         wait(2000).then(() => {
             Game.currentGame.advance();
         });

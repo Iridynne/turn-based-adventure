@@ -6,13 +6,13 @@ export const MUSIC = {
     FOREST_BATTLE: new Howl({
         src: audioPath("forest_battle.mp3"),
         html5: true,
-        volume: 0,
+        volume: AUDIO_VOLUME,
         loop: true
     }),
     DESERT_BATTLE: new Howl({
         src: audioPath("desert_battle.mp3"),
         html5: true,
-        volume: 0,
+        volume: AUDIO_VOLUME,
         loop: true
     })
 };
