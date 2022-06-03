@@ -54,7 +54,7 @@ div#main-menu {
     left: 0;
     right: 0;
     z-index: 10;
-    display: grid;
+    display: none;
     grid-template-rows: 1fr 3fr;
 }
 
@@ -78,6 +78,10 @@ div#main-options {
 div#main-options > button.option {
     padding: 2rem;
     font-size: 24px;
+}
+
+div#main-options > button.option:disabled {
+    color: var(--color2);
 }
 
 /* Transition Overlay */

@@ -5,13 +5,18 @@ import { Game } from "./game.js";
 const cnv = document.querySelector("canvas");
 const ctx = cnv.getContext("2d");
 
-// Initialization
-var game = new Game();
+window.onload = setup;
 
-window.onload = function () {
+function setup() {
     canvasSetup();
-    
-    // game.start();
+    mainMenuSetup();
+}
+
+function mainMenuSetup() {
+    document.querySelector("#main-menu").style.display = 'grid';
+
+    var newGameButton = document.querySelector("#new-game");
+    newGameButton.onclick = newGame;
 }
 
 function canvasSetup() {
@@ -27,6 +32,16 @@ function canvasSetup() {
     ctx.fillStyle = general.COLOR_1;
     ctx.fillRect(0, 0, cnv.width, cnv.height);
 }
+
+function newGame() {
+    // Hide Main-Menu 
+    document.querySelector("#main-menu").style.display = "none";
+
+    var game = new Game();
+    game.start();
+}
+
+
 
 // let clicked = false;
 // addEventListener("click", () => {
