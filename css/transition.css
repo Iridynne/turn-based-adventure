@@ -1,0 +1,37 @@
+/* Transition Overlay */
+
+div#transition-overlay {
+    position: absolute;
+    background-color: var(--color1);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+div#transition-container {
+    margin: auto;
+    border: 1px solid red;
+}
+
+div#transition-title, div#transition-subtitle  {
+    color: var(--color3);
+}
+
+div#transition-title  {
+    font-size: 48px;
+}
+
+div#transition-subtitle  {
+    font-size: 32px;
+}
+
+div#transition-options {
+    display: grid;
+    margin: auto;
+}

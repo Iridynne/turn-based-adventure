@@ -1,0 +1,43 @@
+/* Main Menu */
+div#main-menu {
+    position: absolute;
+    background: url("/img/main_menu.png");
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    display: none;
+    grid-template-rows: 1fr 3fr;
+}
+
+div#main-title {
+    text-align: center;
+    margin: auto;
+    padding: 2rem;
+    border: 8px solid var(--color3);
+    font-size: 48px;
+    background-color: var(--color1);
+    color: var(--color3);
+}
+
+div#main-options {
+    display: grid;
+    margin: auto;
+    background-color: var(--color3);
+    border: 8px solid var(--color3);
+}
+
+div#main-options > button.option {
+    padding: 2rem;
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+div#main-options > button.option:last-child {
+    margin-bottom: 0;
+}
+
+div#main-options > button.option:disabled {
+    color: var(--color2);
+}
