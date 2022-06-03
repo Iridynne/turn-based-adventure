@@ -71,13 +71,18 @@ div#main-title {
 div#main-options {
     display: grid;
     margin: auto;
-    background-color: var(--color1);
+    background-color: var(--color3);
     border: 8px solid var(--color3);
 }
 
 div#main-options > button.option {
     padding: 2rem;
     font-size: 24px;
+    margin-bottom: 8px;
+}
+
+div#main-options > button.option:last-child {
+    margin-bottom: 0;
 }
 
 div#main-options > button.option:disabled {

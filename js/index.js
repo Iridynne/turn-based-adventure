@@ -7,7 +7,7 @@ const ctx = cnv.getContext("2d");
 
 window.onload = setup;
 
-function setup() {
+export function setup() {
     canvasSetup();
     mainMenuSetup();
 }
@@ -37,7 +37,7 @@ function newGame() {
     // Hide Main-Menu 
     document.querySelector("#main-menu").style.display = "none";
 
-    var game = new Game();
+    var game = new Game([]);
     game.start();
 }
 
