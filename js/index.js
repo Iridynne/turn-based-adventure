@@ -1,4 +1,3 @@
-import { MUSIC } from "./constants/audio.js";
 import * as general from "./constants/general.js";
 import { Game } from "./game.js";
 
@@ -40,13 +39,3 @@ function newGame() {
     var game = new Game();
     game.start();
 }
-
-
-
-// let clicked = false;
-// addEventListener("click", () => {
-//     if(!clicked) {
-//         MUSIC.FOREST_BATTLE.play();
-//         clicked = true;
-//     }
-// });
