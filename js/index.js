@@ -37,7 +37,7 @@ function newGame() {
     // Hide Main-Menu 
     document.querySelector("#main-menu").style.display = "none";
 
-    var game = new Game([]);
+    var game = new Game();
     game.start();
 }
 
