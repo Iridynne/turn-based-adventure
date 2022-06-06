@@ -1,6 +1,7 @@
 import { Sprite } from "./sprite.js";
-
-const ctx = document.querySelector("canvas").getContext("2d");
+import * as ui from "../ui.js"
+import { Battle } from "../scenes/battle_scene.js";
+import { Healthbar } from "./healthbar.js";
 
 export class Character extends Sprite {
     constructor({
@@ -11,7 +12,8 @@ export class Character extends Sprite {
         name,
         health,
         attacks,
-        isEnemy = false
+        isEnemy = false,
+        healthbarId
     }) {
         super({position, image, frames, animate});
 
@@ -20,6 +22,9 @@ export class Character extends Sprite {
         this.maxHealth = health;
         this.attacks = attacks;
         this.isEnemy = isEnemy;
+        this.healthUI = new Healthbar(healthbarId);
+
+        this.faint = this.faint.bind(this);
     }
 
     faint() {
@@ -30,7 +35,7 @@ export class Character extends Sprite {
             repeat: 1
         });
         gsap.to(this, {
-            opacity: 0,
+            opacity: 0
         });
     }
 
@@ -70,8 +75,11 @@ export class Character extends Sprite {
                             gsap.to(target, {
                                 opacity: 0,
                                 yoyo: true,
-                                repeat: 5,
-                                duration: duration / 2
+                                repeat: 4,
+                                duration: duration / 2,
+                                onComplete() {
+                                    target.opacity = 1;
+                                }
                             });
 
                             // Health Animation
@@ -79,7 +87,9 @@ export class Character extends Sprite {
                                 duration: duration / 2,
                                 health: Math.max(target.health - attack.damage, 0),
                                 onComplete() {
+                                    ui.updateHealthbar(target);
                                     if(target.health == 0) {
+                                        ui.hideHealthbar(target);
                                         target.faint();
                                     }
                                 }
@@ -115,8 +125,11 @@ export class Character extends Sprite {
                             gsap.to(target, {
                                 opacity: 0,
                                 yoyo: true,
-                                repeat: 5,
-                                duration: duration / 2
+                                repeat: 4,
+                                duration: duration / 2,
+                                onComplete() {
+                                    target.opacity = 1;
+                                }
                             });
 
                             // Health Animation
@@ -124,7 +137,9 @@ export class Character extends Sprite {
                                 duration: duration / 2,
                                 health: Math.max(target.health - attack.damage, 0),
                                 onComplete() {
+                                    ui.updateHealthbar(target);
                                     if(target.health == 0) {
+                                        ui.hideHealthbar(target);
                                         target.faint();
                                     }
                                 }

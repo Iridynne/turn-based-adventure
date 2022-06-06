@@ -2,7 +2,7 @@ import { Character } from "./classes/character.js";
 import { ALLY_POSITIONS, DEFAULT_ALLIES } from "./constants/characters/allies.js";
 import { ENCOUNTER_COUNT, STAGE_COUNT } from "./constants/stages.js"
 import { STAGES } from "./constants/stages.js";
-import { createBattle, initBattle } from "./scenes/battle_scene.js";
+import { Battle } from "./scenes/battle_scene.js"
 import * as ui from "./ui.js"
 
 export class Game {
@@ -19,7 +19,7 @@ export class Game {
         this.allies = [];
         allies.forEach((value, index) => {
             const position = Object.entries(ALLY_POSITIONS)[index][1];
-            this.allies.push(new Character({...value, position: position}))
+            this.allies.push(new Character({...value, position: position, healthbarId: `ally${index+1}`}));
         });
 
         Game.currentGame = this;
@@ -28,8 +28,18 @@ export class Game {
     start() {
         const stage = Object.entries(STAGES)[this.currentStage-1][1];
 
-        createBattle(stage, this.allies);
-        initBattle();
+        // Start Transition
+        const title = stage.name;
+        const subtitle = `${this.currentEncounter} - ${this.currentStage}`;
+        const params = {
+            duration: 0.5,
+            onComplete() {
+                // Initiate & Start Battle
+                var battle = new Battle(stage, Game.currentGame.allies);
+                battle.start();
+            }
+        }
+        ui.showTransition(title, subtitle, params);
     }
 
     advance() {

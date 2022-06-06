@@ -1,5 +1,7 @@
 import { Game } from "./game.js";
+import { wait } from "./utils/timer.js"
 import * as general from "./constants/general.js"
+import { Battle } from "./scenes/battle_scene.js";
 
 // Canvas
 export function canvasSetup() {
@@ -47,10 +49,18 @@ export function setupMainMenu () {
 }
 
 // Transition Overlay
-const transitionDelay = 0.25;
+const transitionDelay = 0.5;
 const transitionDuration = 0.5;
 
-export function showTransition(title, subtitle, onComplete) {
+export function showTransition(
+    title, 
+    subtitle, 
+    params = {
+        delay: 0,
+        duration: 0,
+        onComplete: () => {}
+    }
+) {
     const titleLabel = document.querySelector("#transition-title");
     const subtitleLabel = document.querySelector("#transition-subtitle");
 
@@ -58,28 +68,32 @@ export function showTransition(title, subtitle, onComplete) {
     subtitleLabel.innerHTML = subtitle;
 
     var transition = {
-        opacity: 1,
-        delay: transitionDelay,
-        duration: transitionDuration
+        ...params,
+        opacity: 1
     };
 
-    if(typeof onComplete === "function")
-        transition.onComplete = onComplete;
+    document.querySelector("#transition-overlay").style.visibility = "visible";
 
     gsap.to("#transition-overlay", transition);
 }
 
-export function hideTransition(onComplete) {
-    var transition = {
-        opacity: 0,
+export function hideTransition(
+    params = {
         delay: transitionDelay,
-        duration: transitionDuration
+        duration: transitionDuration,
+        onComplete: () => {}
+    }
+) {
+    var transition = {
+        ...params,
+        opacity: 0
     };
 
-    if(typeof onComplete === "function")
-        transition.onComplete = onComplete;
-
     gsap.to("#transition-overlay", transition);
+    var waitDuration = params.delay + params.duration;
+    wait(waitDuration * 1000).then(() => {
+        document.querySelector("#transition-overlay").style.visibility = "hidden";
+    });
 }
 
 // Encounter Menu
@@ -91,41 +105,66 @@ export function showEncounterMenu() {
 export function hideEncounterMenu() {
     const menu = document.querySelector("#encounter-menu");
     menu.style.opacity = 0;
+
+    hideDialogue();
+    hideAttacks();
+    hideTargets();
 }
 
 // Dialogue Box
-export function showDialogue(text) {
+export function showDialogue(text, onClick) {
     const dialogueBox = document.querySelector("#dialogue-box");
     dialogueBox.innerHTML = text;
-    dialogueBox.style.display = "inline";
+    dialogueBox.style.visibility = "visible";
+    dialogueBox.onclick = onClick;
 }
 
 export function hideDialogue() {
     const dialogueBox = document.querySelector("#dialogue-box");
-    dialogueBox.style.display = "none";
+    dialogueBox.style.visibility = "hidden";
 }
 
 // Attack Box
 function showAttacks() {
     const attacksBox = document.querySelector("#attacks-box");
-    attacksBox.style.display = "grid";
+    attacksBox.style.visibility = "visible";
 }
 
 export function hideAttacks() {
     const attacksBox = document.querySelector("#attacks-box");
-    attacksBox.style.display = "none";
+    attacksBox.style.visibility = "hidden";
 }
 
 export function setupAttacks(attacks) {
     const attacksBox = document.querySelector("#attacks-box");
 
+    attacksBox.innerHTML = '';
     attacks.forEach(attack => {
         const button = document.createElement('button');
         button.className = "option";
         button.style.color = attack.type.color;
         button.innerHTML = attack.name + "</br>" + "<div style=\"color: white; font-size: 10px; margin-top: 4px\">" + "Damage: " + attack.damage + "</div>";
+        button.value = attack;
 
-        button.onclick = () => {};
+        button.onclick = (event) => {
+            if(button.classList.contains("selected")) return;
+
+            // Set Attack Choice
+            const currentBattle = Battle.currentBattle;
+            const index = currentBattle.currentAlly;
+            currentBattle.choices[`ally${index + 1}`] = {
+                attack: attack,
+                target: null
+            };
+
+            // Disable button & Enable others
+            attacksBox.childNodes.forEach(child => {
+                child.classList.remove("selected");
+            });
+            button.classList.add("selected");
+
+            setupTargets(currentBattle.enemies);
+        };
         
         attacksBox.append(button);
     });
@@ -135,60 +174,78 @@ export function setupAttacks(attacks) {
 
 // Targets Box
 function showTargets() {
-    const targetBox = document.querySelector("#targets-box");
-    targetBox.style.display = "grid";
+    const targetsBox = document.querySelector("#targets-box");
+    targetsBox.style.visibility = "visible";
 }
 
 export function hideTargets() {
-    const targetBox = document.querySelector("#targets-box");
-    targetBox.style.display = "none";
+    const targetsBox = document.querySelector("#targets-box");
+    targetsBox.style.visibility = "hidden";
 }
 
 export function setupTargets(characters) {
-    const targetBox = document.querySelector("#targets-box");
+    const targetsBox = document.querySelector("#targets-box");
 
-    targetBox.innerHTML = '';
-    for(const [key, value] of Object.entries(characters).slice(3)) {
-        if(value == null) continue;
+    targetsBox.innerHTML = '';
+    characters.forEach(char => {
+        if(char != null) {
+            const button = document.createElement('button');
+            button.classList.add("option");
+            button.innerHTML = char.name;
 
-        const char = value.character;
-        const button = document.createElement('button');
-        button.classList.add("option");
-        button.innerHTML = char.name;
+            button.onclick = () => {
+                if(button.classList.contains("selected")) return;
 
-        button.onclick = () => {};
-        
-        targetBox.append(button);
-    }
+                // Set Target Choice
+                const currentBattle = Battle.currentBattle;
+                const index = currentBattle.currentAlly;
+                currentBattle.choices[`ally${index+1}`].target = char;
+
+                // Disable button & Enable others
+                targetsBox.childNodes.forEach(child => {
+                    child.classList.remove("selected");
+                });
+                button.classList.add("selected");
+
+                // Disable AttacksBox & TargetsBox
+                hideAttacks();
+                hideTargets();
+
+                // Advance order
+                currentBattle.currentAlly++;
+                currentBattle.displayChoices();
+            };
+            
+            targetsBox.append(button);
+        }
+    });
 
     showTargets();
 }
 
 // Healthbars
-function showHealthbar(name) {
-    const container = document.querySelector(`#${name}-container`);
-    container.style.opacity = 1;
+function showHealthbar(character) {
+    character.healthUI.container.style.opacity = 1;
 }
 
-export function hideHealthbar(name) {
-    const container = document.querySelector(`#${name}-container`);
-    container.style.opacity = 0;
+export function hideHealthbar(character) {
+    character.healthUI.container.style.opacity = 0;
 }
 
-export function setupHealthbars(allies, enemies) {
-    allies.forEach((value, i) => {
-        showHealthbar(`ally${i+1}`);
-    });
-
-    enemies.forEach((value, i) => {
-        showHealthbar(`enemy${i+1}`);
+export function setupHealthbars(characters) {
+    characters.forEach(char => {
+        showHealthbar(char);
+        updateHealthbar(char);
     });
 }
 
-export function updateHealthbar(name, character) {
-    const healthbar = document.querySelector(`#${name}-healthbar`);
-    const health = document.querySelector(`#${name}-health`);
+export function updateHealthbar(character) {
+    character.healthUI.healthbar.style.width = `${Math.floor(character.health * 100 / character.maxHealth)}%`;
+    character.healthUI.health.innerHTML = `${Math.floor(character.health)} / ${character.maxHealth}`;
+}
 
-    healthbar.style.width = `${Math.floor(character.health * 100 / character.maxHealth)}%`;
-    health.innerHTML = `${Math.floor(character.health)} / ${character.maxHealth}`;
+export function updateHealthbars(characters) {
+    characters.forEach(char => {
+        updateHealthbar(char);
+    });
 }

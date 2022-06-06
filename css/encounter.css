@@ -13,7 +13,7 @@ div#encounter-menu {
 
 div#dialogue-box {
     position: absolute;
-    display: none;
+    visibility: hidden;
     background-color: var(--color1);
     color: var(--color3);
     top: 0;
@@ -29,7 +29,6 @@ div#targets-box {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     width: 33.33%;
-    border-right: 8px solid var(--color3);
     color: var(--color3);
 }
 
@@ -37,6 +36,7 @@ div#targets-box {
 div#attacks-box {
     width: 66.66%;
     display: grid;
+    border-right: 8px solid var(--color3);
     grid-template-columns: repeat(2, 1fr);
 }
 
@@ -106,6 +106,7 @@ div[id$=healthbar] {
     right: 0;
     height: 24px;
     width: 75%;
+    transition-duration: 0.25s;
 }
 
 div[id$=health] {
