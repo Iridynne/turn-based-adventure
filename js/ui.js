@@ -93,6 +93,18 @@ export function hideEncounterMenu() {
     menu.style.opacity = 0;
 }
 
+// Dialogue Box
+export function showDialogue(text) {
+    const dialogueBox = document.querySelector("#dialogue-box");
+    dialogueBox.innerHTML = text;
+    dialogueBox.style.display = "inline";
+}
+
+export function hideDialogue() {
+    const dialogueBox = document.querySelector("#dialogue-box");
+    dialogueBox.style.display = "none";
+}
+
 // Attack Box
 function showAttacks() {
     const attacksBox = document.querySelector("#attacks-box");

@@ -12,14 +12,15 @@ div#encounter-menu {
 }
 
 div#dialogue-box {
-    background-color: var(--color2);
+    position: absolute;
+    display: none;
+    background-color: var(--color1);
     color: var(--color3);
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     padding: 16px;
-    display: none;
     cursor: pointer;
 }
 
