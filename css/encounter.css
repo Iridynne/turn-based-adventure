@@ -1,5 +1,5 @@
 /* Encounter Menu */
-div#menu-container {
+div#encounter-menu {
     background-color: var(--color1);
     position: absolute;
     top: 0;
@@ -23,8 +23,8 @@ div#dialogue-box {
     cursor: pointer;
 }
 
-/* Enemy Box */
-div#enemy-box {
+/* Targets Box */
+div#targets-box {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     width: 33.33%;

@@ -2,8 +2,8 @@ import { Character } from "./classes/character.js";
 import { ALLY_POSITIONS, DEFAULT_ALLIES } from "./constants/characters/allies.js";
 import { ENCOUNTER_COUNT, STAGE_COUNT } from "./constants/stages.js"
 import { STAGES } from "./constants/stages.js";
-import { setup } from "./index.js";
 import { createBattle, initBattle } from "./scenes/battle_scene.js";
+import * as ui from "./ui.js"
 
 export class Game {
     static currentGame;
@@ -48,6 +48,6 @@ export class Game {
 
     end() {
         document.querySelector("#transition-overlay").style.opacity = 0;
-        setup();
+        ui.setupMainMenu();
     }
 }

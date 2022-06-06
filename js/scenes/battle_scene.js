@@ -1,6 +1,5 @@
 import { Character } from "../classes/character.js";
 import { Sprite } from "../classes/sprite.js";
-import { AUDIO_VOLUME } from "../constants/audio.js";
 import { ENEMY_POSITIONS } from "../constants/characters/enemies.js";
 import { Game } from "../game.js";
 import { randomInt, randomizeList, weightedRand } from "../utils/random.js";
@@ -9,7 +8,7 @@ import { wait } from "../utils/timer.js"
 // UI
 const ui = {
     dialogue: document.querySelector("#dialogue-box"),
-    targets: document.querySelector("#enemy-box"),
+    targets: document.querySelector("#targets-box"),
     attacks: document.querySelector("#attacks-box"),
     ally: [
         {
@@ -124,7 +123,7 @@ function generateEnemies(stage) {
 
 // Start battle
 export function initBattle() {
-    document.querySelector("#menu-container").style.opacity = 1;
+    document.querySelector("#encounter-menu").style.opacity = 1;
 
     // Start Music
     stage.music.play();
@@ -255,7 +254,7 @@ function verifyWinLoss() {
     var allies = Object.entries(characters).slice(0,3).filter(([key, value]) => value != null );
     if(allies.length == 0) {
         cancelAnimationFrame(frameId);
-        document.querySelector("#menu-container").style.opacity = 0;
+        document.querySelector("#encounter-menu").style.opacity = 0;
         document.querySelector("#transition-title").innerHTML = "Defeat!";
         document.querySelector("#transition-subtitle").innerHTML = "";
         gsap.to("#transition-overlay", {
@@ -272,7 +271,7 @@ function verifyWinLoss() {
     var enemies = Object.entries(characters).slice(3).filter(([key, value]) => value != null );
     if(enemies.length == 0) {
         cancelAnimationFrame(frameId);
-        document.querySelector("#menu-container").style.opacity = 0;
+        document.querySelector("#encounter-menu").style.opacity = 0;
         document.querySelector("#transition-title").innerHTML = "Victory!";
         document.querySelector("#transition-subtitle").innerHTML = "";
         gsap.to("#transition-overlay", {
