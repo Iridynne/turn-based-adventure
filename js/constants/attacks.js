@@ -36,8 +36,11 @@ export const ATTACKS = {
         damage: 5,
         type: TYPE.PHYSICAL,
         isRanged: true,
-        image: {
-            src: projectilePath("arrow")
+        imageRight: {
+            src: projectilePath("arrow_right")
+        },
+        imageLeft: {
+            src: projectilePath("arrow_left")
         },
         sound: {
             fire: SOUND.BOW_FIRE,
@@ -49,21 +52,27 @@ export const ATTACKS = {
         damage: 6,
         type: TYPE.MAGICAL,
         isRanged: true,
-        image: {
-            src: projectilePath("fire_bolt")
+        imageRight: {
+            src: projectilePath("fire_bolt_right")
+        },
+        imageLeft: {
+            src: projectilePath("fire_bolt_left")
         },
         sound: {
             fire: SOUND.BOW_FIRE,
             hit: SOUND.ARROW_HIT
         }
     },
-    FROSTBITE: {
-        name: "Frostbite",
+    ICE_SHARD: {
+        name: "Ice Shard",
         damage: 4,
         type: TYPE.MAGICAL,
         isRanged: true,
-        image: {
-            src: projectilePath("fire_bolt")
+        imageRight: {
+            src: projectilePath("fire_bolt_right")
+        },
+        imageLeft: {
+            src: projectilePath("fire_bolt_left")
         },
         sound: {
             fire: SOUND.BOW_FIRE,

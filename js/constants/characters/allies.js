@@ -61,7 +61,7 @@ export const ALLIES = {
         health: 14,
         attacks: [
             ATTACKS.FIRE_BOLT,
-            ATTACKS.FROSTBITE
+            ATTACKS.ICE_SHARD
         ]
     }
 };

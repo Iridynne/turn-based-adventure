@@ -30,7 +30,7 @@ export const ENEMIES = {
         health: 20,
         attacks: [
             ATTACKS.FIRE_BOLT,
-            ATTACKS.FROSTBITE
+            ATTACKS.ICE_SHARD
         ],
         isEnemy: true
     },
@@ -81,7 +81,7 @@ export const ENEMIES = {
         health: 14,
         attacks: [
             ATTACKS.FIRE_BOLT,
-            ATTACKS.FROSTBITE
+            ATTACKS.ICE_SHARD
         ],
         isEnemy: true
     },

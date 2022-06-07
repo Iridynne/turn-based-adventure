@@ -1,5 +1,5 @@
 import { Sprite } from "../classes/sprite.js";
-import { CAMPFIRE } from "../constants/stages.js";
+import { CAMPFIRE } from "../constants/misc.js";
 import { Game } from "../game.js";
 import * as ui from "../ui.js"
 import { wait } from "../utils/timer.js";

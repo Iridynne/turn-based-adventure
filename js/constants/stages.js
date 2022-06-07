@@ -7,21 +7,6 @@ export const ENCOUNTER_COUNT = 5;
 // Number of stages
 export const STAGE_COUNT = 3;
 
-export const CAMPFIRE = {
-    position: {
-        x: 448,
-        y: 400
-    },
-    image: {
-        src: miscPath("campfire")
-    },
-    frames: {
-        max: 4,
-        hold: 20
-    },
-    animate: true
-}
-
 export const STAGES = {
     FOREST: {
         name: "Forest",

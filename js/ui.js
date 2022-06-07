@@ -3,6 +3,8 @@ import { wait } from "./utils/timer.js"
 import * as general from "./constants/general.js"
 import { Battle } from "./encounters/battle.js";
 import { deleteData, loadData } from "./utils/data.js";
+import { ARROW } from "./constants/misc.js";
+import { Sprite } from "./classes/sprite.js";
 
 // Canvas
 export function canvasSetup() {
@@ -196,6 +198,14 @@ export function hideTargets() {
     targetsBox.style.visibility = "hidden";
 }
 
+// Selected Target Arrow
+var arrow = new Sprite(ARROW);
+var animationFrame;
+function animate() {
+    animationFrame = requestAnimationFrame(animate);
+    arrow.draw();
+}
+
 export function setupTargets(characters) {
     const targetsBox = document.querySelector("#targets-box");
 
@@ -206,6 +216,7 @@ export function setupTargets(characters) {
             button.classList.add("option");
             button.innerHTML = char.name;
 
+            // On Click
             button.onclick = () => {
                 if(button.classList.contains("selected")) return;
 
@@ -224,10 +235,24 @@ export function setupTargets(characters) {
                 hideAttacks();
                 hideTargets();
 
+                // Hide Target Arrow
+                cancelAnimationFrame(animationFrame);
+
                 // Advance order
                 currentBattle.currentAlly++;
                 currentBattle.displayChoices();
             };
+
+            // Mouse Over
+            button.onmouseenter = () => {
+                arrow.position = {
+                    x: char.position.x,
+                    y: char.position.y - 160
+                };
+                animate();
+            };
+
+            button.onmouseleave = () => cancelAnimationFrame(animationFrame);
             
             targetsBox.append(button);
         }

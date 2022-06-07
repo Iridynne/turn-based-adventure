@@ -1,6 +1,5 @@
 import { Sprite } from "./sprite.js";
 import * as ui from "../ui.js"
-import { Battle } from "../encounters/battle.js";
 import { Healthbar } from "./healthbar.js";
 
 export class Character extends Sprite {
@@ -44,7 +43,7 @@ export class Character extends Sprite {
 
         if(attack.isRanged) {
             var projectile = new Sprite({
-                image: attack.image,
+                image: this.isEnemy? attack.imageLeft : attack.imageRight,
                 position: {
                     ...this.position, 
                     x: this.position.x + 32 * (this.isEnemy? -1 : 1)
