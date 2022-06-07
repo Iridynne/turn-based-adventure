@@ -5,6 +5,7 @@ import * as ui from "../ui.js"
 import { Sprite } from "../classes/sprite.js";
 import { wait } from "../utils/timer.js";
 import { Game } from "../game.js";
+import { fadeIn, fadeOut } from "../utils/audio_utils.js";
 
 export class Battle {
     static currentBattle;
@@ -48,6 +49,9 @@ export class Battle {
     }
 
     start() {
+        // Start Music
+        fadeIn(this.stage.music, 500);
+
         // Hide Transition
         ui.hideTransition();
 
@@ -135,6 +139,9 @@ export class Battle {
                     }
                 };
                 ui.showTransition("Victory!", "", params);
+
+                // Fade Music
+                fadeOut(this.stage.music, 500);
             });
             return true;
         }
@@ -154,6 +161,9 @@ export class Battle {
                     }
                 };
                 ui.showTransition("Defeat!", "", params);
+
+                // Fade Music
+                fadeOut(this.stage.music, 500);
             });
             return true;
         }
