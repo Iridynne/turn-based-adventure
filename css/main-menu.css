@@ -32,12 +32,10 @@ div#main-options > button.option {
     padding: 2rem;
     font-size: 24px;
     margin-bottom: 8px;
-    border-bottom: 8px solid var(--color3);
 }
 
 div#main-options > button.option:last-child {
     margin-bottom: 0;
-    border-bottom: none;
 }
 
 div#main-options > button.option:disabled {
