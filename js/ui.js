@@ -1,7 +1,7 @@
 import { Game } from "./game.js";
 import { wait } from "./utils/timer.js"
 import * as general from "./constants/general.js"
-import { Battle } from "./scenes/battle_scene.js";
+import { Battle } from "./encounters/battle.js";
 
 // Canvas
 export function canvasSetup() {

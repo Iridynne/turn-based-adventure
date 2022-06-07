@@ -12,7 +12,7 @@ export class Battle {
 
     constructor(stage, allies = []) {
         this.stage = {
-            background: new Sprite({...stage}),
+            background: new Sprite(stage),
             music: stage.music.battle
         };
         this.allies = allies;
@@ -35,17 +35,13 @@ export class Battle {
         Battle.currentBattle = this;
     }
 
-    static #animationFrame;
+    #animationFrame;
     animate() {
-        Battle.#animationFrame = requestAnimationFrame(this.animate);
+        this.#animationFrame = requestAnimationFrame(this.animate);
         // Draw Sprites
         this.stage.background.draw();
-        this.allies.forEach(ally => {
-            ally.draw();
-        });
-        this.enemies.forEach(enemy => {
-            enemy.draw();
-        });
+        this.allies.forEach(ally => ally.draw());
+        this.enemies.forEach(enemy => enemy.draw());
     }
 
     start() {
@@ -125,7 +121,7 @@ export class Battle {
     #verifyWinLoss() {
         // Win Condition
         if(!this.enemies.length) {
-            cancelAnimationFrame(Battle.#animationFrame);
+            cancelAnimationFrame(this.#animationFrame);
             Game.currentGame.allies = this.allies;
             ui.showDialogue("All enemies have been killed.", () => {
                 // Win Screen
@@ -148,7 +144,7 @@ export class Battle {
 
         // Lose Condition
         if(!this.allies.length) {
-            cancelAnimationFrame(Battle.#animationFrame);
+            cancelAnimationFrame(this.#animationFrame);
             ui.showDialogue("All allies have been killed.", () => {
                 // Loss Screen
                 const params = {

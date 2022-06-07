@@ -2,7 +2,8 @@ import { Character } from "./classes/character.js";
 import { ALLY_POSITIONS, DEFAULT_ALLIES } from "./constants/characters/allies.js";
 import { ENCOUNTER_COUNT, STAGE_COUNT } from "./constants/stages.js"
 import { STAGES } from "./constants/stages.js";
-import { Battle } from "./scenes/battle_scene.js"
+import { Battle } from "./encounters/battle.js"
+import { RestSpot } from "./encounters/rest_spot.js";
 import * as ui from "./ui.js"
 
 export class Game {
@@ -36,7 +37,9 @@ export class Game {
             onComplete() {
                 // Initiate & Start Battle
                 var battle = new Battle(stage, Game.currentGame.allies);
-                battle.start();
+                // battle.start();
+                var restSpot = new RestSpot(stage, Game.currentGame.allies);
+                restSpot.start();
             }
         }
         ui.showTransition(title, subtitle, params);

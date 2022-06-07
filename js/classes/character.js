@@ -1,6 +1,6 @@
 import { Sprite } from "./sprite.js";
 import * as ui from "../ui.js"
-import { Battle } from "../scenes/battle_scene.js";
+import { Battle } from "../encounters/battle.js";
 import { Healthbar } from "./healthbar.js";
 
 export class Character extends Sprite {
