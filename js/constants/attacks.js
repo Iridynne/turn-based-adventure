@@ -1,5 +1,5 @@
-import { projectilePath } from "../../utils/paths.js"
-import { SOUND } from "../audio.js"
+import { projectilePath } from "../utils/paths.js"
+import { SOUND } from "./audio.js"
 
 export const TYPE = {
     PHYSICAL: {

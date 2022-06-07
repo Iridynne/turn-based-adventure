@@ -4,6 +4,7 @@ import { ENCOUNTER_COUNT, STAGE_COUNT } from "./constants/stages.js"
 import { STAGES } from "./constants/stages.js";
 import { Battle } from "./encounters/battle.js"
 import { RestSpot } from "./encounters/rest_spot.js";
+import { saveData } from "./utils/data.js"
 import * as ui from "./ui.js"
 
 export class Game {
@@ -60,6 +61,7 @@ export class Game {
             }
         }
 
+        saveData(this);
         this.start();
     }
 

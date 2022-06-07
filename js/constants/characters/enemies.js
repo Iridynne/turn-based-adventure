@@ -1,4 +1,4 @@
-import { ATTACKS } from "../attacks/attacks.js"
+import { ATTACKS } from "../attacks.js"
 import { enemyPath } from "../../utils/paths.js"
 
 export const ENEMY_POSITIONS = {

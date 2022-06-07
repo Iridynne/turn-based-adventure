@@ -2,6 +2,7 @@ import { Game } from "./game.js";
 import { wait } from "./utils/timer.js"
 import * as general from "./constants/general.js"
 import { Battle } from "./encounters/battle.js";
+import { deleteData, loadData } from "./utils/data.js";
 
 // Canvas
 export function canvasSetup() {
@@ -34,8 +35,15 @@ function hideMainMenu() {
 
 function newGame() {
     hideMainMenu();
+    deleteData();
     var game = new Game();
     game.start();
+}
+
+function loadGame() {
+    hideMainMenu();
+    loadData();
+    Game.currentGame.start();
 }
 
 export function setupMainMenu () {
@@ -43,7 +51,13 @@ export function setupMainMenu () {
     const loadGameBtn = document.querySelector("#load-game");
 
     newGameBtn.onclick = newGame;
-    loadGameBtn.disabled = true;
+
+    const saveData = localStorage.getItem("saveData");
+    if(saveData !== null) {
+        loadGameBtn.onclick = loadGame;
+    }
+    else
+        loadGameBtn.disabled = true;
 
     showMainMenu();
 }
