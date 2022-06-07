@@ -18,6 +18,7 @@ export const STAGES = {
             ENEMIES.GOBLIN_ARCHER,
             ENEMIES.GOBLIN_MAGE
         ],
+        bosses: [],
         music: {
             battle: MUSIC.FOREST_BATTLE
         }
@@ -28,8 +29,11 @@ export const STAGES = {
             src: backgroundPath("desert")
         },
         enemies: [
-            ENEMIES.SKELETON
+            ENEMIES.MUMMY_WARRIOR,
+            ENEMIES.MUMMY_ARCHER,
+            ENEMIES.MUMMY_MAGE
         ],
+        bosses: [],
         music: {
             battle: MUSIC.DESERT_BATTLE
         }
@@ -43,6 +47,7 @@ export const STAGES = {
             ENEMIES.SKELETON,
             ENEMIES.SLIME
         ],
+        bosses: [],
         music: {
             battle: MUSIC.FOREST_BATTLE
         }

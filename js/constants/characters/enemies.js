@@ -17,23 +17,7 @@ export const ENEMY_POSITIONS = {
 }
 
 export const ENEMIES = {
-    EVIL_MAGE: {
-        image: {
-            src: enemyPath("evil_mage")
-        },
-        frames: {
-            max: 4,
-            hold: 20
-        },
-        animate: true,
-        name: "Evil Mage",
-        health: 20,
-        attacks: [
-            ATTACKS.FIRE_BOLT,
-            ATTACKS.ICE_SHARD
-        ],
-        isEnemy: true
-    },
+    // Forest Enemies
     GOBLIN_WARRIOR: {
         image: {
             src: enemyPath("goblin_warrior")
@@ -85,6 +69,58 @@ export const ENEMIES = {
         ],
         isEnemy: true
     },
+    // Desert Enemies
+    MUMMY_WARRIOR: {
+        image: {
+            src: enemyPath("mummy_warrior")
+        },
+        frames: {
+            max: 4,
+            hold: 20
+        },
+        animate: true,
+        name: "Mummy Warrior",
+        health: 20,
+        attacks: [
+            ATTACKS.TACKLE,
+            ATTACKS.SLASH
+        ],
+        isEnemy: true
+    },
+    MUMMY_ARCHER: {
+        image: {
+            src: enemyPath("mummy_archer")
+        },
+        frames: {
+            max: 4,
+            hold: 20
+        },
+        animate: true,
+        name: "Mummy Archer",
+        health: 18,
+        attacks: [
+            ATTACKS.TACKLE,
+            ATTACKS.QUICKSHOT
+        ],
+        isEnemy: true
+    },
+    MUMMY_MAGE: {
+        image: {
+            src: enemyPath("mummy_mage")
+        },
+        frames: {
+            max: 4,
+            hold: 20
+        },
+        animate: true,
+        name: "Mummy Mage",
+        health: 14,
+        attacks: [
+            ATTACKS.FIRE_BOLT,
+            ATTACKS.ICE_SHARD
+        ],
+        isEnemy: true
+    },
     SKELETON: {
         image: {
             src: enemyPath("skeleton")
@@ -116,5 +152,22 @@ export const ENEMIES = {
             ATTACKS.TACKLE
         ],
         isEnemy: true
-    }
+    },
+    EVIL_MAGE: {
+        image: {
+            src: enemyPath("evil_mage")
+        },
+        frames: {
+            max: 4,
+            hold: 20
+        },
+        animate: true,
+        name: "Evil Mage",
+        health: 20,
+        attacks: [
+            ATTACKS.FIRE_BOLT,
+            ATTACKS.ICE_SHARD
+        ],
+        isEnemy: true
+    },
 }

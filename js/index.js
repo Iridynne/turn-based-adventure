@@ -3,12 +3,13 @@ import * as ui from "./ui.js"
 
 window.onload = () => {
     ui.canvasSetup();
-    ui.setupMainMenu();
-    // debug();
+    // ui.setupMainMenu();
+    debug();
 };
 
 function debug() {
     var game = new Game();
-    game.currentEncounter = 3;
+    game.currentEncounter = 1;
+    game.currentStage = 2;
     game.start();
 }
