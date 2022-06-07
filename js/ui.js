@@ -35,7 +35,6 @@ function hideMainMenu() {
 
 function newGame() {
     hideMainMenu();
-    deleteData();
     var game = new Game();
     game.start();
 }

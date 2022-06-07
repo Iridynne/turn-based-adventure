@@ -1,18 +1,5 @@
 import { Game } from "../game.js";
 
-const replacerFunc = () => {
-    const visited = new WeakSet();
-    return (key, value) => {
-      if (typeof value === "object" && value !== null) {
-        if (visited.has(value)) {
-          return;
-        }
-        visited.add(value);
-      }
-      return value;
-    };
-};
-
 export function saveData(game) {
     var allyHealth = [];
     game.allies.forEach(ally => allyHealth.push(ally.health));
