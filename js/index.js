@@ -9,5 +9,6 @@ window.onload = () => {
 
 function debug() {
     var game = new Game();
+    game.currentEncounter = 3;
     game.start();
 }
