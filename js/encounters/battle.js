@@ -134,7 +134,7 @@ export class Battle {
                         });
                     }
                 };
-                ui.showTransition("Victory!", "", params);
+                ui.showTransition("Victory", "", params);
 
                 // Fade Music
                 fadeOut(this.stage.music, 500);
@@ -156,7 +156,7 @@ export class Battle {
                         });
                     }
                 };
-                ui.showTransition("Defeat!", "", params);
+                ui.showTransition("Defeat", "", params);
 
                 // Fade Music
                 fadeOut(this.stage.music, 500);

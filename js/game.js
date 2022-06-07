@@ -36,10 +36,14 @@ export class Game {
             duration: 0.5,
             onComplete() {
                 // Initiate & Start Battle
-                var battle = new Battle(stage, Game.currentGame.allies);
-                // battle.start();
-                var restSpot = new RestSpot(stage, Game.currentGame.allies);
-                restSpot.start();
+                const currentGame = Game.currentGame;
+                var encounter;
+                if(currentGame.currentEncounter == Math.round(currentGame.encounterCount/2))
+                    encounter = new RestSpot(stage, currentGame.allies);
+                else
+                    encounter = new Battle(stage, currentGame.allies);
+                encounter.start();
+
             }
         }
         ui.showTransition(title, subtitle, params);
