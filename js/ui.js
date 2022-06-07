@@ -228,8 +228,18 @@ function showHealthbar(character) {
     character.healthUI.container.style.opacity = 1;
 }
 
-export function hideHealthbar(character) {
-    character.healthUI.container.style.opacity = 0;
+export function hideHealthbar(
+    character,
+    params = {
+        delay: 0,
+        duration: 0.5,
+        onComplete: () => {}
+    }
+) {
+    gsap.to(character.healthUI.container.style, {
+        ...params,
+        opacity: 0
+    });
 }
 
 export function setupHealthbars(characters) {
