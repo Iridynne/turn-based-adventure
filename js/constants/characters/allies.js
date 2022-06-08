@@ -45,6 +45,7 @@ export const ALLIES = {
         name: "Archer",
         health: 18,
         attacks: [
+            ATTACKS.TACKLE,
             ATTACKS.QUICKSHOT
         ]
     },
