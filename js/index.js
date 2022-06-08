@@ -9,7 +9,7 @@ window.onload = () => {
 
 function debug() {
     var game = new Game();
-    game.currentEncounter = 1;
+    game.currentEncounter = game.encounterCount;
     game.currentStage = 2;
     game.start();
 }

@@ -39,7 +39,9 @@ export class Game {
                 // Initiate & Start Battle
                 const currentGame = Game.currentGame;
                 var encounter;
-                if(currentGame.currentEncounter % 3 == 0)
+                if(currentGame.currentEncounter === currentGame.encounterCount)
+                    encounter = new Battle(stage, currentGame.allies, true);
+                else if(currentGame.currentEncounter % 3 == 0)
                     encounter = new RestSpot(stage, currentGame.allies);
                 else
                     encounter = new Battle(stage, currentGame.allies);

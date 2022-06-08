@@ -10,13 +10,17 @@ import { fadeIn, fadeOut } from "../utils/audio_utils.js";
 export class Battle {
     static currentBattle;
 
-    constructor(stage, allies = []) {
+    constructor(stage, allies = [], isBoss = false) {
         this.stage = {
             background: new Sprite(stage),
             music: stage.music.battle
         };
         this.allies = allies;
-        this.#generateEnemies(stage);
+        this.isBoss = isBoss;
+        if(isBoss)
+            this.#generateBoss(stage);
+        else
+            this.#generateEnemies(stage);
 
         // Combat
         this.currentAlly = 0;
@@ -72,6 +76,25 @@ export class Battle {
 
         // Setup Attacks
         ui.setupAttacks(this.allies[this.currentAlly].attacks);
+    }
+
+    #generateBoss(stage) {
+        var enemies = [];
+        const bossCount = stage.bosses.length;
+        const boss = stage.bosses[randomInt(0,bossCount-1)];
+        if(boss.minions) {
+            boss.minions.forEach(minion => {
+                const index = enemies.length;
+                const enemyPosition = Object.entries(ENEMY_POSITIONS)[index][1];
+                enemies.push(new Character({...minion, position: enemyPosition, healthbarId: `enemy${index+1}`}));
+            });
+        }
+        
+        const index = enemies.length;
+        const enemyPosition = Object.entries(ENEMY_POSITIONS)[index][1];
+        enemies.push(new Character({...boss, position: enemyPosition, healthbarId: `enemy${index+1}`}));
+
+        this.enemies = enemies;
     }
 
     #generateEnemies(stage) {

@@ -1,9 +1,10 @@
 import { backgroundPath, miscPath } from "../utils/paths.js"
 import { MUSIC } from "./audio.js"
+import { BOSSES } from "./characters/bosses.js";
 import { ENEMIES } from "./characters/enemies.js"
 
 // Number of encounters per stage (including Boss) - Only for Campaign
-export const ENCOUNTER_COUNT = 5;
+export const ENCOUNTER_COUNT = 7;
 // Number of stages
 export const STAGE_COUNT = 3;
 
@@ -33,7 +34,9 @@ export const STAGES = {
             ENEMIES.MUMMY_ARCHER,
             ENEMIES.MUMMY_MAGE
         ],
-        bosses: [],
+        bosses: [
+            BOSSES.ANUBIS
+        ],
         music: {
             battle: MUSIC.DESERT_BATTLE
         }

@@ -9,6 +9,11 @@ export function enemyPath(name) {
     return `../../img/characters/enemies/${name}.png`;
 }
 
+export function bossPath(name) {
+    name = name.toLowerCase();
+    return `../../img/characters/bosses/${name}.png`;
+}
+
 export function backgroundPath(name) {
     name = name.toLowerCase();
     return `../../img/backgrounds/${name}.png`;
