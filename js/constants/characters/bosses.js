@@ -4,7 +4,26 @@ import { ENEMIES } from "./enemies.js";
 
 export const BOSSES = {
     // Forest Bosses
-
+    GOBLIN_CHIEF: {
+        image: {
+            src: bossPath("goblin_chief")
+        },
+        frames: {
+            max: 4,
+            hold: 20
+        },
+        animate: true,
+        name: "Goblin Chief",
+        health: 40,
+        attacks: [
+            ATTACKS.TACKLE,
+            ATTACKS.SLASH
+        ],
+        minions: [
+            ENEMIES.WOLF
+        ],
+        isEnemy: true
+    },
     // Desert Bosses
     ANUBIS: {
         image: {
@@ -16,15 +35,16 @@ export const BOSSES = {
         },
         animate: true,
         name: "Anubis",
-        health: 30,
+        health: 34,
         attacks: [
             ATTACKS.TACKLE,
             ATTACKS.FIRE_BOLT
         ],
         minions: [
-            ENEMIES.MUMMY_WARRIOR,
-            ENEMIES.MUMMY_WARRIOR
+            ENEMIES.MUMMY,
+            ENEMIES.MUMMY
         ],
         isEnemy: true
     }
+    // Cave Bosses
 }

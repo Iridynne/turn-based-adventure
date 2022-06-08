@@ -19,7 +19,9 @@ export const STAGES = {
             ENEMIES.GOBLIN_ARCHER,
             ENEMIES.GOBLIN_MAGE
         ],
-        bosses: [],
+        bosses: [
+            BOSSES.GOBLIN_CHIEF
+        ],
         music: {
             battle: MUSIC.FOREST_BATTLE
         }

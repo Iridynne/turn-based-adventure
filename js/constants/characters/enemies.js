@@ -69,6 +69,22 @@ export const ENEMIES = {
         ],
         isEnemy: true
     },
+    WOLF: {
+        image: {
+            src: enemyPath("wolf")
+        },
+        frames: {
+            max: 4,
+            hold: 20
+        },
+        animate: true,
+        name: "Wolf",
+        health: 16,
+        attacks: [
+            ATTACKS.TACKLE
+        ],
+        isEnemy: true
+    },
     // Desert Enemies
     MUMMY_WARRIOR: {
         image: {
@@ -121,6 +137,23 @@ export const ENEMIES = {
         ],
         isEnemy: true
     },
+    MUMMY: {
+        image: {
+            src: enemyPath("mummy")
+        },
+        frames: {
+            max: 4,
+            hold: 20
+        },
+        animate: true,
+        name: "Mummy",
+        health: 12,
+        attacks: [
+            ATTACKS.TACKLE
+        ],
+        isEnemy: true
+    },
+    // Cave Enemies
     SKELETON: {
         image: {
             src: enemyPath("skeleton")
@@ -131,22 +164,6 @@ export const ENEMIES = {
         },
         animate: true,
         name: "Skeleton",
-        health: 20,
-        attacks: [
-            ATTACKS.TACKLE
-        ],
-        isEnemy: true
-    },
-    SLIME: {
-        image: {
-            src: enemyPath("slime")
-        },
-        frames: {
-            max: 4,
-            hold: 20
-        },
-        animate: true,
-        name: "Slime",
         health: 20,
         attacks: [
             ATTACKS.TACKLE
