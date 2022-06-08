@@ -23,13 +23,18 @@ export const SOUND = {
         html5: true,
         volume: AUDIO_VOLUME
     }),
-    BOW_FIRE: new Howl({
-        src: audioPath("bow_fire.wav"),
+    ARROW_FIRE: new Howl({
+        src: audioPath("arrow_fire.wav"),
         html5: true,
         volume: AUDIO_VOLUME
     }),
     MELEE_HIT: new Howl({
         src: audioPath("melee_hit.wav"),
+        html5: true,
+        volume: AUDIO_VOLUME
+    }),
+    SWORD_HIT: new Howl({
+        src: audioPath("sword_hit.wav"),
         html5: true,
         volume: AUDIO_VOLUME
     })

@@ -30,7 +30,7 @@ export const ENEMIES = {
         name: "Goblin Warrior",
         health: 20,
         attacks: [
-            ATTACKS.TACKLE,
+            ATTACKS.BASH,
             ATTACKS.SLASH
         ],
         isEnemy: true
@@ -47,7 +47,7 @@ export const ENEMIES = {
         name: "Goblin Archer",
         health: 18,
         attacks: [
-            ATTACKS.TACKLE,
+            ATTACKS.BASH,
             ATTACKS.QUICKSHOT
         ],
         isEnemy: true
@@ -81,7 +81,7 @@ export const ENEMIES = {
         name: "Wolf",
         health: 16,
         attacks: [
-            ATTACKS.TACKLE
+            ATTACKS.BASH
         ],
         isEnemy: true
     },
@@ -98,7 +98,7 @@ export const ENEMIES = {
         name: "Mummy Warrior",
         health: 20,
         attacks: [
-            ATTACKS.TACKLE,
+            ATTACKS.BASH,
             ATTACKS.SLASH
         ],
         isEnemy: true
@@ -115,7 +115,7 @@ export const ENEMIES = {
         name: "Mummy Archer",
         health: 18,
         attacks: [
-            ATTACKS.TACKLE,
+            ATTACKS.BASH,
             ATTACKS.QUICKSHOT
         ],
         isEnemy: true
@@ -149,7 +149,7 @@ export const ENEMIES = {
         name: "Mummy",
         health: 12,
         attacks: [
-            ATTACKS.TACKLE
+            ATTACKS.BASH
         ],
         isEnemy: true
     },
@@ -166,7 +166,7 @@ export const ENEMIES = {
         name: "Skeleton",
         health: 20,
         attacks: [
-            ATTACKS.TACKLE
+            ATTACKS.BASH
         ],
         isEnemy: true
     },

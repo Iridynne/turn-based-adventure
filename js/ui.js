@@ -287,6 +287,13 @@ export function setupHealthbars(characters) {
     });
 }
 
+export function hideHealthbars() {
+    for(var i=1; i<=3; i++) {
+        document.querySelector(`#ally${i}-container`).style.opacity = 0;
+        document.querySelector(`#enemy${i}-container`).style.opacity = 0;
+    }
+}
+
 export function updateHealthbar(character) {
     character.healthUI.healthbar.style.width = `${Math.floor(character.health * 100 / character.maxHealth)}%`;
     character.healthUI.health.innerHTML = `${Math.floor(character.health)} / ${character.maxHealth}`;

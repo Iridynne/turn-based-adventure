@@ -1,3 +1,4 @@
+import { ALLIES } from "./constants/characters/allies.js";
 import { Game } from "./game.js";
 import * as ui from "./ui.js"
 
@@ -8,8 +9,8 @@ window.onload = () => {
 };
 
 function debug() {
-    var game = new Game();
+    var game = new Game([ALLIES.ARCHER]);
     game.currentEncounter = game.encounterCount;
-    game.currentStage = 2;
+    game.currentStage = 1;
     game.start();
 }

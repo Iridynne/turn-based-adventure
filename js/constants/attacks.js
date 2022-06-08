@@ -19,11 +19,11 @@ export const ATTACKS = {
         type: TYPE.PHYSICAL,
         isRanged: false,
         sound: {
-            hit: SOUND.MELEE_HIT
+            hit: SOUND.SWORD_HIT
         }
     },
-    TACKLE : {
-        name: "Tackle",
+    BASH : {
+        name: "Bash",
         damage: 4,
         type: TYPE.PHYSICAL,
         isRanged: false,
@@ -43,7 +43,7 @@ export const ATTACKS = {
             src: projectilePath("arrow_left")
         },
         sound: {
-            fire: SOUND.BOW_FIRE,
+            fire: SOUND.ARROW_FIRE,
             hit: SOUND.ARROW_HIT
         }
     },
@@ -59,7 +59,7 @@ export const ATTACKS = {
             src: projectilePath("fire_bolt_left")
         },
         sound: {
-            fire: SOUND.BOW_FIRE,
+            fire: SOUND.ARROW_FIRE,
             hit: SOUND.ARROW_HIT
         }
     },
@@ -75,7 +75,7 @@ export const ATTACKS = {
             src: projectilePath("fire_bolt_left")
         },
         sound: {
-            fire: SOUND.BOW_FIRE,
+            fire: SOUND.ARROW_FIRE,
             hit: SOUND.ARROW_HIT
         }
     }

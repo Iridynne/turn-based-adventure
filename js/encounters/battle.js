@@ -98,7 +98,7 @@ export class Battle {
     }
 
     #generateEnemies(stage) {
-        var countWeights = weightedRand({1: 0.55, 2: 0.30, 3: 0.15}, 2);
+        var countWeights = weightedRand({1: 0.5, 2: 0.35, 3: 0.15}, 2);
         var enemies = [];
         var count = countWeights();
 
@@ -151,6 +151,7 @@ export class Battle {
                 const params = {
                     duration: 0.5,
                     onComplete() {
+                        ui.hideHealthbars();
                         ui.hideEncounterMenu();
                         wait(2000).then(() => {
                             Game.currentGame.advance();
@@ -173,6 +174,7 @@ export class Battle {
                 const params = {
                     duration: 0.5,
                     onComplete() {
+                        ui.hideHealthbars();
                         ui.hideEncounterMenu();
                         wait(2000).then(() => {
                             Game.currentGame.end();

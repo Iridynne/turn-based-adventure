@@ -1,6 +1,8 @@
 import { wait } from "./timer.js";
 
 export function fadeIn(sound, duration) {
+    if(!sound) return;
+
     var volume = sound.volume();
     sound.volume(0);
     sound.play();
@@ -10,6 +12,8 @@ export function fadeIn(sound, duration) {
 }
 
 export function fadeOut(sound, duration) {
+    if(!sound) return;
+
     var volume = sound.volume();
     sound.fade(volume, 0, duration);
     wait(duration).then(() => {

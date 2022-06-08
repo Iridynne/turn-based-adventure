@@ -16,7 +16,7 @@ export const BOSSES = {
         name: "Goblin Chief",
         health: 40,
         attacks: [
-            ATTACKS.TACKLE,
+            ATTACKS.BASH,
             ATTACKS.SLASH
         ],
         minions: [
@@ -37,7 +37,7 @@ export const BOSSES = {
         name: "Anubis",
         health: 34,
         attacks: [
-            ATTACKS.TACKLE,
+            ATTACKS.BASH,
             ATTACKS.FIRE_BOLT
         ],
         minions: [

@@ -72,6 +72,7 @@ export class RestSpot {
         const params = {
             duration: 0.5,
             onComplete() {
+                ui.hideHealthbars();
                 ui.hideEncounterMenu();
                 wait(2000).then(() => {
                     Game.currentGame.advance();
