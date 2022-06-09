@@ -3,7 +3,7 @@ import { Game } from "./game.js";
 import * as ui from "./ui.js"
 
 window.onload = () => {
-    ui.canvasSetup();
+    ui.setupCanvas();
     // ui.setupMainMenu();
     debug();
 };

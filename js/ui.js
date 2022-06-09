@@ -7,7 +7,7 @@ import { ARROW } from "./constants/misc.js";
 import { Sprite } from "./classes/sprite.js";
 
 // Canvas
-export function canvasSetup() {
+export function setupCanvas() {
     const cnv = document.querySelector("canvas");
     const ctx = cnv.getContext("2d");
 
@@ -18,6 +18,11 @@ export function canvasSetup() {
     // Font + Image Scaling
     ctx.font = general.DEFAULT_FONT;
     ctx.imageSmoothingEnabled = false;
+}
+
+export function clearCanvas() {
+    const cnv = document.querySelector("canvas");
+    const ctx = cnv.getContext("2d");
 
     // Fill Background
     ctx.fillStyle = general.COLOR_1;
@@ -48,6 +53,7 @@ function loadGame() {
 }
 
 export function setupMainMenu () {
+    clearCanvas();
     const newGameBtn = document.querySelector("#new-game");
     const loadGameBtn = document.querySelector("#load-game");
 
