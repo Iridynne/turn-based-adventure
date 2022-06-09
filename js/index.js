@@ -4,8 +4,8 @@ import * as ui from "./ui.js"
 
 window.onload = () => {
     ui.setupCanvas();
-    // ui.setupMainMenu();
-    debug();
+    ui.setupMainMenu();
+    // debug();
 };
 
 function debug() {

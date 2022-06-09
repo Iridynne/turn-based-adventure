@@ -5,6 +5,8 @@ import { Battle } from "./encounters/battle.js";
 import { deleteData, loadData } from "./utils/data.js";
 import { ARROW } from "./constants/misc.js";
 import { Sprite } from "./classes/sprite.js";
+import { fadeIn, fadeOut } from "./utils/audio_utils.js";
+import { MUSIC } from "./constants/audio.js";
 
 // Canvas
 export function setupCanvas() {
@@ -41,12 +43,14 @@ function hideMainMenu() {
 }
 
 function newGame() {
+    fadeOut(MUSIC.MAIN_MENU);
     hideMainMenu();
     var game = new Game();
     game.start();
 }
 
 function loadGame() {
+    fadeOut(MUSIC.MAIN_MENU);
     hideMainMenu();
     loadData();
     Game.currentGame.start();
@@ -67,6 +71,7 @@ export function setupMainMenu () {
         loadGameBtn.disabled = true;
 
     showMainMenu();
+    fadeIn(MUSIC.MAIN_MENU);
 }
 
 // Transition Overlay

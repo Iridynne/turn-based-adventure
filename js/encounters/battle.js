@@ -50,7 +50,7 @@ export class Battle {
 
     start() {
         // Start Music
-        fadeIn(this.stage.music, 500);
+        fadeIn(this.stage.music);
 
         // Hide Transition
         ui.hideTransition();
@@ -161,7 +161,7 @@ export class Battle {
                 ui.showTransition("Victory", "", params);
 
                 // Fade Music
-                fadeOut(this.stage.music, 500);
+                fadeOut(this.stage.music);
             });
             return true;
         }
@@ -184,7 +184,7 @@ export class Battle {
                 ui.showTransition("Defeat", "", params);
 
                 // Fade Music
-                fadeOut(this.stage.music, 500);
+                fadeOut(this.stage.music);
             });
             return true;
         }

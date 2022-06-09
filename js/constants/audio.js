@@ -3,14 +3,20 @@ import { audioPath } from "../utils/paths.js";
 export const AUDIO_VOLUME = 0.1;
 
 export const MUSIC = {
+    MAIN_MENU: new Howl({
+        src: audioPath("main_menu.wav"),
+        html5: true,
+        volume: AUDIO_VOLUME,
+        loop: true
+    }),
     FOREST_BATTLE: new Howl({
-        src: audioPath("forest_battle.mp3"),
+        src: audioPath("main_menu.wav"),
         html5: true,
         volume: AUDIO_VOLUME,
         loop: true
     }),
     DESERT_BATTLE: new Howl({
-        src: audioPath("desert_battle.mp3"),
+        src: audioPath("main_menu.wav"),
         html5: true,
         volume: AUDIO_VOLUME,
         loop: true
