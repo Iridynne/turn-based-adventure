@@ -205,4 +205,20 @@ export const ENEMIES = {
         ],
         isEnemy: true
     },
+    SKELETON: {
+        image: {
+            src: enemyPath("skeleton")
+        },
+        frames: {
+            max: 4,
+            hold: 20
+        },
+        animate: true,
+        name: "Skeleton",
+        health: 12,
+        attacks: [
+            ATTACKS.BASH
+        ],
+        isEnemy: true
+    },
 }

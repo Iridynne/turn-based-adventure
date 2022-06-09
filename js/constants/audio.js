@@ -1,7 +1,7 @@
 import { audioPath } from "../utils/paths.js";
 
-export const MUSIC_VOLUME = 0.05;
-export const SOUND_VOLUME = 0.15;
+export const MUSIC_VOLUME = 0.03;
+export const SOUND_VOLUME = 0.1;
 
 export const MUSIC = {
     MAIN_MENU: new Howl({
@@ -17,17 +17,23 @@ export const MUSIC = {
         loop: true
     }),
     FOREST_BATTLE: new Howl({
-        src: audioPath("main_menu.wav"),
+        src: audioPath("forest_battle.wav"),
         html5: true,
         volume: MUSIC_VOLUME,
         loop: true
     }),
     DESERT_BATTLE: new Howl({
-        src: audioPath("main_menu.wav"),
+        src: audioPath("desert_battle.wav"),
         html5: true,
         volume: MUSIC_VOLUME,
         loop: true
-    })
+    }),
+    CAVE_BATTLE: new Howl({
+        src: audioPath("cave_battle.wav"),
+        html5: true,
+        volume: MUSIC_VOLUME,
+        loop: true
+    }),
 };
 
 export const SOUND = {

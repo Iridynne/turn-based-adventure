@@ -35,7 +35,7 @@ export const BOSSES = {
         },
         animate: true,
         name: "Anubis",
-        health: 34,
+        health: 36,
         attacks: [
             ATTACKS.BASH,
             ATTACKS.FIRE_BOLT
@@ -45,6 +45,27 @@ export const BOSSES = {
             ENEMIES.MUMMY
         ],
         isEnemy: true
-    }
+    },
     // Cave Bosses
+    LICH: {
+        image: {
+            src: bossPath("lich")
+        },
+        frames: {
+            max: 4,
+            hold: 20
+        },
+        animate: true,
+        name: "Lich",
+        health: 36,
+        attacks: [
+            ATTACKS.FIRE_BOLT,
+            ATTACKS.ICE_SHARD
+        ],
+        minions: [
+            ENEMIES.SKELETON,
+            ENEMIES.SKELETON
+        ],
+        isEnemy: true
+    },
 }

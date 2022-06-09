@@ -53,7 +53,9 @@ export const STAGES = {
             ENEMIES.SKELETON_ARCHER,
             ENEMIES.NECROMANCER
         ],
-        bosses: [],
+        bosses: [
+            BOSSES.LICH
+        ],
         music: {
             battle: MUSIC.FOREST_BATTLE
         }

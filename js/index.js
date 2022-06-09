@@ -10,8 +10,8 @@ window.onload = () => {
 
 function debug() {
     var game = new Game();
-    // game.currentEncounter = game.encounterCount;
+    game.currentEncounter = game.encounterCount;
     // game.currentEncounter = 3;
-    game.currentStage = 1;
+    game.currentStage = 3;
     game.start();
 }
