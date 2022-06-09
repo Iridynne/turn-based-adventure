@@ -188,16 +188,16 @@ export const ENEMIES = {
         ],
         isEnemy: true
     },
-    DARK_MAGE: {
+    NECROMANCER: {
         image: {
-            src: enemyPath("dark_mage")
+            src: enemyPath("necromancer")
         },
         frames: {
             max: 4,
             hold: 20
         },
         animate: true,
-        name: "Dark Mage",
+        name: "Necromancer",
         health: 16,
         attacks: [
             ATTACKS.FIRE_BOLT,
