@@ -9,8 +9,8 @@ window.onload = () => {
 };
 
 function debug() {
-    var game = new Game([ALLIES.ARCHER]);
-    // game.currentEncounter = game.encounterCount;
-    game.currentStage = 3;
+    var game = new Game();
+    game.currentEncounter = game.encounterCount;
+    game.currentStage = 1;
     game.start();
 }

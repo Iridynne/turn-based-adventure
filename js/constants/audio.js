@@ -18,6 +18,16 @@ export const MUSIC = {
 };
 
 export const SOUND = {
+    MELEE_HIT: new Howl({
+        src: audioPath("melee_hit.wav"),
+        html5: true,
+        volume: AUDIO_VOLUME
+    }),
+    SWORD_HIT: new Howl({
+        src: audioPath("sword_hit.wav"),
+        html5: true,
+        volume: AUDIO_VOLUME
+    }),
     ARROW_HIT: new Howl({
         src: audioPath("arrow_hit.wav"),
         html5: true,
@@ -28,13 +38,23 @@ export const SOUND = {
         html5: true,
         volume: AUDIO_VOLUME
     }),
-    MELEE_HIT: new Howl({
-        src: audioPath("melee_hit.wav"),
+    FIRE_SPELL_FIRE: new Howl({
+        src: audioPath("fire_spell_fire.wav"),
         html5: true,
         volume: AUDIO_VOLUME
     }),
-    SWORD_HIT: new Howl({
-        src: audioPath("sword_hit.wav"),
+    FIRE_SPELL_HIT: new Howl({
+        src: audioPath("fire_spell_hit.wav"),
+        html5: true,
+        volume: AUDIO_VOLUME
+    }),
+    ICE_SPELL_FIRE: new Howl({
+        src: audioPath("ice_spell_fire.wav"),
+        html5: true,
+        volume: AUDIO_VOLUME
+    }),
+    ICE_SPELL_HIT: new Howl({
+        src: audioPath("ice_spell_hit.wav"),
         html5: true,
         volume: AUDIO_VOLUME
     })

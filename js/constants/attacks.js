@@ -24,7 +24,7 @@ export const ATTACKS = {
     },
     BASH : {
         name: "Bash",
-        damage: 4,
+        damage: 3,
         type: TYPE.PHYSICAL,
         isRanged: false,
         sound: {
@@ -49,7 +49,7 @@ export const ATTACKS = {
     },
     FIRE_BOLT: {
         name: "Fire Bolt",
-        damage: 6,
+        damage: 5,
         type: TYPE.MAGICAL,
         isRanged: true,
         imageRight: {
@@ -59,8 +59,8 @@ export const ATTACKS = {
             src: projectilePath("fire_bolt_left")
         },
         sound: {
-            fire: SOUND.ARROW_FIRE,
-            hit: SOUND.ARROW_HIT
+            fire: SOUND.FIRE_SPELL_FIRE,
+            hit: SOUND.FIRE_SPELL_HIT
         }
     },
     ICE_SHARD: {
@@ -69,14 +69,14 @@ export const ATTACKS = {
         type: TYPE.MAGICAL,
         isRanged: true,
         imageRight: {
-            src: projectilePath("fire_bolt_right")
+            src: projectilePath("ice_shard_right")
         },
         imageLeft: {
-            src: projectilePath("fire_bolt_left")
+            src: projectilePath("ice_shard_left")
         },
         sound: {
-            fire: SOUND.ARROW_FIRE,
-            hit: SOUND.ARROW_HIT
+            fire: SOUND.ICE_SPELL_FIRE,
+            hit: SOUND.ICE_SPELL_HIT
         }
     }
 }
