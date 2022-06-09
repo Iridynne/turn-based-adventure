@@ -5,7 +5,8 @@ import * as ui from "./ui.js"
 window.onload = () => {
     ui.setupCanvas();
     // ui.setupMainMenu();
-    debugBattle();
+    // debugBattle();
+    debugUI();
 };
 
 function debugBattle() {
@@ -14,4 +15,12 @@ function debugBattle() {
     // game.currentEncounter = 3;
     game.currentStage = 1;
     game.start();
+}
+
+function debugUI() {
+    const params = {
+        delay: 0,
+        duration: 0
+    };
+    ui.showTransition("Test", "Test", params);
 }
