@@ -57,6 +57,10 @@ export class Game {
         if(this.currentEncounter > this.encounterCount) {
             this.currentEncounter = 1;
             this.currentStage++;
+
+            // Heal Allies
+            this.allies.forEach(ally => ally.health = ally.maxHealth);
+
             if(this.currentStage > this.stageCount) {
                 this.end();
                 return;
