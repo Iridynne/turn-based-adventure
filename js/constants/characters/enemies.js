@@ -62,7 +62,7 @@ export const ENEMIES = {
         },
         animate: true,
         name: "Goblin Mage",
-        health: 14,
+        health: 16,
         attacks: [
             ATTACKS.FIRE_BOLT,
             ATTACKS.ICE_SHARD
@@ -130,7 +130,7 @@ export const ENEMIES = {
         },
         animate: true,
         name: "Mummy Mage",
-        health: 14,
+        health: 16,
         attacks: [
             ATTACKS.FIRE_BOLT,
             ATTACKS.ICE_SHARD
@@ -154,33 +154,51 @@ export const ENEMIES = {
         isEnemy: true
     },
     // Cave Enemies
-    SKELETON: {
+    SKELETON_WARRIOR: {
         image: {
-            src: enemyPath("skeleton")
+            src: enemyPath("skeleton_warrior")
         },
         frames: {
             max: 4,
             hold: 20
         },
         animate: true,
-        name: "Skeleton",
+        name: "Skeleton Archer",
         health: 20,
         attacks: [
-            ATTACKS.BASH
+            ATTACKS.BASH,
+            ATTACKS.SLASH
         ],
         isEnemy: true
     },
-    EVIL_MAGE: {
+    SKELETON_ARCHER: {
         image: {
-            src: enemyPath("evil_mage")
+            src: enemyPath("skeleton_archer")
         },
         frames: {
             max: 4,
             hold: 20
         },
         animate: true,
-        name: "Evil Mage",
-        health: 20,
+        name: "Skeleton Archer",
+        health: 18,
+        attacks: [
+            ATTACKS.BASH,
+            ATTACKS.QUICKSHOT
+        ],
+        isEnemy: true
+    },
+    DARK_MAGE: {
+        image: {
+            src: enemyPath("dark_mage")
+        },
+        frames: {
+            max: 4,
+            hold: 20
+        },
+        animate: true,
+        name: "Dark Mage",
+        health: 16,
         attacks: [
             ATTACKS.FIRE_BOLT,
             ATTACKS.ICE_SHARD

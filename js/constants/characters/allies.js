@@ -59,7 +59,7 @@ export const ALLIES = {
         },
         animate: true,
         name: "Mage",
-        health: 14,
+        health: 16,
         attacks: [
             ATTACKS.FIRE_BOLT,
             ATTACKS.ICE_SHARD

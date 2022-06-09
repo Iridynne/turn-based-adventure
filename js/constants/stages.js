@@ -49,7 +49,9 @@ export const STAGES = {
             src: backgroundPath("cave")
         },
         enemies: [
-            ENEMIES.SKELETON
+            ENEMIES.SKELETON_WARRIOR,
+            ENEMIES.SKELETON_ARCHER,
+            ENEMIES.DARK_MAGE
         ],
         bosses: [],
         music: {
