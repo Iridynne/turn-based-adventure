@@ -1,4 +1,10 @@
 /* Main Menu */
+@keyframes cycle {
+    0% { color: var(--color3); }
+    50% { color: var(--color2); }
+    100% { color: var(--color3); }
+}
+
 div#main-menu {
     position: absolute;
     background: url("/img/main_menu.png");
@@ -12,13 +18,20 @@ div#main-menu {
 }
 
 div#main-title {
-    text-align: center;
     margin: auto;
     padding: 2rem;
-    border: 8px solid var(--color3);
+
+    text-align: center;
     font-size: 48px;
-    background-color: var(--color1);
     color: var(--color3);
+
+    background-color: var(--color1);
+    border: 8px solid var(--color3);
+
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-name: cycle;
+    animation-timing-function: ease;
 }
 
 div#main-options {
