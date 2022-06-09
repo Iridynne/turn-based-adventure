@@ -10,21 +10,49 @@ div#transition-overlay {
     right: 0;
     z-index: 10;
     opacity: 0;
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
+
+div.title-container {
+    margin: auto;
+    display: grid;
 }
 
 div#transition-title, div#transition-subtitle  {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     color: var(--color3);
+    margin: auto;
 }
 
 div#transition-title  {
     font-size: 48px;
+
+    margin-bottom: 64px;
 }
 
 div#transition-subtitle  {
-    top: 60%;
     font-size: 32px;
+}
+
+div#transition-options {
+    display: grid;
+
+    margin: 0 auto 64px;
+
+    background-color: var(--color3);
+    border: 8px solid var(--color3);
+}
+
+div#transition-options > button.option {
+    padding: 2rem;
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+div#transition-options > button.option:last-child {
+    margin-bottom: 0;
+}
+
+div#transition-options > button.option:disabled {
+    color: var(--color2);
 }
