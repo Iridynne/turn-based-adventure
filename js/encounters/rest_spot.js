@@ -1,7 +1,9 @@
 import { Sprite } from "../classes/sprite.js";
+import { MUSIC } from "../constants/audio.js";
 import { CAMPFIRE } from "../constants/misc.js";
 import { Game } from "../game.js";
 import * as ui from "../ui.js"
+import { fadeIn, fadeOut } from "../utils/audio_utils.js";
 import { wait } from "../utils/timer.js";
 
 const sequence = [
@@ -30,6 +32,7 @@ export class RestSpot {
 
     constructor(stage, allies) {
         this.stage = {
+            music: MUSIC.REST_SPOT,
             background: new Sprite(stage)
         };
         this.allies = allies;
@@ -51,6 +54,9 @@ export class RestSpot {
     }
 
     start() {
+        // Start Music
+        fadeIn(this.stage.music);
+
         // Hide Transition
         ui.hideTransition();
 
@@ -80,6 +86,9 @@ export class RestSpot {
             }
         };
         ui.showTransition("Rested", "", params);
+
+        // Fade Music
+        fadeOut(this.stage.music);
     }
 
     #advanceSequence() {
