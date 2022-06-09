@@ -29,8 +29,13 @@ export function projectilePath(name) {
     return `../../img/projectiles/${name}.png`;
 }
 
-// Audio Path
-export function audioPath(name) {
+// Audio Paths
+export function soundPath(name) {
     name = name.toLowerCase();
-    return `../../audio/${name}`;
+    return `../../audio/sounds/${name}`;
+}
+
+export function musicPath(name) {
+    name = name.toLowerCase();
+    return `../../audio/music/${name}`;
 }

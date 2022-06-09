@@ -57,7 +57,7 @@ export const STAGES = {
             BOSSES.LICH
         ],
         music: {
-            battle: MUSIC.FOREST_BATTLE
+            battle: MUSIC.CAVE_BATTLE
         }
     }
 }

@@ -163,7 +163,7 @@ export const ENEMIES = {
             hold: 20
         },
         animate: true,
-        name: "Skeleton Archer",
+        name: "Skeleton Warrior",
         health: 20,
         attacks: [
             ATTACKS.BASH,
