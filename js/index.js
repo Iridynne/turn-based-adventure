@@ -4,9 +4,9 @@ import * as ui from "./ui.js"
 
 window.onload = () => {
     ui.setupCanvas();
-    // ui.setupMainMenu();
+    ui.setupMainMenu();
     // debugBattle();
-    debugUI();
+    // debugUI();
 };
 
 function debugBattle() {

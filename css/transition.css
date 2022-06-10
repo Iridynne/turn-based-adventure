@@ -36,6 +36,7 @@ div#transition-subtitle  {
 
 div#transition-options {
     display: grid;
+    width: 30%;
 
     margin: 0 auto 64px;
 
