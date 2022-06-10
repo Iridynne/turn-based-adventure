@@ -2,7 +2,7 @@ import { Game } from "./game.js";
 import { wait } from "./utils/timer.js"
 import * as general from "./constants/general.js"
 import { Battle } from "./encounters/battle.js";
-import { deleteData, loadData } from "./utils/data.js";
+import { loadData } from "./utils/data.js";
 import { ARROW } from "./constants/misc.js";
 import { Sprite } from "./classes/sprite.js";
 import { fadeIn, fadeOut } from "./utils/audio_utils.js";
@@ -80,7 +80,7 @@ const transitionDuration = 0.5;
 
 export function showTransition(
     title, 
-    subtitle, 
+    subtitle,
     params = {
         delay: 0,
         duration: 0,
@@ -120,6 +120,31 @@ export function hideTransition(
     wait(waitDuration * 1000).then(() => {
         document.querySelector("#transition-overlay").style.visibility = "hidden";
     });
+}
+
+export function showTransitionOptions(showContinue = false, showExit = false) {
+    const transitionOptions = document.querySelector("#transition-options");
+    const continueBtn = document.querySelector("#continue");
+    const exitBtn = document.querySelector("#exit");
+
+    transitionOptions.style.display = showContinue || showExit? "grid" : "none";
+    continueBtn.style.display = showContinue? "inline" : "none";
+    exitBtn.style.display = showExit? "inline" : "none";
+
+    continueBtn.onclick = () => {
+        hideTransitionOptions();
+        Game.currentGame.start();
+    };
+    exitBtn.onclick = () => {
+        hideTransitionOptions();
+        Game.currentGame.end();
+    }
+}
+
+export function hideTransitionOptions() {
+    const transitionOptions = document.querySelector("#transition-options");
+
+    transitionOptions.style.display = "none";
 }
 
 // Encounter Menu

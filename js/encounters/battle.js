@@ -6,6 +6,7 @@ import { Sprite } from "../classes/sprite.js";
 import { wait } from "../utils/timer.js";
 import { Game } from "../game.js";
 import { fadeIn, fadeOut } from "../utils/audio_utils.js";
+import { deleteData } from "../utils/data.js";
 
 export class Battle {
     static currentBattle;
@@ -153,11 +154,12 @@ export class Battle {
                     onComplete() {
                         ui.hideHealthbars();
                         ui.hideEncounterMenu();
-                        wait(2000).then(() => {
-                            Game.currentGame.advance();
-                        });
+                        const showContinue = !Game.currentGame.isEnd();
+                        Game.currentGame.advance();
+                        ui.showTransitionOptions(showContinue, true);
                     }
                 };
+
                 ui.showTransition("Victory", "", params);
 
                 // Fade Music
@@ -176,12 +178,11 @@ export class Battle {
                     onComplete() {
                         ui.hideHealthbars();
                         ui.hideEncounterMenu();
-                        wait(2000).then(() => {
-                            Game.currentGame.end();
-                        });
+                        deleteData();
+                        ui.showTransitionOptions(false, true);
                     }
                 };
-                ui.showTransition("Defeat", "", params);
+                ui.showTransition("Game Over", "", params);
 
                 // Fade Music
                 fadeOut(this.stage.music);

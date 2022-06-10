@@ -28,6 +28,11 @@ export class Game {
     }
 
     start() {
+        if(this.currentStage > this.stageCount) {
+            this.end();
+            return;
+        }
+
         const stage = Object.entries(STAGES)[this.currentStage-1][1];
 
         // Start Transition
@@ -60,20 +65,17 @@ export class Game {
 
             // Heal Allies
             this.allies.forEach(ally => ally.health = ally.maxHealth);
-
-            if(this.currentStage > this.stageCount) {
-                this.end();
-                return;
-            }
         }
-
-        saveData(this);
-        this.start();
+        if(this.currentStage <= this.stageCount) saveData(this);
+        else deleteData();
     }
 
     end() {
-        deleteData();
         ui.hideTransition({duration: 0});
         ui.setupMainMenu();
+    }
+
+    isEnd() {
+        return this.currentEncounter === this.encounterCount && this.currentStage === this.stageCount;
     }
 }
