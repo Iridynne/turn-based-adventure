@@ -80,9 +80,7 @@ export class RestSpot {
             onComplete() {
                 ui.hideHealthbars();
                 ui.hideEncounterMenu();
-                wait(2000).then(() => {
-                    Game.currentGame.advance();
-                });
+                ui.showTransitionOptions(true, true);
             }
         };
         ui.showTransition("Rested", "", params);
