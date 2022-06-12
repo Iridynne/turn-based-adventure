@@ -1,16 +1,17 @@
+import { ATTACKS } from "./constants/attacks.js";
 import { ALLIES } from "./constants/characters/allies.js";
 import { Game } from "./game.js";
 import * as ui from "./ui.js"
 
 window.onload = () => {
     ui.setupCanvas();
-    // ui.setupMainMenu();
-    debugBattle();
+    ui.setupMainMenu();
+    // debugBattle();
     // debugUI();
 };
 
 function debugBattle() {
-    var game = new Game();
+    var game = new Game([{...ALLIES.MAGE, attacks: [ATTACKS.LIGHTNING_BOLT]}]);
     game.currentEncounter = game.encounterCount;
     // game.currentEncounter = 3;
     game.currentStage = 3;

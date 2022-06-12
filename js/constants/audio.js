@@ -76,5 +76,15 @@ export const SOUND = {
         src: soundPath("ice_hit.wav"),
         html5: true,
         volume: SOUND_VOLUME
-    })
+    }),
+    LIGHTNING_SHOOT: new Howl({
+        src: soundPath("lightning_shoot.wav"),
+        html5: true,
+        volume: SOUND_VOLUME
+    }),
+    LIGHTNING_HIT: new Howl({
+        src: soundPath("lightning_hit.wav"),
+        html5: true,
+        volume: SOUND_VOLUME
+    }),
 }

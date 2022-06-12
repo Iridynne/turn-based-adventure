@@ -127,8 +127,8 @@ export const ATTACKS = {
             src: projectilePath("lightning_bolt_left")
         },
         sound: {
-            shoot: SOUND.ICE_SHOOT,
-            hit: SOUND.ICE_HIT
+            shoot: SOUND.LIGHTNING_SHOOT,
+            hit: SOUND.LIGHTNING_HIT
         }
     }
 }
