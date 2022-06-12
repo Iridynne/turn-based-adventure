@@ -52,28 +52,28 @@ export const SOUND = {
         html5: true,
         volume: SOUND_VOLUME
     }),
-    ARROW_FIRE: new Howl({
-        src: soundPath("arrow_fire.wav"),
+    ARROW_SHOOT: new Howl({
+        src: soundPath("arrow_shoot.wav"),
         html5: true,
         volume: SOUND_VOLUME
     }),
-    FIRE_SPELL_FIRE: new Howl({
-        src: soundPath("fire_spell_fire.wav"),
+    FIRE_SHOOT: new Howl({
+        src: soundPath("fire_shoot.wav"),
         html5: true,
         volume: SOUND_VOLUME
     }),
-    FIRE_SPELL_HIT: new Howl({
-        src: soundPath("fire_spell_hit.wav"),
+    FIRE_HIT: new Howl({
+        src: soundPath("fire_hit.wav"),
         html5: true,
         volume: SOUND_VOLUME
     }),
-    ICE_SPELL_FIRE: new Howl({
-        src: soundPath("ice_spell_fire.wav"),
+    ICE_SHOOT: new Howl({
+        src: soundPath("ice_shoot.wav"),
         html5: true,
         volume: SOUND_VOLUME
     }),
-    ICE_SPELL_HIT: new Howl({
-        src: soundPath("ice_spell_hit.wav"),
+    ICE_HIT: new Howl({
+        src: soundPath("ice_hit.wav"),
         html5: true,
         volume: SOUND_VOLUME
     })

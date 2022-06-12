@@ -51,7 +51,7 @@ export class Character extends Sprite {
             });
 
             // Projectile Fire Sound Effect
-            attack.sound.fire.play();
+            attack.sound.shoot.play();
 
             // Projectile Animation
             gsap.to(projectile.position, {

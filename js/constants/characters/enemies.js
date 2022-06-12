@@ -30,7 +30,7 @@ export const ENEMIES = {
         name: "Goblin Warrior",
         health: 20,
         attacks: [
-            ATTACKS.BASH,
+            ATTACKS.SHIELD_BASH,
             ATTACKS.SLASH
         ],
         isEnemy: true
@@ -47,7 +47,7 @@ export const ENEMIES = {
         name: "Goblin Archer",
         health: 18,
         attacks: [
-            ATTACKS.BASH,
+            ATTACKS.SLAM,
             ATTACKS.QUICKSHOT
         ],
         isEnemy: true
@@ -64,8 +64,8 @@ export const ENEMIES = {
         name: "Goblin Mage",
         health: 16,
         attacks: [
-            ATTACKS.FIRE_BOLT,
-            ATTACKS.ICE_SHARD
+            ATTACKS.FIREBALL,
+            ATTACKS.ICE_DART
         ],
         isEnemy: true
     },
@@ -81,7 +81,7 @@ export const ENEMIES = {
         name: "Wolf",
         health: 16,
         attacks: [
-            ATTACKS.BASH
+            ATTACKS.BITE
         ],
         isEnemy: true
     },
@@ -98,7 +98,7 @@ export const ENEMIES = {
         name: "Mummy Warrior",
         health: 20,
         attacks: [
-            ATTACKS.BASH,
+            ATTACKS.SHIELD_BASH,
             ATTACKS.SLASH
         ],
         isEnemy: true
@@ -115,7 +115,7 @@ export const ENEMIES = {
         name: "Mummy Archer",
         health: 18,
         attacks: [
-            ATTACKS.BASH,
+            ATTACKS.SLAM,
             ATTACKS.QUICKSHOT
         ],
         isEnemy: true
@@ -132,8 +132,8 @@ export const ENEMIES = {
         name: "Mummy Mage",
         health: 16,
         attacks: [
-            ATTACKS.FIRE_BOLT,
-            ATTACKS.ICE_SHARD
+            ATTACKS.FIREBALL,
+            ATTACKS.ICE_DART
         ],
         isEnemy: true
     },
@@ -149,7 +149,7 @@ export const ENEMIES = {
         name: "Mummy",
         health: 12,
         attacks: [
-            ATTACKS.BASH
+            ATTACKS.SLAM
         ],
         isEnemy: true
     },
@@ -166,7 +166,7 @@ export const ENEMIES = {
         name: "Skeleton Warrior",
         health: 20,
         attacks: [
-            ATTACKS.BASH,
+            ATTACKS.SHIELD_BASH,
             ATTACKS.SLASH
         ],
         isEnemy: true
@@ -183,7 +183,7 @@ export const ENEMIES = {
         name: "Skeleton Archer",
         health: 18,
         attacks: [
-            ATTACKS.BASH,
+            ATTACKS.SLAM,
             ATTACKS.QUICKSHOT
         ],
         isEnemy: true
@@ -200,8 +200,8 @@ export const ENEMIES = {
         name: "Necromancer",
         health: 16,
         attacks: [
-            ATTACKS.FIRE_BOLT,
-            ATTACKS.ICE_SHARD
+            ATTACKS.FIREBALL,
+            ATTACKS.ICE_DART
         ],
         isEnemy: true
     },
@@ -217,7 +217,7 @@ export const ENEMIES = {
         name: "Skeleton",
         health: 12,
         attacks: [
-            ATTACKS.BASH
+            ATTACKS.SLAM
         ],
         isEnemy: true
     },

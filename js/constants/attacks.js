@@ -13,6 +13,7 @@ export const TYPE = {
 }
 
 export const ATTACKS = {
+    // Physical
     SLASH: {
         name: "Slash",
         damage: 5,
@@ -22,9 +23,27 @@ export const ATTACKS = {
             hit: SOUND.SWORD_HIT
         }
     },
-    BASH : {
-        name: "Bash",
+    SLAM : {
+        name: "Slam",
         damage: 3,
+        type: TYPE.PHYSICAL,
+        isRanged: false,
+        sound: {
+            hit: SOUND.MELEE_HIT
+        }
+    },
+    BITE : {
+        name: "Bite",
+        damage: 4,
+        type: TYPE.PHYSICAL,
+        isRanged: false,
+        sound: {
+            hit: SOUND.MELEE_HIT
+        }
+    },
+    SHIELD_BASH : {
+        name: "Shield Bash",
+        damage: 4,
         type: TYPE.PHYSICAL,
         isRanged: false,
         sound: {
@@ -33,7 +52,7 @@ export const ATTACKS = {
     },
     QUICKSHOT: {
         name: "Quickshot",
-        damage: 5,
+        damage: 4,
         type: TYPE.PHYSICAL,
         isRanged: true,
         imageRight: {
@@ -43,28 +62,45 @@ export const ATTACKS = {
             src: projectilePath("arrow_left")
         },
         sound: {
-            fire: SOUND.ARROW_FIRE,
+            shoot: SOUND.ARROW_SHOOT,
             hit: SOUND.ARROW_HIT
         }
     },
-    FIRE_BOLT: {
-        name: "Fire Bolt",
+    // Magic
+    FLAMING_SHOT: {
+        name: "Flaming Shot",
         damage: 5,
         type: TYPE.MAGICAL,
         isRanged: true,
         imageRight: {
-            src: projectilePath("fire_bolt_right")
+            src: projectilePath("fire_arrow_right")
         },
         imageLeft: {
-            src: projectilePath("fire_bolt_left")
+            src: projectilePath("fire_arrow_left")
         },
         sound: {
-            fire: SOUND.FIRE_SPELL_FIRE,
-            hit: SOUND.FIRE_SPELL_HIT
+            shoot: SOUND.ARROW_SHOOT,
+            hit: SOUND.FIRE_HIT
         }
     },
-    ICE_SHARD: {
-        name: "Ice Shard",
+    FIREBALL: {
+        name: "Fireball",
+        damage: 5,
+        type: TYPE.MAGICAL,
+        isRanged: true,
+        imageRight: {
+            src: projectilePath("fire_ball_right")
+        },
+        imageLeft: {
+            src: projectilePath("fire_ball_left")
+        },
+        sound: {
+            shoot: SOUND.FIRE_SHOOT,
+            hit: SOUND.FIRE_HIT
+        }
+    },
+    ICE_DART: {
+        name: "Ice Dart",
         damage: 4,
         type: TYPE.MAGICAL,
         isRanged: true,
@@ -75,8 +111,24 @@ export const ATTACKS = {
             src: projectilePath("ice_shard_left")
         },
         sound: {
-            fire: SOUND.ICE_SPELL_FIRE,
-            hit: SOUND.ICE_SPELL_HIT
+            shoot: SOUND.ICE_SHOOT,
+            hit: SOUND.ICE_HIT
+        }
+    },
+    LIGHTNING_BOLT: {
+        name: "Lightning Bolt",
+        damage: 4,
+        type: TYPE.MAGICAL,
+        isRanged: true,
+        imageRight: {
+            src: projectilePath("lightning_bolt_right")
+        },
+        imageLeft: {
+            src: projectilePath("lightning_bolt_left")
+        },
+        sound: {
+            shoot: SOUND.ICE_SHOOT,
+            hit: SOUND.ICE_HIT
         }
     }
 }
