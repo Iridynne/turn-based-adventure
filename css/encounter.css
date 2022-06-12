@@ -52,6 +52,28 @@ button.option:not([disabled]):hover, button.selected {
     background-color: var(--color2);
 }
 
+/* Ally Label */
+div#ally-label {
+    position: absolute;
+    top: 128;
+
+    height: 48px;
+    width: 256px;
+
+    padding: 8px;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 12px;
+
+    background-color: var(--color1);
+    border: 8px solid var(--color3);
+    border-top: none;
+    color: var(--color3);
+}
+
 /* Healthbars */
 
 div#ally1-container, div#ally2-container, div#ally3-container, div#enemy1-container, div#enemy2-container, div#enemy3-container {

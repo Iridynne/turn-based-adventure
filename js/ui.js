@@ -267,9 +267,11 @@ export function setupTargets(characters) {
                 });
                 button.classList.add("selected");
 
-                // Disable AttacksBox & TargetsBox
+                // Disable AttacksBox, TargetsBox & AllyLabel
                 hideAttacks();
                 hideTargets();
+                hideAllyLabel();
+
 
                 // Hide Target Arrow
                 cancelAnimationFrame(animationFrame);
@@ -295,6 +297,17 @@ export function setupTargets(characters) {
     });
 
     showTargets();
+}
+
+export function showAllyLabel(character) {
+    const name = document.querySelector("#ally-label");
+    name.innerHTML = character.name;
+    name.style.display = "flex";
+}
+
+export function hideAllyLabel() {
+    const name = document.querySelector("#ally-label");
+    name.style.display = "none";
 }
 
 // Healthbars

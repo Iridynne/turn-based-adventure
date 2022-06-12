@@ -61,10 +61,10 @@ export class Battle {
 
         // Initiate Menu
         ui.showEncounterMenu();
-        ui.showDialogue("Prepare for battle!", ui.hideDialogue);
-
-        // Initiate Combat Choices
-        this.displayChoices();
+        ui.showDialogue("Prepare for battle!", () => {
+            ui.hideDialogue();
+            this.displayChoices();
+        });
 
         this.animate();
     }
@@ -76,6 +76,7 @@ export class Battle {
         }
 
         // Setup Attacks
+        ui.showAllyLabel(this.allies[this.currentAlly]);
         ui.setupAttacks(this.allies[this.currentAlly].attacks);
     }
 
