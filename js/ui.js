@@ -71,8 +71,16 @@ export function setupMainMenu () {
         loadGameBtn.disabled = true;
 
     showMainMenu();
-    fadeIn(MUSIC.MAIN_MENU);
+
+    if(playedMusic)
+        fadeIn(MUSIC.MAIN_MENU);
 }
+
+let playedMusic = false;
+addEventListener("click", () => {
+    if(!playedMusic) fadeIn(MUSIC.MAIN_MENU);
+    playedMusic = true;
+});
 
 // Transition Overlay
 const transitionDelay = 0.5;
