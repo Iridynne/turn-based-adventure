@@ -203,10 +203,11 @@ export function setupAttacks(attacks) {
             // Set Attack Choice
             const currentBattle = Battle.currentBattle;
             const index = currentBattle.currentAlly;
-            currentBattle.choices[`ally${index + 1}`] = {
+            currentBattle.choices.push({
+                attacker: currentBattle.allies[index],
                 attack: attack,
                 target: null
-            };
+            });
 
             // Disable button & Enable others
             attacksBox.childNodes.forEach(child => {
@@ -258,14 +259,14 @@ export function setupTargets(characters) {
 
                 // Set Target Choice
                 const currentBattle = Battle.currentBattle;
-                const index = currentBattle.currentAlly;
-                currentBattle.choices[`ally${index+1}`].target = char;
+                const index = currentBattle.choices.length;
+                currentBattle.choices[index-1].target = char;
 
                 // Disable button & Enable others
-                targetsBox.childNodes.forEach(child => {
-                    child.classList.remove("selected");
-                });
-                button.classList.add("selected");
+                // targetsBox.childNodes.forEach(child => {
+                //     child.classList.remove("selected");
+                // });
+                // button.classList.add("selected");
 
                 // Disable AttacksBox, TargetsBox & AllyLabel
                 hideAttacks();

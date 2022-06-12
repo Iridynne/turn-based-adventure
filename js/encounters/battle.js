@@ -25,14 +25,7 @@ export class Battle {
 
         // Combat
         this.currentAlly = 0;
-        this.choices = {
-            ally1: null,
-            ally2: null,
-            ally3: null,
-            enemy1: null,
-            enemy2: null,
-            enemy3: null
-        };
+        this.choices = [];
 
         this.animate = this.animate.bind(this);
         this.displayChoices = this.displayChoices.bind(this);
@@ -131,14 +124,15 @@ export class Battle {
             const target = this.allies[randomInt(0,this.allies.length-1)];
             const attack = value.attacks[randomInt(0, value.attacks.length-1)];
 
-            this.choices[`enemy${i+1}`] = {
+            this.choices.push({
+                attacker: value,
                 attack: attack,
                 target: target
-            };
+            });
         });
 
         // Determine order of attacks
-        order = randomizeList(order);
+        order = randomizeList(this.choices);
 
         this.#proceedOrder(order, 0);
     }
@@ -197,15 +191,15 @@ export class Battle {
     #proceedOrder(order, index) {
         if(index >= order.length) {
             this.currentAlly = 0;
+            this.choices = [];
             this.#removeDead();
             if(!this.#verifyWinLoss()) 
                 this.displayChoices();
             return;
         }
         
-        const choice = this.choices[order[index]];
-        const charIndex = parseInt(order[index].slice(-1));
-        const char = order[index].includes("ally")? this.allies[charIndex-1] : this.enemies[charIndex-1];
+        const choice = this.choices[index];
+        const char = choice.attacker;
 
         if(choice == null || !choice.target || choice.target.health === 0 || !char || char.health === 0) {
             wait(100).then(this.#proceedOrder(order, index+1));
@@ -218,6 +212,7 @@ export class Battle {
             if(!this.#verifyWinLoss())
                 this.#proceedOrder(order, index+1);
         });
+
         char.attack(choice);
     }
 

@@ -37,7 +37,7 @@ export const BOSSES = {
         name: "Anubis",
         health: 36,
         attacks: [
-            ATTACKS.SHIELD_BASH,
+            ATTACKS.SLAM,
             ATTACKS.FIREBALL
         ],
         minions: [
@@ -60,7 +60,7 @@ export const BOSSES = {
         health: 36,
         attacks: [
             ATTACKS.FIREBALL,
-            ATTACKS.ICE_DART
+            ATTACKS.LIGHTNING_BOLT
         ],
         minions: [
             ENEMIES.SKELETON,
