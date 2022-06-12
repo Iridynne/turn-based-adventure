@@ -37,6 +37,7 @@ export const MUSIC = {
 };
 
 export const SOUND = {
+    // Physical
     MELEE_HIT: new Howl({
         src: soundPath("melee_hit.wav"),
         html5: true,
@@ -57,6 +58,7 @@ export const SOUND = {
         html5: true,
         volume: SOUND_VOLUME
     }),
+    // Magical
     FIRE_SHOOT: new Howl({
         src: soundPath("fire_shoot.wav"),
         html5: true,
@@ -87,4 +89,10 @@ export const SOUND = {
         html5: true,
         volume: SOUND_VOLUME
     }),
+    // Other
+    HEAL: new Howl({
+        src: soundPath("heal.wav"),
+        html5: true,
+        volume: SOUND_VOLUME
+    })
 }

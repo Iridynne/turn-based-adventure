@@ -12,8 +12,9 @@ window.onload = () => {
 
 function debugBattle() {
     var game = new Game([{...ALLIES.MAGE, attacks: [ATTACKS.LIGHTNING_BOLT]}]);
-    game.currentEncounter = game.encounterCount;
-    // game.currentEncounter = 3;
+    Game.currentGame.allies[0].health /= 2;
+    // game.currentEncounter = game.encounterCount;
+    game.currentEncounter = 3;
     game.currentStage = 3;
     game.start();
 }

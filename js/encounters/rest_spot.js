@@ -1,5 +1,5 @@
 import { Sprite } from "../classes/sprite.js";
-import { MUSIC } from "../constants/audio.js";
+import { MUSIC, SOUND } from "../constants/audio.js";
 import { CAMPFIRE } from "../constants/misc.js";
 import { Game } from "../game.js";
 import * as ui from "../ui.js"
@@ -18,6 +18,7 @@ const sequence = [
                 ally.health = ally.maxHealth;
                 ui.updateHealthbar(ally);
             });
+            SOUND.HEAL.play();
         }
     },
     {
@@ -80,7 +81,9 @@ export class RestSpot {
             onComplete() {
                 ui.hideHealthbars();
                 ui.hideEncounterMenu();
-                ui.showTransitionOptions(true, true);
+                const showContinue = !Game.currentGame.isEnd();
+                Game.currentGame.advance();
+                ui.showTransitionOptions(showContinue, true);
             }
         };
         ui.showTransition("Rested", "", params);

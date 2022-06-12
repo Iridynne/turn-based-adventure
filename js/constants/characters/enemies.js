@@ -64,8 +64,8 @@ export const ENEMIES = {
         name: "Goblin Mage",
         health: 16,
         attacks: [
-            ATTACKS.FIREBALL,
-            ATTACKS.ICE_DART
+            ATTACKS.SLAM,
+            ATTACKS.FIREBALL
         ],
         isEnemy: true
     },
@@ -81,6 +81,7 @@ export const ENEMIES = {
         name: "Wolf",
         health: 16,
         attacks: [
+            ATTACKS.SLAM,
             ATTACKS.BITE
         ],
         isEnemy: true
@@ -132,8 +133,8 @@ export const ENEMIES = {
         name: "Mummy Mage",
         health: 16,
         attacks: [
-            ATTACKS.FIREBALL,
-            ATTACKS.ICE_DART
+            ATTACKS.SLAM,
+            ATTACKS.FIREBALL
         ],
         isEnemy: true
     },
@@ -200,7 +201,7 @@ export const ENEMIES = {
         name: "Necromancer",
         health: 16,
         attacks: [
-            ATTACKS.FIREBALL,
+            ATTACKS.SLAM,
             ATTACKS.ICE_DART
         ],
         isEnemy: true
