@@ -81,13 +81,13 @@ export class Battle {
             boss.minions.forEach(minion => {
                 const index = enemies.length;
                 const enemyPosition = Object.entries(ENEMY_POSITIONS)[index][1];
-                enemies.push(new Character({...minion, position: enemyPosition, healthbarId: `enemy${index+1}`}));
+                enemies.push(new Character({...minion, ...enemyPosition}));
             });
         }
         
         const index = enemies.length;
         const enemyPosition = Object.entries(ENEMY_POSITIONS)[index][1];
-        enemies.push(new Character({...boss, position: enemyPosition, healthbarId: `enemy${index+1}`}));
+        enemies.push(new Character({...boss, ...enemyPosition}));
 
         this.enemies = enemies;
     }
@@ -103,7 +103,7 @@ export class Battle {
 
             const enemyPosition = Object.entries(ENEMY_POSITIONS)[i][1];
 
-            enemies.push(new Character({...enemy, position: enemyPosition, healthbarId: `enemy${i+1}`}));
+            enemies.push(new Character({...enemy, ...enemyPosition}));
         }
 
         this.enemies = enemies;

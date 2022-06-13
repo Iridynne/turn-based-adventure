@@ -3,16 +3,25 @@ import { ATTACKS } from "../attacks.js";
 
 export const ALLY_POSITIONS = {
     FIRST: {
-        x: 332,
-        y: 400
+        position: {
+            x: 332,
+            y: 400
+        },
+        healthbarId: "ally1"
     },
     SECOND: {
-        x: 196,
-        y: 400
+        position: {
+            x: 196,
+            y: 400
+        },
+        healthbarId: "ally2"
     },
     THIRD: {
-        x: 60,
-        y: 400
+        position: {
+            x: 60,
+            y: 400,
+        },
+        healthbarId: "ally3"
     }
 }
 

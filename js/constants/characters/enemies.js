@@ -3,16 +3,28 @@ import { enemyPath } from "../../utils/paths.js"
 
 export const ENEMY_POSITIONS = {
     FIRST: {
-        x: 568,
-        y: 400
+        position: {
+            x: 568,
+            y: 400
+        },
+        healthbarId: "enemy1",
+        mirror: true
     },
     SECOND: {
-        x: 704,
-        y: 400
+        position: {
+            x: 704,
+            y: 400
+        },
+        healthbarId: "enemy2",
+        mirror: true
     },
     THIRD: {
-        x: 840,
-        y: 400
+        position: {
+            x: 840,
+            y: 400
+        },
+        healthbarId: "enemy3",
+        mirror: true
     }
 }
 
