@@ -21,7 +21,7 @@ export class Game {
         this.allies = [];
         allies.forEach((value, index) => {
             const position = Object.entries(ALLY_POSITIONS)[index][1];
-            this.allies.push(new Character({...value, position: position, healthbarId: `ally${index+1}`}));
+            this.allies.push(new Character({...value, ...position}));
         });
 
         Game.currentGame = this;
