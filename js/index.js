@@ -15,8 +15,8 @@ window.onload = () => {
 
 function debugBattle() {
     var game = new Game([{...ENEMIES.MUMMY_MAGE, ...ALLY_POSITIONS.FIRST}]);
-    game.currentEncounter = game.encounterCount;
-    // game.currentEncounter = 3;
+    // game.currentEncounter = game.encounterCount;
+    game.currentEncounter = 3;
     game.currentStage = 3;
     game.start();
 }

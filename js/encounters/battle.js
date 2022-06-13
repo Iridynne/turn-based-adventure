@@ -131,9 +131,11 @@ export class Battle {
     #verifyWinLoss() {
         // Win Condition
         if(!this.enemies.length) {
-            cancelAnimationFrame(this.#animationFrame);
             Game.currentGame.allies = this.allies;
             ui.showDialogue("All enemies have been killed.", () => {
+                // Stop animation
+                cancelAnimationFrame(this.#animationFrame);
+
                 // Win Screen
                 const params = {
                     duration: 0.5,
@@ -156,8 +158,10 @@ export class Battle {
 
         // Lose Condition
         if(!this.allies.length) {
-            cancelAnimationFrame(this.#animationFrame);
             ui.showDialogue("All allies have been killed.", () => {
+                // Stop animation
+                cancelAnimationFrame(this.#animationFrame);
+
                 // Loss Screen
                 const params = {
                     duration: 0.5,
