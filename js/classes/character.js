@@ -1,6 +1,5 @@
 import { Sprite } from "./sprite.js";
 import * as ui from "../ui.js"
-import { Healthbar } from "./healthbar.js";
 
 export class Character extends Sprite {
     constructor({
@@ -12,7 +11,6 @@ export class Character extends Sprite {
         name,
         health,
         attacks,
-        isEnemy = false,
         healthbarId
     }) {
         super({position, image, frames, animate, mirror});
@@ -21,15 +19,14 @@ export class Character extends Sprite {
         this.health = health;
         this.maxHealth = health;
         this.attacks = attacks;
-        this.isEnemy = isEnemy;
-        this.healthUI = new Healthbar(healthbarId);
+        this.healthbarId = healthbarId;
 
         this.faint = this.faint.bind(this);
     }
 
     faint() {
         gsap.to(this.position, {
-            x: this.position.x + 20 * (this.isEnemy? 1 : -1),
+            x: this.position.x + 20 * (this.mirror? 1 : -1),
             duration: 0.5,
             yoyo: true,
             repeat: 1
@@ -47,7 +44,7 @@ export class Character extends Sprite {
                 image: attack.image,
                 position: {
                     ...this.position, 
-                    x: this.position.x + 32 * (this.isEnemy? -1 : 1)
+                    x: this.position.x + 32 * (this.mirror? -1 : 1)
                 },
                 mirror: this.mirror
             });
@@ -57,7 +54,7 @@ export class Character extends Sprite {
 
             // Projectile Animation
             gsap.to(projectile.position, {
-                x: target.position.x + 32 * (this.isEnemy? 1 : -1),
+                x: target.position.x + 32 * (this.mirror? 1 : -1),
                 duration: duration,
                 onUpdate() {
                     projectile.draw();
@@ -70,7 +67,7 @@ export class Character extends Sprite {
 
                     // Impact Animation
                     tl.to(target.position, {
-                        x: target.position.x + 16 * (target.isEnemy? 1 : -1),
+                        x: target.position.x + 16 * (target.mirror? 1 : -1),
                         duration: duration / 2, 
                         onComplete() {
                             gsap.to(target, {
@@ -109,10 +106,10 @@ export class Character extends Sprite {
 
             // Approach & Return Animation
             tl.to(this.position, {
-                x: this.position.x + 16 * (this.isEnemy? 1 : -1),
+                x: this.position.x + 16 * (this.mirror? 1 : -1),
                 duration: duration * 2/3
             }).to(this.position, {
-                x: target.position.x + 32 * (this.isEnemy? 1 : -1),
+                x: target.position.x + 32 * (this.mirror? 1 : -1),
                 duration: duration / 3,
                 onComplete() {
                     // Hit Sound Effect
@@ -121,7 +118,7 @@ export class Character extends Sprite {
                     let tl = gsap.timeline();
                     // Impact Animation
                     tl.to(target.position, {
-                        x: target.position.x + 16 * (target.isEnemy? 1 : -1),
+                        x: target.position.x + 16 * (target.mirror? 1 : -1),
                         duration: duration / 2, 
                         onComplete() {
                             gsap.to(target, {

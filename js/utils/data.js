@@ -1,28 +1,33 @@
+import { Character } from "../classes/character.js";
+import { ALLIES } from "../constants/characters/allies.js";
+import { BOSSES } from "../constants/characters/bosses.js";
+import { ENEMIES } from "../constants/characters/enemies.js";
 import { Game } from "../game.js";
 
 export function saveData(game) {
-    var allyHealth = [];
-    game.allies.forEach(ally => allyHealth.push(ally.health));
     const data = {
-        encounterCount: game.encounterCount,
-        stageCount: game.stageCount,
-        currentEncounter: game.currentEncounter,
-        currentStage: game.currentStage,
-        allyHealth: allyHealth
+        ...game,
+        allies: game.allies.map(ally => getCharacterData(ally))
     };
-
+    console.log(JSON.stringify(data));
+    
     localStorage.setItem("saveData",JSON.stringify(data));
 }
 
 export function loadData() {
     const data = JSON.parse(localStorage.getItem("saveData"));
+    console.log(JSON.stringify(data));
+
     var game = new Game();
     // Load Allies
-    var length = data.allyHealth.length;
-    if(length < game.allies.length)
-        game.allies.slice(0,length);
-    
-    game.allies.forEach((value, i) => value.health = data.allyHealth[i]);
+    const allies = data.allies.map(data => {
+        const char = getCharById(data.charId);
+        var ally = new Character({...char, ...data.props});
+        ally.health = data.health;
+
+        return ally;
+    });
+    game.allies = allies;
 
     // Load Stage & Encounter info
     game.encounterCount = data.encounterCount;
@@ -35,4 +40,34 @@ export function loadData() {
 
 export function deleteData() {
     localStorage.removeItem("saveData");
+}
+
+function getCharacterData(char) {
+    const data = {
+        charId: getCharIdByName(char.name),
+        health: char.health,
+        props: {
+            position: char.position,
+            healthbarId: char.healthbarId,
+            mirror: char.mirror
+        }
+    };
+
+    return data;
+}
+
+function getCharIdByName(name) {
+    for(const [key, value] of Object.entries({...ENEMIES, ...BOSSES, ...ALLIES})) {
+        if(value.name === name) {
+            return key;
+        }
+    }
+}
+
+function getCharById(id) {
+    for(const [key, value] of Object.entries({...ENEMIES, ...BOSSES, ...ALLIES})) {
+        if(key === id) {
+            return value;
+        }
+    }
 }

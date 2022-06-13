@@ -44,8 +44,7 @@ export const ENEMIES = {
         attacks: [
             ATTACKS.SHIELD_BASH,
             ATTACKS.SLASH
-        ],
-        isEnemy: true
+        ]
     },
     GOBLIN_ARCHER: {
         image: {
@@ -61,8 +60,7 @@ export const ENEMIES = {
         attacks: [
             ATTACKS.SLAM,
             ATTACKS.QUICKSHOT
-        ],
-        isEnemy: true
+        ]
     },
     GOBLIN_MAGE: {
         image: {
@@ -78,8 +76,7 @@ export const ENEMIES = {
         attacks: [
             ATTACKS.SLAM,
             ATTACKS.FIREBALL
-        ],
-        isEnemy: true
+        ]
     },
     WOLF: {
         image: {
@@ -95,8 +92,7 @@ export const ENEMIES = {
         attacks: [
             ATTACKS.SLAM,
             ATTACKS.BITE
-        ],
-        isEnemy: true
+        ]
     },
     // Desert Enemies
     MUMMY_WARRIOR: {
@@ -113,8 +109,7 @@ export const ENEMIES = {
         attacks: [
             ATTACKS.SHIELD_BASH,
             ATTACKS.SLASH
-        ],
-        isEnemy: true
+        ]
     },
     MUMMY_ARCHER: {
         image: {
@@ -130,8 +125,7 @@ export const ENEMIES = {
         attacks: [
             ATTACKS.SLAM,
             ATTACKS.QUICKSHOT
-        ],
-        isEnemy: true
+        ]
     },
     MUMMY_MAGE: {
         image: {
@@ -147,8 +141,7 @@ export const ENEMIES = {
         attacks: [
             ATTACKS.SLAM,
             ATTACKS.WHIRLWIND
-        ],
-        isEnemy: true
+        ]
     },
     MUMMY: {
         image: {
@@ -163,8 +156,7 @@ export const ENEMIES = {
         health: 12,
         attacks: [
             ATTACKS.SLAM
-        ],
-        isEnemy: true
+        ]
     },
     // Cave Enemies
     SKELETON_WARRIOR: {
@@ -181,8 +173,7 @@ export const ENEMIES = {
         attacks: [
             ATTACKS.SHIELD_BASH,
             ATTACKS.SLASH
-        ],
-        isEnemy: true
+        ]
     },
     SKELETON_ARCHER: {
         image: {
@@ -198,8 +189,7 @@ export const ENEMIES = {
         attacks: [
             ATTACKS.SLAM,
             ATTACKS.QUICKSHOT
-        ],
-        isEnemy: true
+        ]
     },
     NECROMANCER: {
         image: {
@@ -215,8 +205,7 @@ export const ENEMIES = {
         attacks: [
             ATTACKS.SLAM,
             ATTACKS.ICE_DART
-        ],
-        isEnemy: true
+        ]
     },
     SKELETON: {
         image: {
@@ -231,7 +220,6 @@ export const ENEMIES = {
         health: 12,
         attacks: [
             ATTACKS.SLAM
-        ],
-        isEnemy: true
+        ]
     },
 }

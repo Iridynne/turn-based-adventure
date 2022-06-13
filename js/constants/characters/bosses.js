@@ -21,8 +21,7 @@ export const BOSSES = {
         ],
         minions: [
             ENEMIES.WOLF
-        ],
-        isEnemy: true
+        ]
     },
     // Desert Bosses
     ANUBIS: {
@@ -43,8 +42,7 @@ export const BOSSES = {
         minions: [
             ENEMIES.MUMMY,
             ENEMIES.MUMMY
-        ],
-        isEnemy: true
+        ]
     },
     // Cave Bosses
     LICH: {
@@ -65,7 +63,6 @@ export const BOSSES = {
         minions: [
             ENEMIES.SKELETON,
             ENEMIES.SKELETON
-        ],
-        isEnemy: true
+        ]
     },
 }

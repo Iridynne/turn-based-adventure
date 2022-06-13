@@ -331,7 +331,9 @@ export function hideAllyLabel() {
 
 // Healthbars
 function showHealthbar(character) {
-    character.healthUI.container.style.opacity = 1;
+    const id = character.healthbarId;
+    const container = document.querySelector(`#${id}-container`);
+    container.style.opacity = 1;
 }
 
 export function hideHealthbar(
@@ -363,8 +365,12 @@ export function hideHealthbars() {
 }
 
 export function updateHealthbar(character) {
-    character.healthUI.healthbar.style.width = `${Math.floor(character.health * 100 / character.maxHealth)}%`;
-    character.healthUI.health.innerHTML = `${Math.floor(character.health)} / ${character.maxHealth}`;
+    const id = character.healthbarId;
+    const healthbar = document.querySelector(`#${id}-healthbar`);
+    const health = document.querySelector(`#${id}-health`);
+
+    healthbar.style.width = `${Math.floor(character.health * 100 / character.maxHealth)}%`;
+    health.innerHTML = `${Math.floor(character.health)} / ${character.maxHealth}`;
 }
 
 export function updateHealthbars(characters) {

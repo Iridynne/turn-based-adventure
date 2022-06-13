@@ -1,6 +1,3 @@
-import { Character } from "./classes/character.js";
-import { Sprite } from "./classes/sprite.js";
-import { ATTACKS } from "./constants/attacks.js";
 import { ALLIES, ALLY_POSITIONS } from "./constants/characters/allies.js";
 import { ENEMIES } from "./constants/characters/enemies.js";
 import { Game } from "./game.js";
@@ -8,8 +5,8 @@ import * as ui from "./ui.js"
 
 window.onload = () => {
     ui.setupCanvas();
-    // ui.setupMainMenu();
-    debugBattle();
+    ui.setupMainMenu();
+    // debugBattle();
     // debugUI();
 };
 
