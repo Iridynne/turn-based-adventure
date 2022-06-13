@@ -206,6 +206,7 @@ export class Battle {
             return;
         }
 
+        ui.disableDialogueClick();
         ui.showDialogue(`${char.name} used <span style=\"color: ${choice.attack.type.color}\">${choice.attack.name}</span> against ${choice.target.name}.`, () => {
             ui.hideDialogue();
             this.#removeDead();

@@ -183,6 +183,16 @@ export function hideDialogue() {
     dialogueBox.style.visibility = "hidden";
 }
 
+export function enableDialogueClick() {
+    const dialogueBox = document.querySelector("#dialogue-box");
+    dialogueBox.style.pointerEvents = "auto";
+}
+
+export function disableDialogueClick() {
+    const dialogueBox = document.querySelector("#dialogue-box");
+    dialogueBox.style.pointerEvents = "none";
+}
+
 // Attack Box
 function showAttacks() {
     const attacksBox = document.querySelector("#attacks-box");

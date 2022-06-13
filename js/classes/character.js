@@ -88,6 +88,7 @@ export class Character extends Sprite {
                                 duration: duration / 2,
                                 health: Math.max(target.health - attack.damage, 0),
                                 onComplete() {
+                                    ui.enableDialogueClick();
                                     ui.updateHealthbar(target);
                                     if(target.health == 0) {
                                         ui.hideHealthbar(target);
@@ -138,6 +139,7 @@ export class Character extends Sprite {
                                 duration: duration / 2,
                                 health: Math.max(target.health - attack.damage, 0),
                                 onComplete() {
+                                    ui.enableDialogueClick();
                                     ui.updateHealthbar(target);
                                     if(target.health == 0) {
                                         ui.hideHealthbar(target);

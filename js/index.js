@@ -8,8 +8,8 @@ import * as ui from "./ui.js"
 
 window.onload = () => {
     ui.setupCanvas();
-    // ui.setupMainMenu();
-    debugBattle();
+    ui.setupMainMenu();
+    // debugBattle();
     // debugUI();
 };
 
