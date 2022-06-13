@@ -55,11 +55,8 @@ export const ATTACKS = {
         damage: 4,
         type: TYPE.PHYSICAL,
         isRanged: true,
-        imageRight: {
-            src: projectilePath("arrow_right")
-        },
-        imageLeft: {
-            src: projectilePath("arrow_left")
+        image: {
+            src: projectilePath("arrow")
         },
         sound: {
             shoot: SOUND.ARROW_SHOOT,
@@ -72,11 +69,8 @@ export const ATTACKS = {
         damage: 5,
         type: TYPE.MAGICAL,
         isRanged: true,
-        imageRight: {
-            src: projectilePath("fire_arrow_right")
-        },
-        imageLeft: {
-            src: projectilePath("fire_arrow_left")
+        image: {
+            src: projectilePath("fire_arrow")
         },
         sound: {
             shoot: SOUND.ARROW_SHOOT,
@@ -88,11 +82,8 @@ export const ATTACKS = {
         damage: 5,
         type: TYPE.MAGICAL,
         isRanged: true,
-        imageRight: {
-            src: projectilePath("fire_ball_right")
-        },
-        imageLeft: {
-            src: projectilePath("fire_ball_left")
+        image: {
+            src: projectilePath("fire_ball")
         },
         sound: {
             shoot: SOUND.FIRE_SHOOT,
@@ -104,11 +95,8 @@ export const ATTACKS = {
         damage: 4,
         type: TYPE.MAGICAL,
         isRanged: true,
-        imageRight: {
-            src: projectilePath("ice_shard_right")
-        },
-        imageLeft: {
-            src: projectilePath("ice_shard_left")
+        image: {
+            src: projectilePath("ice_shard")
         },
         sound: {
             shoot: SOUND.ICE_SHOOT,
@@ -120,11 +108,8 @@ export const ATTACKS = {
         damage: 4,
         type: TYPE.MAGICAL,
         isRanged: true,
-        imageRight: {
-            src: projectilePath("lightning_bolt_right")
-        },
-        imageLeft: {
-            src: projectilePath("lightning_bolt_left")
+        image: {
+            src: projectilePath("lightning_bolt")
         },
         sound: {
             shoot: SOUND.LIGHTNING_SHOOT,

@@ -8,13 +8,14 @@ export class Character extends Sprite {
         image, 
         frames = {max: 1, hold: 10}, 
         animate = false,
+        mirror = false,
         name,
         health,
         attacks,
         isEnemy = false,
         healthbarId
     }) {
-        super({position, image, frames, animate});
+        super({position, image, frames, animate, mirror});
 
         this.name = name;
         this.health = health;
@@ -43,11 +44,12 @@ export class Character extends Sprite {
 
         if(attack.isRanged) {
             var projectile = new Sprite({
-                image: this.isEnemy? attack.imageLeft : attack.imageRight,
+                image: attack.image,
                 position: {
                     ...this.position, 
                     x: this.position.x + 32 * (this.isEnemy? -1 : 1)
-                }
+                },
+                mirror: this.mirror
             });
 
             // Projectile Fire Sound Effect
