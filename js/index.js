@@ -8,13 +8,13 @@ import * as ui from "./ui.js"
 
 window.onload = () => {
     ui.setupCanvas();
-    ui.setupMainMenu();
-    // debugBattle();
+    // ui.setupMainMenu();
+    debugBattle();
     // debugUI();
 };
 
 function debugBattle() {
-    var game = new Game();
+    var game = new Game([{...ENEMIES.MUMMY_MAGE, ...ALLY_POSITIONS.FIRST}]);
     game.currentEncounter = game.encounterCount;
     // game.currentEncounter = 3;
     game.currentStage = 3;

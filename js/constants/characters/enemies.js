@@ -146,7 +146,7 @@ export const ENEMIES = {
         health: 16,
         attacks: [
             ATTACKS.SLAM,
-            ATTACKS.FIREBALL
+            ATTACKS.WHIRLWIND
         ],
         isEnemy: true
     },

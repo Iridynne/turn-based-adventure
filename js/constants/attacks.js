@@ -115,5 +115,18 @@ export const ATTACKS = {
             shoot: SOUND.LIGHTNING_SHOOT,
             hit: SOUND.LIGHTNING_HIT
         }
+    },
+    WHIRLWIND: {
+        name: "Whirlwind",
+        damage: 5,
+        type: TYPE.MAGICAL,
+        isRanged: true,
+        image: {
+            src: projectilePath("whirlwind")
+        },
+        sound: {
+            shoot: SOUND.LIGHTNING_SHOOT,
+            hit: SOUND.LIGHTNING_HIT
+        }
     }
 }
