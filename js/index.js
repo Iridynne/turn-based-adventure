@@ -2,6 +2,7 @@ import { ALLIES, ALLY_POSITIONS } from "./constants/characters/allies.js";
 import { ENEMIES } from "./constants/characters/enemies.js";
 import { Game } from "./game.js";
 import * as ui from "./ui.js"
+import { saveData } from "./utils/data.js";
 
 window.onload = () => {
     ui.setupCanvas();
@@ -11,7 +12,7 @@ window.onload = () => {
 };
 
 function debugBattle() {
-    var game = new Game([{...ENEMIES.MUMMY_MAGE, ...ALLY_POSITIONS.FIRST}]);
+    var game = new Game();
     // game.currentEncounter = game.encounterCount;
     game.currentEncounter = 3;
     game.currentStage = 3;

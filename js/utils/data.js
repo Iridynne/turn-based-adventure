@@ -9,15 +9,11 @@ export function saveData(game) {
         ...game,
         allies: game.allies.map(ally => getCharacterData(ally))
     };
-    console.log(JSON.stringify(data));
-    
     localStorage.setItem("saveData",JSON.stringify(data));
 }
 
 export function loadData() {
     const data = JSON.parse(localStorage.getItem("saveData"));
-    console.log(JSON.stringify(data));
-
     var game = new Game();
     // Load Allies
     const allies = data.allies.map(data => {
@@ -47,12 +43,14 @@ function getCharacterData(char) {
         charId: getCharIdByName(char.name),
         health: char.health,
         props: {
-            position: char.position,
+            position: {
+                x: char.position.x,
+                y: char.position.y
+            },
             healthbarId: char.healthbarId,
             mirror: char.mirror
         }
     };
-
     return data;
 }
 

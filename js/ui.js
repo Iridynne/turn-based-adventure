@@ -344,7 +344,9 @@ export function hideHealthbar(
         onComplete: () => {}
     }
 ) {
-    gsap.to(character.healthUI.container.style, {
+    const id = character.healthbarId;
+    const container = document.querySelector(`#${id}-container`);
+    gsap.to(container.style, {
         ...params,
         opacity: 0
     });
