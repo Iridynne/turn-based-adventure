@@ -36,7 +36,7 @@ export const ENEMIES = {
         },
         frames: {
             max: 4,
-            hold: 20
+            hold: 10
         },
         animate: true,
         name: "Goblin Warrior",
@@ -53,7 +53,7 @@ export const ENEMIES = {
         },
         frames: {
             max: 4,
-            hold: 20
+            hold: 10
         },
         animate: true,
         name: "Goblin Archer",
@@ -70,7 +70,7 @@ export const ENEMIES = {
         },
         frames: {
             max: 4,
-            hold: 20
+            hold: 10
         },
         animate: true,
         name: "Goblin Mage",
@@ -87,7 +87,7 @@ export const ENEMIES = {
         },
         frames: {
             max: 4,
-            hold: 20
+            hold: 10
         },
         animate: true,
         name: "Wolf",
@@ -105,7 +105,7 @@ export const ENEMIES = {
         },
         frames: {
             max: 4,
-            hold: 20
+            hold: 10
         },
         animate: true,
         name: "Mummy Warrior",
@@ -122,7 +122,7 @@ export const ENEMIES = {
         },
         frames: {
             max: 4,
-            hold: 20
+            hold: 10
         },
         animate: true,
         name: "Mummy Archer",
@@ -139,7 +139,7 @@ export const ENEMIES = {
         },
         frames: {
             max: 4,
-            hold: 20
+            hold: 10
         },
         animate: true,
         name: "Mummy Mage",
@@ -156,7 +156,7 @@ export const ENEMIES = {
         },
         frames: {
             max: 4,
-            hold: 20
+            hold: 10
         },
         animate: true,
         name: "Mummy",
@@ -173,7 +173,7 @@ export const ENEMIES = {
         },
         frames: {
             max: 4,
-            hold: 20
+            hold: 10
         },
         animate: true,
         name: "Skeleton Warrior",
@@ -190,7 +190,7 @@ export const ENEMIES = {
         },
         frames: {
             max: 4,
-            hold: 20
+            hold: 10
         },
         animate: true,
         name: "Skeleton Archer",
@@ -207,7 +207,7 @@ export const ENEMIES = {
         },
         frames: {
             max: 4,
-            hold: 20
+            hold: 10
         },
         animate: true,
         name: "Necromancer",
@@ -224,7 +224,7 @@ export const ENEMIES = {
         },
         frames: {
             max: 4,
-            hold: 20
+            hold: 10
         },
         animate: true,
         name: "Skeleton",

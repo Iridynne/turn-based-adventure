@@ -10,7 +10,7 @@ export const BOSSES = {
         },
         frames: {
             max: 4,
-            hold: 20
+            hold: 10
         },
         animate: true,
         name: "Goblin Chief",
@@ -31,7 +31,7 @@ export const BOSSES = {
         },
         frames: {
             max: 4,
-            hold: 20
+            hold: 10
         },
         animate: true,
         name: "Anubis",
@@ -53,7 +53,7 @@ export const BOSSES = {
         },
         frames: {
             max: 4,
-            hold: 20
+            hold: 10
         },
         animate: true,
         name: "Lich",

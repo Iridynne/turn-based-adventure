@@ -32,7 +32,7 @@ export const ALLIES = {
         },
         frames: {
             max: 4,
-            hold: 20
+            hold: 10
         },
         animate: true,
         name: "Warrior",
@@ -48,7 +48,7 @@ export const ALLIES = {
         },
         frames: {
             max: 4,
-            hold: 20
+            hold: 10
         },
         animate: true,
         name: "Archer",
@@ -64,7 +64,7 @@ export const ALLIES = {
         },
         frames: {
             max: 4,
-            hold: 20
+            hold: 10
         },
         animate: true,
         name: "Mage",
