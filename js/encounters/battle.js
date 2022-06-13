@@ -110,15 +110,6 @@ export class Battle {
     }
 
     #finishRound() {
-        // Grab identifiers
-        var order = [];
-        this.allies.forEach((value, i) => {
-            order.push(`ally${i+1}`);
-        });
-        this.enemies.forEach((value, i) => {
-            order.push(`enemy${i+1}`);
-        });
-
         // Choose Enemy Abilities
         this.enemies.forEach((value, i) => {
             const target = this.allies[randomInt(0,this.allies.length-1)];
@@ -132,7 +123,7 @@ export class Battle {
         });
 
         // Determine order of attacks
-        order = randomizeList(this.choices);
+        const order = randomizeList(this.choices);
 
         this.#proceedOrder(order, 0);
     }
@@ -198,7 +189,7 @@ export class Battle {
             return;
         }
         
-        const choice = this.choices[index];
+        const choice = order[index];
         const char = choice.attacker;
 
         if(choice == null || !choice.target || choice.target.health === 0 || !char || char.health === 0) {
