@@ -304,7 +304,7 @@ export function setupTargets(characters) {
             button.onmouseenter = () => {
                 arrow.position = {
                     x: char.position.x,
-                    y: char.position.y - 160
+                    y: char.position.y - 200
                 };
                 animate();
             };
@@ -355,6 +355,7 @@ export function hideHealthbar(
 export function setupHealthbars(characters) {
     characters.forEach(char => {
         showHealthbar(char);
+        updateDefenses(char);
         updateHealthbar(char);
     });
 }
@@ -379,4 +380,13 @@ export function updateHealthbars(characters) {
     characters.forEach(char => {
         updateHealthbar(char);
     });
+}
+
+export function updateDefenses(character) {
+    const id = character.healthbarId;
+    const defense = document.querySelector(`#${id}-defense`);
+    const magicDefense = document.querySelector(`#${id}-magic-defense`);
+
+    defense.innerHTML = character.defense;
+    magicDefense.innerHTML = character.magicDefense;
 }

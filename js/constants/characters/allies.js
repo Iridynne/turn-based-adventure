@@ -36,7 +36,11 @@ export const ALLIES = {
         },
         animate: true,
         name: "Warrior",
-        health: 20,
+        stats: {
+            health: 20,
+            defense: 3,
+            magicDefense: 0
+        },
         attacks: [
             ATTACKS.SHIELD_BASH,
             ATTACKS.SLASH
@@ -52,7 +56,11 @@ export const ALLIES = {
         },
         animate: true,
         name: "Archer",
-        health: 18,
+        stats: {
+            health: 18,
+            defense: 2,
+            magicDefense: 1
+        },
         attacks: [
             ATTACKS.QUICKSHOT,
             ATTACKS.FLAMING_SHOT
@@ -68,7 +76,11 @@ export const ALLIES = {
         },
         animate: true,
         name: "Mage",
-        health: 16,
+        stats: {
+            health: 16,
+            defense: 0,
+            magicDefense: 3
+        },
         attacks: [
             ATTACKS.ICE_DART,
             ATTACKS.FIREBALL

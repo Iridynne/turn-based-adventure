@@ -14,7 +14,11 @@ export const BOSSES = {
         },
         animate: true,
         name: "Goblin Chief",
-        health: 40,
+        stats: {
+            health: 40,
+            defense: 3,
+            magicDefense: 0
+        },
         attacks: [
             ATTACKS.SHIELD_BASH,
             ATTACKS.SLASH
@@ -34,7 +38,11 @@ export const BOSSES = {
         },
         animate: true,
         name: "Anubis",
-        health: 36,
+        stats: {
+            health: 36,
+            defense: 1,
+            magicDefense: 2
+        },
         attacks: [
             ATTACKS.WHIRLWIND,
             ATTACKS.FIREBALL
@@ -55,7 +63,11 @@ export const BOSSES = {
         },
         animate: true,
         name: "Lich",
-        health: 36,
+        stats: {
+            health: 36,
+            defense: 0,
+            magicDefense: 3
+        },
         attacks: [
             ATTACKS.FIREBALL,
             ATTACKS.LIGHTNING_BOLT

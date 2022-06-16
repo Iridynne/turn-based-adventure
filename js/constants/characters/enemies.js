@@ -40,7 +40,11 @@ export const ENEMIES = {
         },
         animate: true,
         name: "Goblin Warrior",
-        health: 20,
+        stats: {
+            health: 20,
+            defense: 2,
+            magicDefense: 0
+        },
         attacks: [
             ATTACKS.SHIELD_BASH,
             ATTACKS.SLASH
@@ -56,7 +60,11 @@ export const ENEMIES = {
         },
         animate: true,
         name: "Goblin Archer",
-        health: 18,
+        stats: {
+            health: 18,
+            defense: 1,
+            magicDefense: 1
+        },
         attacks: [
             ATTACKS.SLAM,
             ATTACKS.QUICKSHOT
@@ -72,7 +80,11 @@ export const ENEMIES = {
         },
         animate: true,
         name: "Goblin Mage",
-        health: 16,
+        stats: {
+            health: 16,
+            defense: 0,
+            magicDefense: 2
+        },
         attacks: [
             ATTACKS.SLAM,
             ATTACKS.FIREBALL
@@ -88,7 +100,11 @@ export const ENEMIES = {
         },
         animate: true,
         name: "Wolf",
-        health: 16,
+        stats: {
+            health: 16,
+            defense: 1,
+            magicDefense: 1
+        },
         attacks: [
             ATTACKS.SLAM,
             ATTACKS.BITE
@@ -105,7 +121,11 @@ export const ENEMIES = {
         },
         animate: true,
         name: "Mummy Warrior",
-        health: 20,
+        stats: {
+            health: 20,
+            defense: 2,
+            magicDefense: 0
+        },
         attacks: [
             ATTACKS.SHIELD_BASH,
             ATTACKS.SLASH
@@ -121,7 +141,11 @@ export const ENEMIES = {
         },
         animate: true,
         name: "Mummy Archer",
-        health: 18,
+        stats: {
+            health: 18,
+            defense: 1,
+            magicDefense: 1
+        },
         attacks: [
             ATTACKS.SLAM,
             ATTACKS.QUICKSHOT
@@ -137,7 +161,11 @@ export const ENEMIES = {
         },
         animate: true,
         name: "Mummy Mage",
-        health: 16,
+        stats: {
+            health: 16,
+            defense: 0,
+            magicDefense: 2
+        },
         attacks: [
             ATTACKS.SLAM,
             ATTACKS.WHIRLWIND
@@ -153,7 +181,11 @@ export const ENEMIES = {
         },
         animate: true,
         name: "Mummy",
-        health: 12,
+        stats: {
+            health: 12,
+            defense: 1,
+            magicDefense: 0
+        },
         attacks: [
             ATTACKS.SLAM
         ]
@@ -169,7 +201,11 @@ export const ENEMIES = {
         },
         animate: true,
         name: "Skeleton Warrior",
-        health: 20,
+        stats: {
+            health: 20,
+            defense: 2,
+            magicDefense: 0
+        },
         attacks: [
             ATTACKS.SHIELD_BASH,
             ATTACKS.SLASH
@@ -185,7 +221,11 @@ export const ENEMIES = {
         },
         animate: true,
         name: "Skeleton Archer",
-        health: 18,
+        stats: {
+            health: 18,
+            defense: 1,
+            magicDefense: 1
+        },
         attacks: [
             ATTACKS.SLAM,
             ATTACKS.QUICKSHOT
@@ -201,7 +241,11 @@ export const ENEMIES = {
         },
         animate: true,
         name: "Necromancer",
-        health: 16,
+        stats: {
+            health: 16,
+            defense: 0,
+            magicDefense: 2
+        },
         attacks: [
             ATTACKS.SLAM,
             ATTACKS.ICE_DART
@@ -217,7 +261,11 @@ export const ENEMIES = {
         },
         animate: true,
         name: "Skeleton",
-        health: 12,
+        stats: {
+            health: 12,
+            defense: 1,
+            magicDefense: 0
+        },
         attacks: [
             ATTACKS.SLAM
         ]
