@@ -304,7 +304,7 @@ export function setupTargets(characters) {
             button.onmouseenter = () => {
                 arrow.position = {
                     x: char.position.x,
-                    y: char.position.y - 160
+                    y: char.position.y - 200
                 };
                 animate();
             };
