@@ -3,9 +3,16 @@
     --color1: #131313;
     --color2: #3d3d3d;
     --color3: #ffffff;
+
     --healthbar-background: var(--color1);
     --healthbar-empty: var(--color2);
     --healthbar-fill: #ea323c;
+
+    --defense-background: #92a1b9;
+    --defense-text: var(--color3);
+
+    --magic-defense-background: #00cdf9;
+    --magic-defense-text: var(--color3);
 
     font-family: PressStart2P;
     font-size: 12px;

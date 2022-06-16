@@ -6,8 +6,8 @@ import { saveData } from "./utils/data.js";
 
 window.onload = () => {
     ui.setupCanvas();
-    ui.setupMainMenu();
-    // debugBattle();
+    // ui.setupMainMenu();
+    debugBattle();
     // debugUI();
 };
 

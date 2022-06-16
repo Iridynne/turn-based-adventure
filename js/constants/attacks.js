@@ -4,11 +4,11 @@ import { SOUND } from "./audio.js"
 export const TYPE = {
     PHYSICAL: {
         name: "Physical",
-        color: "#c7cfdd"
+        color: "#92a1b9"
     },
     MAGICAL: {
         name: "Magical",
-        color: "#94fdff"
+        color: "#00cdf9"
     }
 }
 

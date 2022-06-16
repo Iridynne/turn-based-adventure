@@ -1,5 +1,6 @@
 import { Sprite } from "./sprite.js";
 import * as ui from "../ui.js"
+import { TYPE } from "../constants/attacks.js";
 
 export class Character extends Sprite {
     constructor({
@@ -9,15 +10,17 @@ export class Character extends Sprite {
         animate = false,
         mirror = false,
         name,
-        health,
+        stats = {health: 10, defense: 0, magicDefense: 0},
         attacks,
         healthbarId
     }) {
         super({position, image, frames, animate, mirror});
 
         this.name = name;
-        this.health = health;
-        this.maxHealth = health;
+        this.health = stats.health;
+        this.maxHealth = stats.health;
+        this.defense = stats.defense;
+        this.magicDefense = stats.magicDefense;
         this.attacks = attacks;
         this.healthbarId = healthbarId;
 
@@ -80,10 +83,13 @@ export class Character extends Sprite {
                                 }
                             });
 
+                            // Calculated Damage against defenses
+                            const damage = Character.calculateDamage({attack, target});
+
                             // Health Animation
                             gsap.to(target, {
                                 duration: duration / 2,
-                                health: Math.max(target.health - attack.damage, 0),
+                                health: Math.max(target.health - damage, 0),
                                 onComplete() {
                                     ui.enableDialogueClick();
                                     ui.updateHealthbar(target);
@@ -131,10 +137,13 @@ export class Character extends Sprite {
                                 }
                             });
 
+                            // Calculated Damage against defenses
+                            const damage = Character.calculateDamage({attack, target});
+
                             // Health Animation
                             gsap.to(target, {
                                 duration: duration / 2,
-                                health: Math.max(target.health - attack.damage, 0),
+                                health: Math.max(target.health - damage, 0),
                                 onComplete() {
                                     ui.enableDialogueClick();
                                     ui.updateHealthbar(target);
@@ -155,5 +164,20 @@ export class Character extends Sprite {
                 duration: duration,
             });
         }
+    }
+
+    static calculateDamage({attack, target}) {
+        var damage = attack.damage;
+
+        switch(attack.type) {
+            case TYPE.PHYSICAL:
+                damage = Math.max(0, damage - target.defense);
+                break;
+            case TYPE.MAGICAL:
+                damage = Math.max(0, damage - target.magicDefense);
+                break;
+        }
+
+        return damage;
     }
 }
