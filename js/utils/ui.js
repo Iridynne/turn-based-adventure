@@ -130,7 +130,7 @@ export function hideTransition(
     });
 }
 
-export function showTransitionOptions(showContinue = false, showExit = false) {
+export function showTransitionOptions(showContinue = false, showExit = true) {
     const transitionOptions = document.querySelector("#transition-options");
     const continueBtn = document.querySelector("#continue");
     const exitBtn = document.querySelector("#exit");
