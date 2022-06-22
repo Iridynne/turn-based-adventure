@@ -136,17 +136,26 @@ export function showTransitionOptions(showContinue = false, showExit = false) {
     const exitBtn = document.querySelector("#exit");
 
     transitionOptions.style.display = showContinue || showExit? "grid" : "none";
-    continueBtn.style.display = showContinue? "inline" : "none";
-    exitBtn.style.display = showExit? "inline" : "none";
-
-    continueBtn.onclick = () => {
-        hideTransitionOptions();
-        Game.currentGame.start();
-    };
-    exitBtn.onclick = () => {
-        hideTransitionOptions();
-        Game.currentGame.end();
+    
+    if(showContinue) {
+        continueBtn.style.display = "inline";
+        continueBtn.onclick = () => {
+            hideTransitionOptions();
+            Game.currentGame.start();
+        };
     }
+    else
+        continueBtn.style.display = "none";
+
+    if(showExit) {
+        exitBtn.style.display = "inline";
+        exitBtn.onclick = () => {
+            hideTransitionOptions();
+            Game.currentGame.end();
+        };
+    }
+    else
+        exitBtn.style.display = "none";
 }
 
 export function hideTransitionOptions() {
