@@ -1,12 +1,12 @@
-import { Game } from "./game.js";
-import { wait } from "./utils/timer.js"
-import * as general from "./constants/general.js"
-import { Battle } from "./encounters/battle.js";
-import { loadData } from "./utils/data.js";
-import { ARROW } from "./constants/misc.js";
-import { Sprite } from "./classes/sprite.js";
-import { fadeIn, fadeOut } from "./utils/audio_utils.js";
-import { MUSIC } from "./constants/audio.js";
+import { Game } from "../classes/game.js";
+import { wait } from "./timer.js"
+import * as general from "../constants/general.js"
+import { Battle } from "../classes/battle.js";
+import { loadData } from "./data.js";
+import { ARROW } from "../constants/misc.js";
+import { Sprite } from "../classes/sprite.js";
+import { fadeIn, fadeOut } from "./audio_utils.js";
+import { MUSIC } from "../constants/audio.js";
 
 // Canvas
 export function setupCanvas() {

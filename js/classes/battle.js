@@ -1,10 +1,10 @@
 import { Character } from "../classes/character.js";
-import { ENEMY_POSITIONS } from "../constants/characters/enemies.js";
+import { ENEMY_POSITIONS } from "../constants/enemies.js";
 import { randomInt, randomizeList, weightedRand } from "../utils/random.js"
-import * as ui from "../ui.js"
+import * as ui from "../utils/ui.js"
 import { Sprite } from "../classes/sprite.js";
 import { wait } from "../utils/timer.js";
-import { Game } from "../game.js";
+import { Game } from "../classes/game.js";
 import { fadeIn, fadeOut } from "../utils/audio_utils.js";
 import { deleteData } from "../utils/data.js";
 

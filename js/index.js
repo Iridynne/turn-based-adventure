@@ -1,7 +1,7 @@
-import { ALLIES, ALLY_POSITIONS } from "./constants/characters/allies.js";
-import { ENEMIES } from "./constants/characters/enemies.js";
-import { Game } from "./game.js";
-import * as ui from "./ui.js"
+import { ALLIES, ALLY_POSITIONS } from "./constants/allies.js";
+import { ENEMIES } from "./constants/enemies.js";
+import { Game } from "./classes/game.js";
+import * as ui from "./utils/ui.js"
 import { saveData } from "./utils/data.js";
 
 window.onload = () => {

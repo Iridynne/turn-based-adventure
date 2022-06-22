@@ -1,11 +1,11 @@
-import { Character } from "./classes/character.js";
-import { ALLY_POSITIONS, DEFAULT_ALLIES } from "./constants/characters/allies.js";
-import { ENCOUNTER_COUNT, STAGE_COUNT } from "./constants/stages.js"
-import { STAGES } from "./constants/stages.js";
-import { Battle } from "./encounters/battle.js"
-import { RestSpot } from "./encounters/rest_spot.js";
-import { deleteData, saveData } from "./utils/data.js"
-import * as ui from "./ui.js"
+import { Character } from "./character.js";
+import { ALLY_POSITIONS, DEFAULT_ALLIES } from "../constants/allies.js";
+import { ENCOUNTER_COUNT, STAGE_COUNT } from "../constants/stages.js"
+import { STAGES } from "../constants/stages.js";
+import { Battle } from "./battle.js"
+import { RestSpot } from "./rest_spot.js";
+import { deleteData, saveData } from "../utils/data.js"
+import * as ui from "../utils/ui.js"
 
 export class Game {
     static currentGame;

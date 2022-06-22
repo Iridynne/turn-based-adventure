@@ -1,5 +1,5 @@
-import { allyPath } from "../../utils/paths.js"
-import { ATTACKS } from "../attacks.js";
+import { allyPath } from "../utils/paths.js"
+import { ATTACKS } from "./attacks.js";
 
 export const ALLY_POSITIONS = {
     FIRST: {

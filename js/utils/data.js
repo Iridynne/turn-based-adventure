@@ -1,8 +1,8 @@
 import { Character } from "../classes/character.js";
-import { ALLIES } from "../constants/characters/allies.js";
-import { BOSSES } from "../constants/characters/bosses.js";
-import { ENEMIES } from "../constants/characters/enemies.js";
-import { Game } from "../game.js";
+import { ALLIES } from "../constants/allies.js";
+import { BOSSES } from "../constants/bosses.js";
+import { ENEMIES } from "../constants/enemies.js";
+import { Game } from "../classes/game.js";
 
 export function saveData(game) {
     const data = {

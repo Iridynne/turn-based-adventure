@@ -1,5 +1,5 @@
-import { bossPath } from "../../utils/paths.js";
-import { ATTACKS } from "../attacks.js";
+import { bossPath } from "../utils/paths.js";
+import { ATTACKS } from "./attacks.js";
 import { ENEMIES } from "./enemies.js";
 
 export const BOSSES = {

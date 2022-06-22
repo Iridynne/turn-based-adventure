@@ -1,5 +1,5 @@
 import { Sprite } from "./sprite.js";
-import * as ui from "../ui.js"
+import * as ui from "../utils/ui.js"
 import { TYPE } from "../constants/attacks.js";
 
 export class Character extends Sprite {

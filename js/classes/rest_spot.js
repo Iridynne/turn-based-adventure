@@ -1,8 +1,8 @@
-import { Sprite } from "../classes/sprite.js";
+import { Sprite } from "./sprite.js";
 import { MUSIC, SOUND } from "../constants/audio.js";
 import { CAMPFIRE } from "../constants/misc.js";
-import { Game } from "../game.js";
-import * as ui from "../ui.js"
+import { Game } from "../classes/game.js";
+import * as ui from "../utils/ui.js"
 import { fadeIn, fadeOut } from "../utils/audio_utils.js";
 import { wait } from "../utils/timer.js";
 
