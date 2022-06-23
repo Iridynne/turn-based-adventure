@@ -3,6 +3,7 @@ import { ENEMIES } from "./constants/enemies.js";
 import { Game } from "./classes/game.js";
 import * as ui from "./utils/ui.js"
 import { saveData } from "./utils/data.js";
+import { wait } from "./utils/timer.js";
 
 window.onload = () => {
     ui.setupCanvas();
@@ -14,7 +15,7 @@ window.onload = () => {
 function debugBattle() {
     var game = new Game();
     // game.currentEncounter = game.encounterCount;
-    game.currentEncounter = 3;
+    // game.currentEncounter = 3;
     game.currentStage = 1;
     game.start();
 }

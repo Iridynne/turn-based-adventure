@@ -56,6 +56,8 @@ function loadGame() {
     Game.currentGame.start();
 }
 
+let playedMusic = false;
+
 export function setupMainMenu () {
     clearCanvas();
     const newGameBtn = document.querySelector("#new-game");
@@ -74,13 +76,12 @@ export function setupMainMenu () {
 
     if(playedMusic)
         fadeIn(MUSIC.MAIN_MENU);
+    else
+        addEventListener("click", () => {
+            if(!playedMusic) fadeIn(MUSIC.MAIN_MENU);
+            playedMusic = true;
+        });
 }
-
-let playedMusic = false;
-addEventListener("click", () => {
-    if(!playedMusic) fadeIn(MUSIC.MAIN_MENU);
-    playedMusic = true;
-});
 
 // Transition Overlay
 const transitionDelay = 0.5;
