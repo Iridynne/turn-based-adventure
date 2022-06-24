@@ -7,8 +7,8 @@ import { wait } from "./utils/timer.js";
 
 window.onload = () => {
     ui.setupCanvas();
-    // ui.setupMainMenu();
-    debugBattle();
+    ui.setupMainMenu();
+    // debugBattle();
     // debugUI();
 };
 

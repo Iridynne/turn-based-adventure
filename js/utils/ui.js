@@ -67,6 +67,7 @@ export function setupMainMenu () {
 
     const saveData = localStorage.getItem("saveData");
     if(saveData !== null) {
+        loadGameBtn.disabled = false;
         loadGameBtn.onclick = loadGame;
     }
     else
