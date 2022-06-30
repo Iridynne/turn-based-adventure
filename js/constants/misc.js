@@ -6,7 +6,7 @@ export const ARROW = {
     },
     frames: {
         max: 4,
-        hold: 20
+        hold: 10
     },
     animate: true
 }
@@ -21,7 +21,7 @@ export const CAMPFIRE = {
     },
     frames: {
         max: 4,
-        hold: 20
+        hold: 10
     },
     animate: true
 }
