@@ -1,41 +1,41 @@
 // Image Paths
 export function allyPath(name) {
     name = name.toLowerCase();
-    return `../../img/characters/allies/${name}.png`;
+    return `${window.location.origin}/img/characters/allies/${name}.png`;
 }
 
 export function enemyPath(name) {
     name = name.toLowerCase();
-    return `../../img/characters/enemies/${name}.png`;
+    return `${window.location.origin}/img/characters/enemies/${name}.png`;
 }
 
 export function bossPath(name) {
     name = name.toLowerCase();
-    return `../../img/characters/bosses/${name}.png`;
+    return `${window.location.origin}/img/characters/bosses/${name}.png`;
 }
 
 export function backgroundPath(name) {
     name = name.toLowerCase();
-    return `../../img/backgrounds/${name}.png`;
+    return `${window.location.origin}/img/backgrounds/${name}.png`;
 }
 
 export function miscPath(name) {
     name = name.toLowerCase();
-    return `../../img/misc/${name}.png`;
+    return `${window.location.origin}/img/misc/${name}.png`;
 }
 
 export function projectilePath(name) {
     name = name.toLowerCase();
-    return `../../img/projectiles/${name}.png`;
+    return `${window.location.origin}/img/projectiles/${name}.png`;
 }
 
 // Audio Paths
 export function soundPath(name) {
     name = name.toLowerCase();
-    return `../../audio/sounds/${name}`;
+    return `${window.location.origin}/audio/sounds/${name}`;
 }
 
 export function musicPath(name) {
     name = name.toLowerCase();
-    return `../../audio/music/${name}`;
+    return `${window.location.origin}/audio/music/${name}`;
 }
