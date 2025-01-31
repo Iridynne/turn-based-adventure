@@ -1,169 +1,167 @@
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="icon" href="img/game_icon.png" />
-    <title>Battle-Lite</title>
+        <link rel="icon" href="img/game_icon.png" />
+        <title>Battle-Lite</title>
 
-    <link rel="stylesheet" href="css/index.css" />
-    <link rel="stylesheet" href="css/main-menu.css" />
-    <link rel="stylesheet" href="css/transition.css" />
-    <link rel="stylesheet" href="css/encounter.css" />
-  </head>
-  <body>
-    <div id="main-container">
-      <!-- Main Canvas -->
-      <canvas></canvas>
-      <!-- User Interface -->
-      <div id="user-interface">
-        <!-- Main Menu -->
-        <div id="main-menu">
-          <div id="main-title">Battle-Lite</div>
-          <div id="main-options">
-            <button id="new-game" class="option">New Game</button>
-            <button id="load-game" class="option">Load Game</button>
-          </div>
-        </div>
+        <link rel="stylesheet" href="css/index.css" />
+        <link rel="stylesheet" href="css/main-menu.css" />
+        <link rel="stylesheet" href="css/transition.css" />
+        <link rel="stylesheet" href="css/encounter.css" />
+    </head>
+    <body>
+        <div id="main-container">
+            <!-- Main Canvas -->
+            <canvas></canvas>
+            <!-- User Interface -->
+            <div id="user-interface">
+                <!-- Main Menu -->
+                <div id="main-menu">
+                    <div id="main-title">Battle-Lite</div>
+                    <div id="main-options">
+                        <button id="new-game" class="option">New Game</button>
+                        <button id="load-game" class="option">Load Game</button>
+                    </div>
+                </div>
 
-        <!-- Transition Overlay -->
-        <div id="transition-overlay">
-          <div class="title-container">
-            <div id="transition-title">Forest</div>
-            <div id="transition-subtitle">1 - 1</div>
-          </div>
+                <!-- Transition Overlay -->
+                <div id="transition-overlay">
+                    <div class="title-container">
+                        <div id="transition-title">Forest</div>
+                        <div id="transition-subtitle">1 - 1</div>
+                    </div>
 
-          <div id="transition-options">
-            <button id="continue" class="option">Continue</button>
-            <button id="exit" class="option">Exit</button>
-          </div>
-        </div>
+                    <div id="transition-options">
+                        <button id="continue" class="option">Continue</button>
+                        <button id="exit" class="option">Exit</button>
+                    </div>
+                </div>
 
-        <!-- Encounter Menu -->
-        <div id="encounter-menu">
-          <div id="dialogue-box">Dialogue Box</div>
-          <div id="attacks-box"></div>
-          <div id="targets-box"></div>
-          <div id="ally-label">Ally</div>
-        </div>
+                <!-- Encounter Menu -->
+                <div id="encounter-menu">
+                    <div id="dialogue-box">Dialogue Box</div>
+                    <div id="attacks-box"></div>
+                    <div id="targets-box"></div>
+                    <div id="ally-label">Ally</div>
+                </div>
 
-        <!-- Healthbars -->
-        <!-- Ally 1 -->
-        <div id="ally1-container">
-          <div id="ally1-defenses">
-            <div id="ally1-defense">0</div>
-            <div id="ally1-magic-defense">0</div>
-          </div>
+                <!-- Healthbars -->
+                <!-- Ally 1 -->
+                <div id="ally1-container">
+                    <div id="ally1-defenses">
+                        <div id="ally1-defense">0</div>
+                        <div id="ally1-magic-defense">0</div>
+                    </div>
 
-          <div id="ally1-health-container">
-            <div style="position: relative">
-              <div class="healthbar-background"></div>
-              <div id="ally1-healthbar"></div>
-              <div id="ally1-health">20 / 20</div>
+                    <div id="ally1-health-container">
+                        <div style="position: relative">
+                            <div class="healthbar-background"></div>
+                            <div id="ally1-healthbar"></div>
+                            <div id="ally1-health">20 / 20</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ally 2 -->
+                <div id="ally2-container">
+                    <div id="ally2-defenses">
+                        <div id="ally2-defense">0</div>
+                        <div id="ally2-magic-defense">0</div>
+                    </div>
+
+                    <div id="ally2-health-container">
+                        <div style="position: relative">
+                            <div class="healthbar-background"></div>
+                            <div id="ally2-healthbar"></div>
+                            <div id="ally2-health">20 / 20</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ally 3 -->
+                <div id="ally3-container">
+                    <div id="ally3-defenses">
+                        <div id="ally3-defense">0</div>
+                        <div id="ally3-magic-defense">0</div>
+                    </div>
+
+                    <div id="ally3-health-container">
+                        <div style="position: relative">
+                            <div class="healthbar-background"></div>
+                            <div id="ally3-healthbar"></div>
+                            <div id="ally3-health">20 / 20</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enemy 1 -->
+                <div id="enemy1-container">
+                    <div id="enemy1-defenses">
+                        <div id="enemy1-defense">0</div>
+                        <div id="enemy1-magic-defense">0</div>
+                    </div>
+
+                    <div id="enemy1-health-container">
+                        <div style="position: relative">
+                            <div class="healthbar-background"></div>
+                            <div id="enemy1-healthbar"></div>
+                            <div id="enemy1-health">20 / 20</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enemy 2 -->
+                <div id="enemy2-container">
+                    <div id="enemy2-defenses">
+                        <div id="enemy2-defense">0</div>
+                        <div id="enemy2-magic-defense">0</div>
+                    </div>
+
+                    <div id="enemy2-health-container">
+                        <div style="position: relative">
+                            <div class="healthbar-background"></div>
+                            <div id="enemy2-healthbar"></div>
+                            <div id="enemy2-health">20 / 20</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enemy 3 -->
+                <div id="enemy3-container">
+                    <div id="enemy3-defenses">
+                        <div id="enemy3-defense">0</div>
+                        <div id="enemy3-magic-defense">0</div>
+                    </div>
+
+                    <div id="enemy3-health-container">
+                        <div style="position: relative">
+                            <div class="healthbar-background"></div>
+                            <div id="enemy3-healthbar"></div>
+                            <div id="enemy3-health">20 / 20</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
 
-        <!-- Ally 2 -->
-        <div id="ally2-container">
-          <div id="ally2-defenses">
-            <div id="ally2-defense">0</div>
-            <div id="ally2-magic-defense">0</div>
-          </div>
+        <script src="js/index.js" type="module"></script>
 
-          <div id="ally2-health-container">
-            <div style="position: relative">
-              <div class="healthbar-background"></div>
-              <div id="ally2-healthbar"></div>
-              <div id="ally2-health">20 / 20</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Ally 3 -->
-        <div id="ally3-container">
-          <div id="ally3-defenses">
-            <div id="ally3-defense">0</div>
-            <div id="ally3-magic-defense">0</div>
-          </div>
-
-          <div id="ally3-health-container">
-            <div style="position: relative">
-              <div class="healthbar-background"></div>
-              <div id="ally3-healthbar"></div>
-              <div id="ally3-health">20 / 20</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Enemy 1 -->
-        <div id="enemy1-container">
-          <div id="enemy1-defenses">
-            <div id="enemy1-defense">0</div>
-            <div id="enemy1-magic-defense">0</div>
-          </div>
-
-          <div id="enemy1-health-container">
-            <div style="position: relative">
-              <div class="healthbar-background"></div>
-              <div id="enemy1-healthbar"></div>
-              <div id="enemy1-health">20 / 20</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Enemy 2 -->
-        <div id="enemy2-container">
-          <div id="enemy2-defenses">
-            <div id="enemy2-defense">0</div>
-            <div id="enemy2-magic-defense">0</div>
-          </div>
-
-          <div id="enemy2-health-container">
-            <div style="position: relative">
-              <div class="healthbar-background"></div>
-              <div id="enemy2-healthbar"></div>
-              <div id="enemy2-health">20 / 20</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Enemy 3 -->
-        <div id="enemy3-container">
-          <div id="enemy3-defenses">
-            <div id="enemy3-defense">0</div>
-            <div id="enemy3-magic-defense">0</div>
-          </div>
-
-          <div id="enemy3-health-container">
-            <div style="position: relative">
-              <div class="healthbar-background"></div>
-              <div id="enemy3-healthbar"></div>
-              <div id="enemy3-health">20 / 20</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <script src="js/index.js" type="module"></script>
-
-    <!-- External Libs -->
-
-    <!-- Animation Lib -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.3/gsap.min.js"
-      integrity="sha512-6zTDRWNxo8vI6JZYDCwhrJpg5icK3P4HNnW3czsO5Scb3lAoPDam+/wF3eog4hxcl0h44d0XlIcFkuoSaWHQ2g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <!-- Audio Lib -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"
-      integrity="sha512-6+YN/9o9BWrk6wSfGxQGpt3EUK6XeHi6yeHV+TYD2GR0Sj/cggRpXr1BrAQf0as6XslxomMUxXp2vIl+fv0QRA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-  </body>
+        <!-- Animation Lib -->
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.3/gsap.min.js"
+            integrity="sha512-6zTDRWNxo8vI6JZYDCwhrJpg5icK3P4HNnW3czsO5Scb3lAoPDam+/wF3eog4hxcl0h44d0XlIcFkuoSaWHQ2g=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <!-- Audio Lib -->
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"
+            integrity="sha512-6+YN/9o9BWrk6wSfGxQGpt3EUK6XeHi6yeHV+TYD2GR0Sj/cggRpXr1BrAQf0as6XslxomMUxXp2vIl+fv0QRA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+    </body>
 </html>
